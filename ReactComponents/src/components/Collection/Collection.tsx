@@ -2,16 +2,7 @@ import Card from '../Card/Card';
 import React, { Component } from 'react';
 import s from './Collection.module.css';
 
-interface Props {}
-interface State {
-  value: string;
-}
-
-export default class Collection extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-  }
-
+export default class Collection extends Component {
   render() {
     return (
       <div className={s.card}>

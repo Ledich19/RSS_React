@@ -59,9 +59,7 @@ export default class Card extends Component<Props, State> {
             </div>
             <div className={s.categories}>
               <span className={s.textBold}>Categories: </span>
-              <span className={s.categoriesList}>
-              {categories.join(', ')}
-              </span>
+              <span className={s.categoriesList}>{categories.join(', ')}</span>
             </div>
           </div>
         </div>
