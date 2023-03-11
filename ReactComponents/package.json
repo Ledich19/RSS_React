@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "npx eslint src",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "coverage": "npm test -- --coverage"
   },
   "dependencies": {
     "localforage": "^1.10.0",
