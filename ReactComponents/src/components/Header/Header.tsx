@@ -1,7 +1,7 @@
-import Search from '../Search/Search';
 import React, { Component } from 'react';
 import s from './Header.module.scss';
 import { Outlet, Link } from 'react-router-dom';
+import SearchContainer from '../Search/SearchContainer';
 
 interface Props {
   setSearchState: (value: string) => void;
@@ -16,7 +16,7 @@ export default class Header extends Component<Props> {
           <Link to={`about`}>About us</Link>
           <Link to={`books/1`}>404</Link>
         </div>
-        <Search setSearchState={this.props.setSearchState} />
+        <SearchContainer setSearchState={this.props.setSearchState} />
       </div>
     );
   }
