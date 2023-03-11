@@ -22,8 +22,6 @@ test('renders content', () => {
   render(<Card infoData={infoData} />);
   // screen.debug();
 
-  const element = screen.getByText(
-    "Unlocking Android: A Developer's Guide provides concise, hands-on instruction for the Android operating system and development tools. This book teaches important architectural concepts in a straightforward writing style and builds on this with practical and useful examples throughout."
-  );
+  const element = screen.getByText('Unlocking Android');
   expect(element).toBeDefined();
 });
