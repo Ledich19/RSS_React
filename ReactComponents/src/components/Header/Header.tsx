@@ -3,7 +3,11 @@ import React, { Component } from 'react';
 import s from './Header.module.scss';
 import { Outlet, Link } from 'react-router-dom';
 
-export default class Header extends Component {
+interface Props {
+  setSearchState: (value: string) => void;
+}
+
+export default class Header extends Component<Props> {
   render() {
     return (
       <div className={s.header}>
@@ -12,7 +16,7 @@ export default class Header extends Component {
           <Link to={`about`}>About us</Link>
           <Link to={`books/1`}>404</Link>
         </div>
-        <Search />
+        <Search setSearchState={this.props.setSearchState} />
       </div>
     );
   }

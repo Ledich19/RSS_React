@@ -15,16 +15,29 @@ interface InfoData {
   authors: string[];
   categories: string[];
 }
-type State = { books: InfoData[] };
+interface State {
+  books: InfoData[];
+}
+interface Props {
+  search: string;
+}
+export default class Collection extends Component<Props, State> {
+  state: State = {
+    books,
+  };
 
-export default class Collection extends Component {
-  state: State = { books: books };
+  filterBooks = (books: InfoData[], search: string) => {
+    return books.filter((book) => book.title.toUpperCase().includes(search.toUpperCase()));
+  };
 
   render() {
-    console.log(books);
+    const { search } = this.props;
+    const { books } = this.state;
+    const filteredBooks = this.filterBooks(books, search);
+
     return (
       <div className={s.collection}>
-        {this.state.books.map((book, i) => (
+        {filteredBooks.map((book, i) => (
           <Card key={book.title + i} infoData={book} />
         ))}
       </div>

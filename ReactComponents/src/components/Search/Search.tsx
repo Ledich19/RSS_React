@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import s from './Search.module.css';
 import { FaSearch } from 'react-icons/fa';
 
-interface Props {}
+interface Props {
+  setSearchState: (value: string) => void;
+}
 
 interface State {
   value: string;
@@ -25,6 +27,9 @@ export default class Search extends Component<Props, State> {
   handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ value: e.target.value });
   };
+  handleSearch = () => {
+    this.props.setSearchState(this.state.value);
+  };
 
   render() {
     return (
@@ -37,7 +42,7 @@ export default class Search extends Component<Props, State> {
             className={s.searchTerm}
             placeholder="What are you looking for?"
           />
-          <button type="submit" className={s.searchButton}>
+          <button onClick={this.handleSearch} className={s.searchButton}>
             <div className={s.icon}>
               <FaSearch />
             </div>
