@@ -1,0 +1,19 @@
+.header{
+  display: flex;
+  padding: 5px 0px;
+  justify-content: space-between;
+}
+.list{
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.list a {
+  color: white;
+  &:hover{
+    color: beige;
+  }
+}
