@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1678513487113" clover="3.2.0">
-  <project timestamp="1678513487113" name="All files">
-    <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2" elements="5" coveredelements="5" complexity="0" loc="3" ncloc="3" packages="1" files="1" classes="1"/>
-    <file name="Card.tsx" path="D:\My_Projects\RSS_React\ReactComponents\src\components\Card\Card.tsx">
-      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <line num="24" count="1" type="stmt"/>
-      <line num="39" count="1" type="stmt"/>
-      <line num="40" count="1" type="stmt"/>
+<coverage generated="1678533661966" clover="3.2.0">
+  <project timestamp="1678533661966" name="All files">
+    <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6" elements="20" coveredelements="20" complexity="0" loc="12" ncloc="12" packages="1" files="2" classes="2"/>
+    <file name="SearchComponent.tsx" path="D:\My_Projects\RSS_React\ReactComponents\src\components\Search\SearchComponent.tsx">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="11" count="1" type="stmt"/>
+      <line num="12" count="20" type="stmt"/>
+    </file>
+    <file name="SearchContainer.tsx" path="D:\My_Projects\RSS_React\ReactComponents\src\components\Search\SearchContainer.tsx">
+      <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
+      <line num="14" count="2" type="stmt"/>
+      <line num="15" count="2" type="stmt"/>
+      <line num="21" count="2" type="stmt"/>
+      <line num="22" count="2" type="stmt"/>
+      <line num="23" count="2" type="stmt"/>
+      <line num="26" count="2" type="stmt"/>
+      <line num="27" count="17" type="stmt"/>
+      <line num="30" count="2" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="35" count="19" type="stmt"/>
     </file>
   </project>
 </coverage>
