@@ -39,12 +39,14 @@ export default class Card extends Component<Props, State> {
     } = this.props.infoData;
     return (
       <div className={s.card}>
-        <h2 className={s.title}>{title}</h2>
-        <div className={s.img}>
-          <img src={thumbnailUrl} alt={title} />
+        <div>
+          <h2 className={s.title}>{title}</h2>
+          <div className={s.img}>
+            <img src={thumbnailUrl} alt={title} />
+          </div>
         </div>
-        <div className={s.authors}>{authors.join(', ')}</div>
         <div className={s.info}>
+          <div className={s.authors}>{authors.join(', ')}</div>
           <div className={s.pages}>
             <span className={s.textBold}>Pages: </span>
             {pageCount}
@@ -54,17 +56,14 @@ export default class Card extends Component<Props, State> {
             {status}
           </div>
           <div className={s.date}>
-            <span className={s.textBold}>Published:&nbsp;</span>
+            <span className={s.textBold}>Published:</span>
             {new Date(publishedDate.$date).toLocaleDateString('ru-RU')}
           </div>
           <div className={s.categories}>
-            <span className={s.textBold}>Categories: </span>
+            <span className={s.textBold}>Categories:&nbsp;</span>
             <span className={s.categoriesList}>{categories.join(', ')}</span>
           </div>
         </div>
-
-        {/* <div className={s.shortDescription}>{shortDescription}</div> */}
-        {/* <p>Long description: {longDescription}</p> */}
       </div>
     );
   }

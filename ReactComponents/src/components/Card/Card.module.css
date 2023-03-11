@@ -1,17 +1,12 @@
 .card {
   display: flex;
   flex-direction: column;
-  width: 295px;
+  justify-content: space-between;
+ width: 295px;
   background: whitesmoke;
   color: black;
   padding: 0px 10px 10px 10px;
   border-radius: 10px;
-}
-.title {
-}
-.box {
-  margin-top: 10px;
-  display: flex;
 }
 .img {
   flex: 0 0 auto;
@@ -24,7 +19,7 @@
   width: 100%;
 }
 .info {
-  flex: 1 1 auto;
+
   text-align: left;
   padding: 0 0px 0 10px;
 }
@@ -37,20 +32,22 @@
 }
 .status {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
 }
 .authors {
   margin-top: 10px;
 }
 .categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
-.categoriesList{
+.categoriesList {
   display: block;
+  flex-wrap: wrap;
 }
 .date {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
 }
 .shortDescription {
