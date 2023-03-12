@@ -1,10 +1,12 @@
+import AboutUs from './components/AboutUs';
+import Page404 from './components/Page404';
 import React, { Component } from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Collection from './components/Collection/Collection';
 import Header from './components/Header/Header';
 
-class App extends Component<{ search: string }> {
+class App extends Component {
   state = {
     search: '',
   };
@@ -15,10 +17,14 @@ class App extends Component<{ search: string }> {
 
   render() {
     return (
-      <div className="App">
+      <div data-testid="App-testId" className="App">
         <Header setSearchState={this.setSearchState} />
+        <Routes>
+          <Route path="/" element={<Collection search={this.state.search} />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="*" element={<Page404 />} />
+        </Routes>
         <Outlet />
-        <Collection search={this.state.search} />
       </div>
     );
   }

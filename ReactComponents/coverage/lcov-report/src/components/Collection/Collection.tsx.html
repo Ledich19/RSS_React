@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>8/8</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -133,23 +133,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -179,23 +179,23 @@ interface Props {
   search: string;
 }
 export default class Collection extends Component&lt;Props, State&gt; {
-  state: State = <span class="cstat-no" title="statement not covered" >{</span>
+  state: State = {
     books,
   };
 &nbsp;
-  filterBooks = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(b</span>ooks: InfoData[], search: string) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    return books.filter(<span class="fstat-no" title="function not covered" >(b</span>ook) =&gt; <span class="cstat-no" title="statement not covered" >book.title.toUpperCase().includes(search.toUpperCase()))</span>;</span>
+  filterBooks = (books: InfoData[], search: string) =&gt; {
+    return books.filter((book) =&gt; book.title.toUpperCase().includes(search.toUpperCase()));
   };
 &nbsp;
-<span class="fstat-no" title="function not covered" >  re</span>nder() {
-    const { search } = <span class="cstat-no" title="statement not covered" >this.props;</span>
-    const { books } = <span class="cstat-no" title="statement not covered" >this.state;</span>
-    const filteredBooks = <span class="cstat-no" title="statement not covered" >this.filterBooks(books, search);</span>
+  render() {
+    const { search } = this.props;
+    const { books } = this.state;
+    const filteredBooks = this.filterBooks(books, search);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    return (</span>
+    return (
       &lt;div className={s.collection}&gt;
-        {filteredBooks.map(<span class="fstat-no" title="function not covered" >(b</span>ook, i) =&gt; (
-<span class="cstat-no" title="statement not covered" >          &lt;Card key={book.title + i} infoData={book} /&gt;</span>
+        {filteredBooks.map((book, i) =&gt; (
+          &lt;Card key={book.title + i} infoData={book} /&gt;
         ))}
       &lt;/div&gt;
     );
@@ -208,7 +208,7 @@ export default class Collection extends Component&lt;Props, State&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-11T13:02:17.811Z
+                at 2023-03-11T15:15:28.599Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
