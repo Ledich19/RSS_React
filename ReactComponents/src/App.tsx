@@ -12,7 +12,6 @@ class App extends Component {
   };
   setSearchState = (value: string) => {
     this.setState({ search: value });
-    console.log(value, this.state);
   };
 
   render() {

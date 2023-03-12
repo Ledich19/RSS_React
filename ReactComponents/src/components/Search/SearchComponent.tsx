@@ -19,7 +19,7 @@ const SearchComponent: React.FC<Props> = ({ value, handleInputChange, handleSear
           className={s.searchTerm}
           placeholder="What are you looking for?"
         />
-        <button onClick={handleSearch} className={s.searchButton}>
+        <button data-testid="searchBtn-testId" onClick={handleSearch} className={s.searchButton}>
           <div className={s.icon}>
             <FaSearch />
           </div>
