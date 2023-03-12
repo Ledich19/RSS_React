@@ -10,9 +10,7 @@ export default function AboutUs() {
     <div id="error-page">
       <h1>About Us</h1>
       <p>AboutUs AboutUs AboutUs</p>
-      <p>
-        {/* <i>{error.statusText || error.message}</i> */}
-      </p>
+      <p>{/* <i>{error.statusText || error.message}</i> */}</p>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import AboutUs from './components/AboutUs';
+import AboutUs from './components/AboutUs/AboutUs';
 import Page404 from './components/Page404';
 import React, { Component } from 'react';
 import { Outlet, Routes, Route } from 'react-router-dom';
