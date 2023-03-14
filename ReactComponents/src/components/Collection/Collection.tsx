@@ -1,7 +1,7 @@
-import Card from '../Card/Card';
 import React, { Component } from 'react';
+import Card from '../Card/Card';
 import s from './Collection.module.css';
-import books from '../../data/books.json';
+import booksData from '../../data/books.json';
 
 interface InfoData {
   title: string;
@@ -22,23 +22,26 @@ interface Props {
   search: string;
 }
 export default class Collection extends Component<Props, State> {
-  state: State = {
-    books,
-  };
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      books: booksData,
+    };
+  }
 
-  filterBooks = (books: InfoData[], search: string) => {
+  filterBooks = (search: string) => {
+    const { books } = this.state;
     return books.filter((book) => book.title.toUpperCase().includes(search.toUpperCase()));
   };
 
   render() {
     const { search } = this.props;
-    const { books } = this.state;
-    const filteredBooks = this.filterBooks(books, search);
+    const filteredBooks = this.filterBooks(search);
 
     return (
       <div className={s.collection}>
-        {filteredBooks.map((book, i) => (
-          <Card key={book.title + i} infoData={book} />
+        {filteredBooks.map((book) => (
+          <Card key={book.title} infoData={book} />
         ))}
       </div>
     );

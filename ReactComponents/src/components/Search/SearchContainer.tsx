@@ -19,7 +19,6 @@ export default class SearchContainer extends Component<Props, State> {
 
   componentWillUnmount() {
     const { value } = this.state;
-    console.log(`Value "${value}" was saved to LocalStorage for component `);
     localStorage.setItem('searchString', value);
   }
 
@@ -28,13 +27,16 @@ export default class SearchContainer extends Component<Props, State> {
   };
 
   handleSearch = () => {
-    this.props.setSearchState(this.state.value);
+    const { setSearchState } = this.props;
+    const { value } = this.state;
+    setSearchState(value);
   };
 
   render() {
+    const { value } = this.state;
     return (
       <SearchComponent
-        value={this.state.value}
+        value={value}
         handleInputChange={this.handleInputChange}
         handleSearch={this.handleSearch}
       />

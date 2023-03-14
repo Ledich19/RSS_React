@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import s from './Card.module.css';
 
 interface Props {
@@ -15,28 +15,11 @@ interface Props {
     categories: string[];
   };
 }
-interface State {
-  value: string;
-}
 
-export default class Card extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-  }
-
+class CardComponent extends React.PureComponent<Props> {
   render() {
-    const {
-      title,
-      isbn,
-      pageCount,
-      publishedDate,
-      thumbnailUrl,
-      shortDescription,
-      longDescription,
-      status,
-      authors,
-      categories,
-    } = this.props.infoData;
+    const { infoData } = this.props;
+    const { title, pageCount, publishedDate, thumbnailUrl, status, authors, categories } = infoData;
     return (
       <div className={s.card}>
         <div>
@@ -68,3 +51,5 @@ export default class Card extends Component<Props, State> {
     );
   }
 }
+
+export default CardComponent;
