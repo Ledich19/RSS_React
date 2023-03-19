@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Outlet, Routes, Route } from 'react-router-dom';
 import AboutUs from './components/AboutUs/AboutUs';
-import Page404 from './components/Page404';
+import Page404 from './components/Page404/Page404';
 import './App.css';
 import Layout from './components/Layout/Layout';
 import Collection from './components/Collection/Collection';
