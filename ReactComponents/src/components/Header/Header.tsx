@@ -14,7 +14,6 @@ export default class Header extends Component<Props> {
         <div className={s.list}>
           <Link to={`/`}>Home</Link>
           <Link to={`about`}>About us</Link>
-          <Link to={`books/1`}>404</Link>
         </div>
         <SearchContainer
           data-testid="search-container"

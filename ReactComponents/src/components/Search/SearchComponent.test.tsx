@@ -4,7 +4,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import SearchComponent from './SearchComponent';
 import SearchContainer from './SearchContainer';
 import userEvent from '@testing-library/user-event';
-import { jest } from '@jest/globals';
+import { vi } from 'vitest';
 
 describe('<SearchComponent />', () => {
   test('input should update value correctly', async () => {
@@ -15,7 +15,7 @@ describe('<SearchComponent />', () => {
   });
 
   test('submit button should call handleSearch', () => {
-    const handleSearch = jest.fn();
+    const handleSearch = vi.fn();
     render(
       <SearchComponent
         value={'search value test'}
@@ -33,7 +33,7 @@ describe('<SearchComponent />', () => {
 
 describe('<SearchContainer />', () => {
   test('submit button should call setSearchState', () => {
-    const setSearchState = jest.fn();
+    const setSearchState = vi.fn();
     render(<SearchContainer setSearchState={setSearchState} />);
 
     const input = screen.getByRole('textbox');
