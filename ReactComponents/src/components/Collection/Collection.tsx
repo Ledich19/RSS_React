@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Card from '../Card/Card';
-import s from './Collection.module.css';
+import s from './Collection.module.scss';
 import booksData from '../../data/books.json';
 
 interface InfoData {

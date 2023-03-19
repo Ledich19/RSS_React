@@ -1,6 +1,8 @@
+import s from './Page404.module.scss';
+
 export default function ErrorPage() {
   return (
-    <div id="error-page">
+    <div className={s.error}>
       <h1>404</h1>
       <p>Sorry, an unexpected error has occurred.</p>
     </div>

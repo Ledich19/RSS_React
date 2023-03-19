@@ -1,6 +1,6 @@
 import { FaSearch } from 'react-icons/fa';
 import React, { Component } from 'react';
-import s from './SearchComponent.module.css';
+import s from './SearchComponent.module.scss';
 
 interface Props {
   value: string;

@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './Card.module.css';
+import s from './Card.module.scss';
 
 interface Props {
   infoData: {
