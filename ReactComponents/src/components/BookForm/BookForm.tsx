@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import s from './BookForm.module.scss';
 import DownloadImg from './DownloadImg/DownloadImg';
+import SelectComponent from './SelectComponent/SelectComponent';
 
 // export type InfoData = {
 //   title: string;
@@ -50,16 +51,7 @@ export default class BookForm extends Component {
         </label>
 
         <DownloadImg />
-        <label className={s.label} htmlFor="">
-          status :
-          <select name="categories" id="">
-            status :<option value="PUBLISH">PUBLISH</option>
-            <option value="IN PROGRESS">PRE-ORDER</option>
-            <option value="BACKORDER">BACKORDER</option>
-            <option value="OUT OF STOCK">OUT OF STOCK</option>
-            <option value="UNPUBLISHED">UNPUBLISHED</option>
-          </select>
-        </label>
+        <SelectComponent />
 
         <div className={s.categories}>
           {[
