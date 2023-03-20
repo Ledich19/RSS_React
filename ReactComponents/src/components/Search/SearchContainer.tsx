@@ -16,6 +16,9 @@ export default class SearchContainer extends Component<Props, State> {
       value: localStorage.getItem('searchString') || '',
     };
   }
+  componentDidMount(): void {
+    this.setState({ value: localStorage.getItem('searchString') || '' });
+  }
 
   componentWillUnmount() {
     const { value } = this.state;
