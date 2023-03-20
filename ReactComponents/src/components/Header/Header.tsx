@@ -15,6 +15,7 @@ export default class Header extends Component<Props> {
         <div className={s.list}>
           <Link to={`/`}>Home</Link>
           <Link to={`about`}>About us</Link>
+          <Link to={`blank`}>Add book</Link>
         </div>
         <Routes>
           <Route

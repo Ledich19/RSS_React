@@ -5,6 +5,7 @@ import Page404 from './pages/Page404/Page404';
 import './App.css';
 import Layout from './pages/Layout/Layout';
 import Collection from './pages/Collection/Collection';
+import BookForm from './components/BookForm/BookForm';
 
 interface AppState {
   search: string;
@@ -31,6 +32,7 @@ class App extends Component<object, AppState> {
             <Route index element={<Navigate to="/app" />} />
             <Route path="app" element={<Collection search={search} />} />
             <Route path="about" element={<AboutUs />} />
+            <Route path="blank" element={<BookForm />} />
             <Route path="404" element={<Page404 />} />
             <Route path="*" element={<Navigate to="404" />} />
           </Route>
