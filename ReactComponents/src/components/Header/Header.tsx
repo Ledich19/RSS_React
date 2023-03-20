@@ -18,7 +18,7 @@ export default class Header extends Component<Props> {
         </div>
         <Routes>
           <Route
-            path="/"
+            path="/app"
             element={
               <SearchContainer
                 data-testid="search-container"
