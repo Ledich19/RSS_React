@@ -1,0 +1,25 @@
+.box {
+  width: 100%;
+  font-weight: bold;
+  padding: 5px 0;
+  border-bottom: 1px solid #8d8b8b;
+}
+.radioBox {
+  display: flex;
+  justify-content: space-around;
+  .label {
+    margin-top: 0;
+  }
+  .input {
+    cursor: pointer;
+  }
+}
+.label {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.input {
+  margin-left: 10px;
+  flex: 1 1 auto;
+}

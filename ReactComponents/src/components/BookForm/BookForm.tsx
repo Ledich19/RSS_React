@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import s from './BookForm.module.scss';
+import DownloadImg from './DownloadImg/DownloadImg';
 
 // export type InfoData = {
 //   title: string;
@@ -28,7 +29,7 @@ export default class BookForm extends Component {
         </label>
         <label className={s.label} htmlFor="">
           pageCount :
-          <input className={s.input} type="text" />
+          <input className={s.pageCount} type="number" />
         </label>
         <label className={s.label} htmlFor="">
           authors :
@@ -48,33 +49,17 @@ export default class BookForm extends Component {
           <input className={s.inputDate} type="date" />
         </label>
 
-        <div className={s.downloadBox}>
-          <label className={s.label} htmlFor="">
-            url :
-            <input checked className={s.input} name="download-img" type="radio" />
-          </label>
-          <label className={s.label} htmlFor="">
-            file :
-            <input className={s.input} name="download-img" type="radio" />
-          </label>
-
-          <label className={s.label} htmlFor="">
-            thumbnailUrl :
-            <input className={s.input} type="text" />
-          </label>
-          <label className={s.label} htmlFor="">
-            thumbnailDownload :
-            <input className={s.input} type="file" />
-          </label>
-        </div>
-
-        <select name="categories" id="">
-          status :<option value="PUBLISH">PUBLISH</option>
-          <option value="IN PROGRESS">PRE-ORDER</option>
-          <option value="BACKORDER">BACKORDER</option>
-          <option value="OUT OF STOCK">OUT OF STOCK</option>
-          <option value="UNPUBLISHED">UNPUBLISHED</option>
-        </select>
+        <DownloadImg />
+        <label className={s.label} htmlFor="">
+          status :
+          <select name="categories" id="">
+            status :<option value="PUBLISH">PUBLISH</option>
+            <option value="IN PROGRESS">PRE-ORDER</option>
+            <option value="BACKORDER">BACKORDER</option>
+            <option value="OUT OF STOCK">OUT OF STOCK</option>
+            <option value="UNPUBLISHED">UNPUBLISHED</option>
+          </select>
+        </label>
 
         <div className={s.categories}>
           {[
