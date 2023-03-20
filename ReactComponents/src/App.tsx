@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Outlet, Routes, Route } from 'react-router-dom';
+import { Outlet, Routes, Route, Navigate } from 'react-router-dom';
 import AboutUs from './pages/AboutUs/AboutUs';
 import Page404 from './pages/Page404/Page404';
 import './App.css';
@@ -30,7 +30,8 @@ class App extends Component<object, AppState> {
           <Route path="/" element={<Layout setSearchState={this.setSearchState} />}>
             <Route index element={<Collection search={search} />} />
             <Route path="about" element={<AboutUs />} />
-            <Route path="*" element={<Page404 />} />
+            <Route path="404" element={<Page404 />} />
+            <Route path="*" element={<Navigate to="404" />} />
           </Route>
         </Routes>
         <Outlet />
