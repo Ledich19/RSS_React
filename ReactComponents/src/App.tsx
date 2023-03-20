@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Outlet, Routes, Route } from 'react-router-dom';
-import AboutUs from './components/AboutUs/AboutUs';
-import Page404 from './components/Page404/Page404';
+import AboutUs from './pages/AboutUs/AboutUs';
+import Page404 from './pages/Page404/Page404';
 import './App.css';
-import Layout from './components/Layout/Layout';
-import Collection from './components/Collection/Collection';
+import Layout from './pages/Layout/Layout';
+import Collection from './pages/Collection/Collection';
 
 interface AppState {
   search: string;
