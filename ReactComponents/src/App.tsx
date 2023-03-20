@@ -28,7 +28,8 @@ class App extends Component<object, AppState> {
       <div data-testid="App-testId" className="App">
         <Routes>
           <Route path="/" element={<Layout setSearchState={this.setSearchState} />}>
-            <Route index element={<Collection search={search} />} />
+            <Route index element={<Navigate to="/app" />} />
+            <Route path="app" element={<Collection search={search} />} />
             <Route path="about" element={<AboutUs />} />
             <Route path="404" element={<Page404 />} />
             <Route path="*" element={<Navigate to="404" />} />
