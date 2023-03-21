@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import s from './BookForm.module.scss';
+import Categories from './Categories/Categories';
 import DownloadImg from './DownloadImg/DownloadImg';
 import SelectComponent from './SelectComponent/SelectComponent';
 
@@ -52,28 +53,7 @@ export default class BookForm extends Component {
 
         <DownloadImg />
         <SelectComponent />
-
-        <div className={s.categories}>
-          {[
-            'open Source',
-            'mobile',
-            'web',
-            'software',
-            'internet',
-            'microsoft',
-            'programming',
-            'business',
-            'Graph',
-            'server',
-          ].map((cat, i) => {
-            return (
-              <label key={i} className={s.label} htmlFor="">
-                {cat}
-                <input className={s.input} type="checkbox" />
-              </label>
-            );
-          })}
-        </div>
+        <Categories />
       </form>
     );
   }

@@ -1,0 +1,20 @@
+.categories{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  //flex-direction: column;
+}
+.label{
+  user-select: none; 
+  flex: 0 0 auto;
+  width: 30%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+  // border-bottom: 1px solid #8d8b8b;
+}
+.input{
+  margin-right: 10px;
+}
