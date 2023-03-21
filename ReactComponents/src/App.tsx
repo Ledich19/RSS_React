@@ -8,6 +8,7 @@ import Collection from './pages/Collection/Collection';
 import BookForm from './components/BookForm/BookForm';
 import { InfoData } from 'app/types';
 import booksData from './data/booksDb.json';
+import AddBook from './pages/AddBook/AddBook';
 
 interface AppState {
   search: string;
@@ -36,7 +37,7 @@ class App extends Component<object, AppState> {
             <Route index element={<Navigate to="/app" />} />
             <Route path="app" element={<Collection books={this.state.books} search={search} />} />
             <Route path="about" element={<AboutUs />} />
-            <Route path="blank" element={<BookForm />} />
+            <Route path="blank" element={<AddBook />} />
             <Route path="404" element={<Page404 />} />
             <Route path="*" element={<Navigate to="404" />} />
           </Route>
