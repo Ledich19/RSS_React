@@ -1,3 +1,4 @@
+import Collection from '../../pages/Collection/Collection';
 import React, { Component, createRef, RefObject } from 'react';
 import s from './BookForm.module.scss';
 import Categories from './Categories/Categories';
@@ -17,6 +18,7 @@ export default class BookForm extends Component<object> {
   private statusRef: RefObject<HTMLSelectElement>;
   private shortDescriptionRef: RefObject<HTMLTextAreaElement>;
   private longDescriptionRef: RefObject<HTMLTextAreaElement>;
+  private downloadImgRef: RefObject<HTMLInputElement>;
   constructor(props: object) {
     super(props);
 
@@ -28,6 +30,7 @@ export default class BookForm extends Component<object> {
     this.longDescriptionRef = createRef();
     this.publishedDateRef = createRef();
     this.statusRef = createRef();
+    this.downloadImgRef = createRef();
     this.checkboxRefs = Array(10)
       .fill('')
       .map(() => React.createRef());
@@ -47,6 +50,7 @@ export default class BookForm extends Component<object> {
       shortDescription: this.shortDescriptionRef.current?.value || '',
       longDescription: this.longDescriptionRef.current?.value || '',
       publishedDate: this.publishedDateRef.current?.value || '',
+      img: this.downloadImgRef.current?.value || '',
       status: this.statusRef.current?.value || '',
       categories: categoriesValues || '',
     };
@@ -57,39 +61,42 @@ export default class BookForm extends Component<object> {
 
   render() {
     return (
-      <form onSubmit={this.handleAddBook} className={s.form}>
-        <InputText refLink={this.titleRef} name="title" label="Title" />
-        <InputText refLink={this.isbnRef} name="isbn" label="isbn" />
-        <InputAnother
-          refLink={this.pageCountRef}
-          name="pageCount"
-          label="pageCount"
-          type="number"
-        />
-        <InputText refLink={this.authorsRef} name="authors" label="authors" />
-        <TextareaComponent
-          refLink={this.shortDescriptionRef}
-          name="shortDescription"
-          rows={3}
-          label="shortDescription"
-        />
-        <TextareaComponent
-          refLink={this.longDescriptionRef}
-          name="longDescription"
-          rows={5}
-          label="longDescription"
-        />
-        <InputAnother
-          refLink={this.publishedDateRef}
-          name="publishedDate"
-          label="publishedDate"
-          type="date"
-        />
-        {/* <DownloadImg /> */}
-        <SelectComponent refLink={this.statusRef} name="status" />
-        <Categories refsLinks={this.checkboxRefs} name="categories" />
-        <button type="submit">add book</button>
-      </form>
+      <>
+        <form onSubmit={this.handleAddBook} className={s.form}>
+          <InputText refLink={this.titleRef} name="title" label="Title" />
+          <InputText refLink={this.isbnRef} name="isbn" label="isbn" />
+          <InputAnother
+            refLink={this.pageCountRef}
+            name="pageCount"
+            label="pageCount"
+            type="number"
+          />
+          <InputText refLink={this.authorsRef} name="authors" label="authors" />
+          <TextareaComponent
+            refLink={this.shortDescriptionRef}
+            name="shortDescription"
+            rows={3}
+            label="shortDescription"
+          />
+          <TextareaComponent
+            refLink={this.longDescriptionRef}
+            name="longDescription"
+            rows={5}
+            label="longDescription"
+          />
+          <InputAnother
+            refLink={this.publishedDateRef}
+            name="publishedDate"
+            label="publishedDate"
+            type="date"
+          />
+          <DownloadImg refLink={this.downloadImgRef} />
+          <SelectComponent refLink={this.statusRef} name="status" />
+          <Categories refsLinks={this.checkboxRefs} name="categories" />
+          <button type="submit">add book</button>
+        </form>
+        <Collection search="" />
+      </>
     );
   }
 }

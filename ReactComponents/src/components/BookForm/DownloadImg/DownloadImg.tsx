@@ -1,24 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, RefObject } from 'react';
 import s from './DownloadImg.module.scss';
 
-// export type InfoData = {
-//   title: string;
-//   isbn?: string;
-//   pageCount: number;
-//   publishedDate: { $date: string };
-//   thumbnailUrl?: string;
-//   shortDescription?: string;
-//   longDescription?: string;
-//   status: string;
-//   authors: string[];
-//   categories: string[];
-// };
 interface State {
   addImgWay: boolean;
 }
+interface Props {
+  refLink: RefObject<HTMLInputElement>;
+}
 
-export default class DownloadImg extends Component<object, State> {
-  constructor(props: object) {
+export default class DownloadImg extends Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       addImgWay: true,
@@ -42,17 +33,14 @@ export default class DownloadImg extends Component<object, State> {
             <input className={s.input} name="download-img" type="radio" />
           </label>
         </div>
-        {this.state.addImgWay ? (
-          <label className={s.label} htmlFor="">
-            thumbnailUrl :
-            <input className={s.input} type="text" />
-          </label>
-        ) : (
-          <label className={s.label} htmlFor="">
-            thumbnailDownload :
-            <input className={s.input} type="file" />
-          </label>
-        )}
+        <label className={s.label} htmlFor="">
+          thumbnailUrl :
+          {this.state.addImgWay ? (
+            <input ref={this.props.refLink} className={s.input} type="text" />
+          ) : (
+            <input ref={this.props.refLink} className={s.input} type="file" />
+          )}
+        </label>
       </div>
     );
   }
