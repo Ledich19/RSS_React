@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import s from './Header.module.scss';
-import { Link } from 'react-router-dom';
+import { NavLink, NavLinkProps } from 'react-router-dom';
 import SearchContainer from '../Search/SearchContainer';
 import { Routes, Route } from 'react-router-dom';
 
@@ -13,9 +13,15 @@ export default class Header extends Component<Props> {
     return (
       <div className={s.header}>
         <div className={s.list}>
-          <Link to={`/`}>Home</Link>
-          <Link to={`about`}>About us</Link>
-          <Link to={`blank`}>Add book</Link>
+          <NavLink to={`/app`} className={(info) => (info.isActive ? s.activeLink : s.navLink)}>
+            Home
+          </NavLink>
+          <NavLink to={`/about`} className={(info) => (info.isActive ? s.activeLink : s.navLink)}>
+            About us
+          </NavLink>
+          <NavLink to={`/blank`} className={(info) => (info.isActive ? s.activeLink : s.navLink)}>
+            Add book
+          </NavLink>
         </div>
         <Routes>
           <Route
