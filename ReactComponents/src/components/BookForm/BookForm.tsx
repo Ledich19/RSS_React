@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import s from './BookForm.module.scss';
 import Categories from './Categories/Categories';
 import DownloadImg from './DownloadImg/DownloadImg';
+import InputAnother from './InputAnother/InputAnother';
+import InputText from './InputText/InputText';
 import SelectComponent from './SelectComponent/SelectComponent';
+import TextareaComponent from './TextareaComponent/TextareaComponent';
 
 // export type InfoData = {
 //   title: string;
@@ -21,36 +24,13 @@ export default class BookForm extends Component {
   render() {
     return (
       <form className={s.form}>
-        <label className={s.label} htmlFor="">
-          name :
-          <input className={s.input} type="text" />
-        </label>
-        <label className={s.label} htmlFor="">
-          isbn :
-          <input className={s.input} type="text" />
-        </label>
-        <label className={s.label} htmlFor="">
-          pageCount :
-          <input className={s.pageCount} type="number" />
-        </label>
-        <label className={s.label} htmlFor="">
-          authors :
-          <input className={s.input} type="text" />
-        </label>
-        <label className={s.label} htmlFor="">
-          shortDescription :
-          <input className={s.input} type="text" />
-        </label>
-        <label className={s.label} htmlFor="">
-          longDescription :
-          <input className={s.input} type="text" />
-        </label>
-
-        <label className={s.label} htmlFor="">
-          publishedDate :
-          <input className={s.inputDate} type="date" />
-        </label>
-
+        <InputText label="Title" name="title" type="text" />
+        <InputText label="isbn" name="isbn" type="text" />
+        <InputAnother label="pageCount" name="pageCount" type="number" />
+        <InputText label="authors" name="authors" type="text" />
+        <TextareaComponent rows={3} label="shortDescription" name="shortDescription" />
+        <TextareaComponent rows={5} label="longDescription" name="longDescription" />
+        <InputAnother label="publishedDate" name="publishedDate" type="date" />
         <DownloadImg />
         <SelectComponent />
         <Categories />

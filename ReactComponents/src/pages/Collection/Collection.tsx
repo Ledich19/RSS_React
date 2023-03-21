@@ -2,19 +2,8 @@ import React, { Component } from 'react';
 import Card from '../../components/Card/Card';
 import s from './Collection.module.scss';
 import booksData from '../../data/booksDb.json';
+import { InfoData } from 'app/types';
 
-interface InfoData {
-  title: string;
-  isbn?: string;
-  pageCount: number;
-  publishedDate: { $date: string };
-  thumbnailUrl?: string;
-  shortDescription?: string;
-  longDescription?: string;
-  status: string;
-  authors: string[];
-  categories: string[];
-}
 interface State {
   books: InfoData[];
 }
