@@ -1,7 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, RefObject } from 'react';
 import s from './Categories.module.scss';
 
-export default class Categories extends Component {
+interface Props {
+  name: string;
+  refsLinks: RefObject<HTMLInputElement>[];
+}
+
+export default class Categories extends Component<Props> {
   render() {
     return (
       <div className={s.categories}>
@@ -19,7 +24,14 @@ export default class Categories extends Component {
         ].map((cat, i) => {
           return (
             <label key={i} className={s.label} htmlFor={cat}>
-              <input id={cat} className={s.input} type="checkbox" />
+              <input
+                name={this.props.name}
+                id={cat}
+                ref={this.props.refsLinks[i]}
+                className={s.input}
+                type="checkbox"
+                value={cat}
+              />
               {cat}
             </label>
           );

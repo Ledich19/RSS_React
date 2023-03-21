@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, RefObject } from 'react';
 import s from './InputText.module.scss';
 
 interface Props {
   label: string;
-  type: string;
   name: string;
+  refLink: RefObject<HTMLInputElement>;
 }
 
 export default class InputText extends Component<Props> {
@@ -12,7 +12,7 @@ export default class InputText extends Component<Props> {
     return (
       <label className={s.label} htmlFor="">
         {this.props.label} :
-        <input name={this.props.name} className={s.input} type={this.props.type} />
+        <input name={this.props.name} ref={this.props.refLink} className={s.input} type="text" />
       </label>
     );
   }
