@@ -7,8 +7,13 @@ import InputAnother from './InputAnother/InputAnother';
 import InputText from './InputText/InputText';
 import SelectComponent from './SelectComponent/SelectComponent';
 import TextareaComponent from './TextareaComponent/TextareaComponent';
+import { InfoData } from 'app/types';
 
-export default class BookForm extends Component<object> {
+interface State {
+  books: InfoData[];
+}
+
+export default class BookForm extends Component<object, State> {
   private titleRef: RefObject<HTMLInputElement>;
   private isbnRef: RefObject<HTMLInputElement>;
   private pageCountRef: RefObject<HTMLInputElement>;
@@ -21,6 +26,10 @@ export default class BookForm extends Component<object> {
   private downloadImgRef: RefObject<HTMLInputElement>;
   constructor(props: object) {
     super(props);
+
+    this.state = {
+      books: [],
+    };
 
     this.titleRef = createRef();
     this.isbnRef = createRef();
@@ -36,25 +45,41 @@ export default class BookForm extends Component<object> {
       .map(() => React.createRef());
   }
 
-  handleAddBook = (e: React.FormEvent<HTMLFormElement>) => {
+  handleAddBook = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // console.log(e.target.elements);
     const categoriesValues = this.checkboxRefs
       .filter((ref) => ref.current?.checked)
-      .map((ref) => ref.current?.value);
+      .map((ref) => ref.current?.value || '');
+
+    const files = this.downloadImgRef.current?.files;
+    let imageUrl = '';
+    if (files && files[0]) {
+      imageUrl = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.addEventListener('load', () => {
+          const imageUrl = reader.result as string;
+          resolve(imageUrl);
+        });
+        reader.readAsDataURL(files[0]);
+        reader.addEventListener('error', () => {
+          reject('Failed to load image');
+        });
+      });
+    }
+
     const newBook = {
       title: this.titleRef.current?.value || '',
       isbn: this.isbnRef.current?.value || '',
-      pageCount: this.pageCountRef.current?.value || '',
-      authors: this.authorsRef.current?.value || '',
+      pageCount: parseInt(this.pageCountRef.current?.value || '0', 10),
+      authors: this.authorsRef.current?.value.split(',') || [],
       shortDescription: this.shortDescriptionRef.current?.value || '',
       longDescription: this.longDescriptionRef.current?.value || '',
-      publishedDate: this.publishedDateRef.current?.value || '',
-      img: this.downloadImgRef.current?.value || '',
+      publishedDate: { $date: this.publishedDateRef.current?.value || '' },
+      thumbnailUrl: imageUrl || '',
       status: this.statusRef.current?.value || '',
-      categories: categoriesValues || '',
+      categories: categoriesValues || [],
     };
-
+    this.setState({ books: this.state.books.concat(newBook) });
     console.log(newBook);
     (e.target as HTMLFormElement).reset();
   };
@@ -95,7 +120,7 @@ export default class BookForm extends Component<object> {
           <Categories refsLinks={this.checkboxRefs} name="categories" />
           <button type="submit">add book</button>
         </form>
-        <Collection search="" />
+        <Collection books={this.state.books} search="" />
       </>
     );
   }

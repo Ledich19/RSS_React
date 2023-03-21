@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
 import Card from '../../components/Card/Card';
 import s from './Collection.module.scss';
-import booksData from '../../data/booksDb.json';
 import { InfoData } from 'app/types';
 
-interface State {
-  books: InfoData[];
-}
 interface Props {
   search: string;
+  books: InfoData[];
 }
-export default class Collection extends Component<Props, State> {
+export default class Collection extends Component<Props> {
   constructor(props: Props) {
     super(props);
-    this.state = {
-      books: booksData,
-    };
   }
 
   filterBooks = (search: string) => {
-    const { books } = this.state;
+    const { books } = this.props;
     return books.filter((book) => book.title.toUpperCase().includes(search.toUpperCase()));
   };
 

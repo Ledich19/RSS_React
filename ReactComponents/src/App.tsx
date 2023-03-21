@@ -6,9 +6,12 @@ import './App.css';
 import Layout from './pages/Layout/Layout';
 import Collection from './pages/Collection/Collection';
 import BookForm from './components/BookForm/BookForm';
+import { InfoData } from 'app/types';
+import booksData from './data/booksDb.json';
 
 interface AppState {
   search: string;
+  books: InfoData[];
 }
 
 class App extends Component<object, AppState> {
@@ -16,6 +19,7 @@ class App extends Component<object, AppState> {
     super(props);
     this.state = {
       search: '',
+      books: booksData,
     };
   }
 
@@ -30,7 +34,7 @@ class App extends Component<object, AppState> {
         <Routes>
           <Route path="/" element={<Layout setSearchState={this.setSearchState} />}>
             <Route index element={<Navigate to="/app" />} />
-            <Route path="app" element={<Collection search={search} />} />
+            <Route path="app" element={<Collection books={this.state.books} search={search} />} />
             <Route path="about" element={<AboutUs />} />
             <Route path="blank" element={<BookForm />} />
             <Route path="404" element={<Page404 />} />
