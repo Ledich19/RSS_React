@@ -40,6 +40,21 @@ export default class BookForm extends Component<Props> {
       .map(() => React.createRef());
   }
 
+  // resetForm = () => {
+  //   this.titleRef.current.reset();
+  //   this.isbnRef.current.reset();
+  //   this.pageCountRef.current.reset();
+  //   this.authorsRef.current.reset();
+  //   this.shortDescriptionRef.current.reset();
+  //   this.longDescriptionRef.current.reset();
+  //   this.publishedDateRef.current.reset();
+  //   this.statusRef.current.reset();
+  //   this.downloadImgRef.current.reset();
+  //   // this.checkboxRefs = Array(10)
+  //   //   .fill('')
+  //   //   .map(() => React.createRef());
+  // };
+
   handleAddBook = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const categoriesValues = this.checkboxRefs
@@ -82,16 +97,18 @@ export default class BookForm extends Component<Props> {
   render() {
     return (
       <form onSubmit={this.handleAddBook} className={s.form}>
-        <InputText refLink={this.titleRef} name="title" label="Title" />
+        <InputText required={true} refLink={this.titleRef} name="title" label="Title" />
         <InputText refLink={this.isbnRef} name="isbn" label="isbn" />
         <InputAnother
+          required={true}
           refLink={this.pageCountRef}
           name="pageCount"
           label="pageCount"
           type="number"
         />
-        <InputText refLink={this.authorsRef} name="authors" label="authors" />
+        <InputText required={true} refLink={this.authorsRef} name="authors" label="authors" />
         <TextareaComponent
+          required={true}
           refLink={this.shortDescriptionRef}
           name="shortDescription"
           rows={3}
