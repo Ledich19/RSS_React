@@ -11,8 +11,12 @@ import { InfoData } from 'app/types';
 interface Props {
   addBook: (value: InfoData) => void;
 }
+interface State {
+  authorsError: string;
+  categoriesError: string;
+}
 
-export default class BookForm extends Component<Props> {
+export default class BookForm extends Component<Props, State> {
   private titleRef: RefObject<HTMLInputElement>;
   private isbnRef: RefObject<HTMLInputElement>;
   private pageCountRef: RefObject<HTMLInputElement>;
@@ -25,7 +29,6 @@ export default class BookForm extends Component<Props> {
   private downloadImgRef: RefObject<HTMLInputElement>;
   constructor(props: Props) {
     super(props);
-
     this.titleRef = createRef();
     this.isbnRef = createRef();
     this.pageCountRef = createRef();
@@ -38,22 +41,72 @@ export default class BookForm extends Component<Props> {
     this.checkboxRefs = Array(10)
       .fill('')
       .map(() => React.createRef());
+    this.state = {
+      authorsError: '',
+      categoriesError: '',
+    };
   }
 
-  // resetForm = () => {
-  //   this.titleRef.current.reset();
-  //   this.isbnRef.current.reset();
-  //   this.pageCountRef.current.reset();
-  //   this.authorsRef.current.reset();
-  //   this.shortDescriptionRef.current.reset();
-  //   this.longDescriptionRef.current.reset();
-  //   this.publishedDateRef.current.reset();
-  //   this.statusRef.current.reset();
-  //   this.downloadImgRef.current.reset();
-  //   // this.checkboxRefs = Array(10)
-  //   //   .fill('')
-  //   //   .map(() => React.createRef());
-  // };
+  readImageFile(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.addEventListener('load', () => {
+        const imageUrl = reader.result as string;
+        resolve(imageUrl);
+      });
+      reader.readAsDataURL(file);
+      reader.addEventListener('error', () => {
+        reject('Failed to load image');
+      });
+    });
+  }
+
+  private checkAuthors = (authors: string[]) => {
+    const check = authors.every((name) => {
+      const words = name.split(' ');
+      return words.every((word) => word.charAt(0) === word.charAt(0).toUpperCase());
+    });
+    if (check) {
+      this.setState({ authorsError: '' });
+    } else {
+      this.setState({ authorsError: 'should start with big letter' });
+    }
+    return check;
+  };
+  private checkCategories = (categories: string[]) => {
+    let check;
+    if (categories.length < 1) {
+      this.setState({ categoriesError: 'at least one checkbox must be selected' });
+      check = false;
+    } else {
+      this.setState({ categoriesError: '' });
+      check = true;
+    }
+    // console.log(categories, categories.length, categories.length < 1);
+    // console.log(check);
+
+    return check;
+  };
+  validationForm = (book: InfoData) => {
+    const {
+      title,
+      isbn,
+      pageCount,
+      authors,
+      shortDescription,
+      longDescription,
+      publishedDate: { $date },
+      thumbnailUrl,
+      status,
+      categories,
+    } = book;
+    const authorsResult = this.checkAuthors(authors);
+    const categoriesResult = this.checkCategories(categories);
+    console.log(authorsResult, categoriesResult);
+
+    if (!authorsResult || !categoriesResult) return false;
+    return true;
+  };
 
   handleAddBook = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -64,17 +117,7 @@ export default class BookForm extends Component<Props> {
     const files = this.downloadImgRef.current?.files;
     let imageUrl = '';
     if (files && files[0]) {
-      imageUrl = await new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.addEventListener('load', () => {
-          const imageUrl = reader.result as string;
-          resolve(imageUrl);
-        });
-        reader.readAsDataURL(files[0]);
-        reader.addEventListener('error', () => {
-          reject('Failed to load image');
-        });
-      });
+      imageUrl = await this.readImageFile(files[0]);
     }
 
     const newBook = {
@@ -89,8 +132,11 @@ export default class BookForm extends Component<Props> {
       status: this.statusRef.current?.value || '',
       categories: categoriesValues || [],
     };
+    if (!this.validationForm(newBook)) {
+      return;
+    }
+
     this.props.addBook(newBook);
-    console.log(newBook);
     (e.target as HTMLFormElement).reset();
   };
 
@@ -106,7 +152,13 @@ export default class BookForm extends Component<Props> {
           label="pageCount"
           type="number"
         />
-        <InputText required={true} refLink={this.authorsRef} name="authors" label="authors" />
+        <InputText
+          required={true}
+          error={this.state.authorsError}
+          refLink={this.authorsRef}
+          name="authors"
+          label="authors"
+        />
         <TextareaComponent
           required={true}
           refLink={this.shortDescriptionRef}
@@ -128,7 +180,11 @@ export default class BookForm extends Component<Props> {
         />
         <DownloadImg refLink={this.downloadImgRef} />
         <SelectComponent refLink={this.statusRef} name="status" />
-        <Categories refsLinks={this.checkboxRefs} name="categories" />
+        <Categories
+          error={this.state.categoriesError}
+          refsLinks={this.checkboxRefs}
+          name="categories"
+        />
         <button type="submit">add book</button>
       </form>
     );

@@ -5,6 +5,7 @@ interface Props {
   label: string;
   name: string;
   required?: boolean;
+  error?: string;
   refLink: RefObject<HTMLInputElement>;
 }
 
@@ -12,6 +13,7 @@ export default class InputText extends Component<Props> {
   render() {
     return (
       <label className={s.label} htmlFor="">
+        {this.props.error && <div className={s.error}>{this.props.error}</div>}
         {this.props.label} : {this.props.required && <span className={s.required}>*</span>}
         <input
           required={this.props.required}

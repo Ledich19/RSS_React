@@ -1,5 +1,7 @@
 .label{
   //padding: 5px;
+  margin-top: 10px;
+  position: relative;
   display: flex;
   justify-content: space-between;
   font-weight: bold;
@@ -11,5 +13,13 @@ resize: none;
 margin-left: 10px;
 }
 .required{
+  color: red;
+}
+.error{
+  font-size: 12px;
+  top: -14px;
+  right: 50%;
+  transform: translate(50%,0%);
+  position: absolute;
   color: red;
 }

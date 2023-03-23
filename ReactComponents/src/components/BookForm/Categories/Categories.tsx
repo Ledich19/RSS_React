@@ -3,6 +3,7 @@ import s from './Categories.module.scss';
 
 interface Props {
   name: string;
+  error?: string;
   refsLinks: RefObject<HTMLInputElement>[];
 }
 
@@ -10,6 +11,7 @@ export default class Categories extends Component<Props> {
   render() {
     return (
       <div className={s.categories}>
+        {this.props.error && <div className={s.error}>{this.props.error}</div>}
         {[
           'open Source',
           'mobile',

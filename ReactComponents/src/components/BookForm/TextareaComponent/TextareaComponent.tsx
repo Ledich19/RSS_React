@@ -6,6 +6,7 @@ interface Props {
   name: string;
   rows: number;
   required?: boolean;
+  error?: string;
   refLink: RefObject<HTMLTextAreaElement>;
 }
 
@@ -13,6 +14,7 @@ export default class TextareaComponent extends Component<Props> {
   render() {
     return (
       <label className={s.label} htmlFor="">
+        {this.props.error && <div className={s.error}>{this.props.error}</div>}
         {this.props.label} : {this.props.required && <span className={s.required}>*</span>}
         <textarea
           required={this.props.required}

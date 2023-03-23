@@ -25,18 +25,20 @@ export default class DownloadImg extends Component<Props, State> {
     return (
       <div className={s.box}>
         <div className={s.radioBox}>
-          <label onChange={this.handleChoose} className={s.label} htmlFor="">
+          <label className={s.label} htmlFor="">
             url :
             <input
+              onChange={this.handleChoose}
               checked={this.state.addImgWay}
               className={s.input}
               name="download-img"
               type="radio"
             />
           </label>
-          <label onChange={this.handleChoose} className={s.label} htmlFor="">
+          <label className={s.label} htmlFor="">
             file :
             <input
+              onChange={this.handleChoose}
               checked={!this.state.addImgWay}
               className={s.input}
               name="download-img"
