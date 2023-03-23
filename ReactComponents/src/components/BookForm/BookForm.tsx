@@ -12,6 +12,8 @@ interface Props {
   addBook: (value: InfoData) => void;
 }
 interface State {
+  categories: string[];
+  options: string[];
   authorsError: string;
   categoriesError: string;
 }
@@ -42,6 +44,19 @@ export default class BookForm extends Component<Props, State> {
       .fill('')
       .map(() => React.createRef());
     this.state = {
+      categories: [
+        'open Source',
+        'mobile',
+        'web',
+        'software',
+        'internet',
+        'microsoft',
+        'programming',
+        'business',
+        'Graph',
+        'server',
+      ],
+      options: ['PUBLISH', 'IN PROGRESS', 'BACKORDER', 'OUT OF STOCK', 'UNPUBLISHED'],
       authorsError: '',
       categoriesError: '',
     };
@@ -82,28 +97,12 @@ export default class BookForm extends Component<Props, State> {
       this.setState({ categoriesError: '' });
       check = true;
     }
-    // console.log(categories, categories.length, categories.length < 1);
-    // console.log(check);
-
     return check;
   };
   validationForm = (book: InfoData) => {
-    const {
-      title,
-      isbn,
-      pageCount,
-      authors,
-      shortDescription,
-      longDescription,
-      publishedDate: { $date },
-      thumbnailUrl,
-      status,
-      categories,
-    } = book;
+    const { authors, categories } = book;
     const authorsResult = this.checkAuthors(authors);
     const categoriesResult = this.checkCategories(categories);
-    console.log(authorsResult, categoriesResult);
-
     if (!authorsResult || !categoriesResult) return false;
     return true;
   };
@@ -179,13 +178,16 @@ export default class BookForm extends Component<Props, State> {
           type="date"
         />
         <DownloadImg refLink={this.downloadImgRef} />
-        <SelectComponent refLink={this.statusRef} name="status" />
+        <SelectComponent options={this.state.options} refLink={this.statusRef} name="status" />
         <Categories
+          options={this.state.categories}
           error={this.state.categoriesError}
           refsLinks={this.checkboxRefs}
           name="categories"
         />
-        <button type="submit">add book</button>
+        <button className={s.submit} type="submit">
+          add book
+        </button>
       </form>
     );
   }

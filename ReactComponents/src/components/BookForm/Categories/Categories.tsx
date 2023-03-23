@@ -4,6 +4,7 @@ import s from './Categories.module.scss';
 interface Props {
   name: string;
   error?: string;
+  options: string[];
   refsLinks: RefObject<HTMLInputElement>[];
 }
 
@@ -12,18 +13,7 @@ export default class Categories extends Component<Props> {
     return (
       <div className={s.categories}>
         {this.props.error && <div className={s.error}>{this.props.error}</div>}
-        {[
-          'open Source',
-          'mobile',
-          'web',
-          'software',
-          'internet',
-          'microsoft',
-          'programming',
-          'business',
-          'Graph',
-          'server',
-        ].map((cat, i) => {
+        {this.props.options.map((cat, i) => {
           return (
             <label key={i} className={s.label} htmlFor={cat}>
               <input
