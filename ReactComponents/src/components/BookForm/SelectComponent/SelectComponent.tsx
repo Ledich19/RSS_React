@@ -10,9 +10,9 @@ interface Props {
 export default class SelectComponent extends Component<Props> {
   render() {
     return (
-      <label className={s.label} htmlFor="">
+      <label className={s.label} htmlFor={this.props.name}>
         status :
-        <select name={this.props.name} ref={this.props.refLink} id="">
+        <select id={this.props.name} name={this.props.name} ref={this.props.refLink}>
           {this.props.options.map((option) => (
             <option key={option} value={option}>
               {option}
