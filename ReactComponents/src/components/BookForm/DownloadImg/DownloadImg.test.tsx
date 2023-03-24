@@ -1,18 +1,24 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render, screen } from '@testing-library/react';
-import Header from './DownloadImg';
-import { MemoryRouter } from 'react-router-dom';
+import { render, screen, fireEvent } from '@testing-library/react';
+import DownloadImg from './DownloadImg';
 
-test('renders links to Home and About us', () => {
-  render(
-    <MemoryRouter>
-      <Header />
-    </MemoryRouter>
-  );
+describe('DownloadImg component', () => {
+  test('renders DownloadImg', () => {
+    render(<DownloadImg refLink={React.createRef<HTMLInputElement>()} />);
+    const downloadImgContainer = screen.getByTestId('download-img-container');
+    expect(downloadImgContainer).toBeInTheDocument();
+  });
+  it('should change state on radio button change', () => {
+    render(<DownloadImg refLink={React.createRef<HTMLInputElement>()} />);
+    const urlRadio = screen.getByLabelText(/url/i);
+    const fileRadio = screen.getByLabelText(/file/i);
 
-  const homeLink = screen.getByRole('link', { name: 'Home' });
-  const aboutLink = screen.getByRole('link', { name: 'About us' });
-  expect(homeLink).toBeInTheDocument();
-  expect(aboutLink).toBeInTheDocument();
+    fireEvent.click(urlRadio);
+    expect(urlRadio).toBeChecked();
+    expect(fileRadio).not.toBeChecked();
+    fireEvent.click(fileRadio);
+    expect(fileRadio).toBeChecked();
+    expect(urlRadio).not.toBeChecked();
+  });
 });

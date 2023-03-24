@@ -17,7 +17,7 @@ describe('Categories component', () => {
   test('renders Categories', () => {
     render(<Categories {...mockProps} />);
     mockProps.options.forEach((option) => {
-      const optionElement = screen.getByText('Option 2');
+      const optionElement = screen.getByText(option);
       expect(optionElement).toBeInTheDocument();
     });
   });

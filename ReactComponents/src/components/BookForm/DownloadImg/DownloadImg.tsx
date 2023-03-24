@@ -23,11 +23,12 @@ export default class DownloadImg extends Component<Props, State> {
   render() {
     console.log(this.state.addImgWay);
     return (
-      <div className={s.box}>
+      <div data-testid="download-img-container" className={s.box}>
         <div className={s.radioBox}>
-          <label className={s.label} htmlFor="">
+          <label className={s.label} htmlFor="choose-url-img">
             url :
             <input
+              id="choose-url-img"
               onChange={this.handleChoose}
               checked={this.state.addImgWay}
               className={s.input}
@@ -35,9 +36,10 @@ export default class DownloadImg extends Component<Props, State> {
               type="radio"
             />
           </label>
-          <label className={s.label} htmlFor="">
+          <label className={s.label} htmlFor="choose-file-img">
             file :
             <input
+              id="choose-file-img"
               onChange={this.handleChoose}
               checked={!this.state.addImgWay}
               className={s.input}
