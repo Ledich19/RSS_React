@@ -1,18 +1,31 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
-import Header from './BookForm';
-import { MemoryRouter } from 'react-router-dom';
+import Categories from './Categories';
 
-test('renders links to Home and About us', () => {
-  render(
-    <MemoryRouter>
-      <Header />
-    </MemoryRouter>
-  );
+const mockProps = {
+  name: 'category',
+  options: ['Option 1', 'Option 2', 'Option 3'],
+  refsLinks: [
+    React.createRef<HTMLInputElement>(),
+    React.createRef<HTMLInputElement>(),
+    React.createRef<HTMLInputElement>(),
+  ],
+};
 
-  const homeLink = screen.getByRole('link', { name: 'Home' });
-  const aboutLink = screen.getByRole('link', { name: 'About us' });
-  expect(homeLink).toBeInTheDocument();
-  expect(aboutLink).toBeInTheDocument();
+describe('Categories component', () => {
+  test('renders Categories', () => {
+    render(<Categories {...mockProps} />);
+    mockProps.options.forEach((option) => {
+      const optionElement = screen.getByText('Option 2');
+      expect(optionElement).toBeInTheDocument();
+    });
+  });
+
+  it('should render error message if passed', () => {
+    const errorMessage = 'Something went wrong';
+    const { getByText } = render(<Categories {...mockProps} error={errorMessage} />);
+    const errorElement = getByText(errorMessage);
+    expect(errorElement).toBeInTheDocument();
+  });
 });
