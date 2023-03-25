@@ -11,7 +11,7 @@ interface Props {
 export default class Categories extends Component<Props> {
   render() {
     return (
-      <div className={s.categories}>
+      <div data-testid="category-checkboxes" className={s.categories}>
         {this.props.error && <div className={s.error}>{this.props.error}</div>}
         {this.props.options.map((cat, i) => {
           return (

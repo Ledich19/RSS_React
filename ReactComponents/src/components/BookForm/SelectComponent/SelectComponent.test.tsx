@@ -5,6 +5,7 @@ import SelectComponent from './SelectComponent';
 
 const mockProps = {
   name: 'SelectComponent',
+  label: 'SelectComponent',
   options: ['option 1', 'option 2', 'option 3'],
   refLink: React.createRef<HTMLSelectElement>(),
 };

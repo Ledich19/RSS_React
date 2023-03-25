@@ -123,7 +123,7 @@ export default class BookForm extends Component<Props, State> {
       title: this.titleRef.current?.value || '',
       isbn: this.isbnRef.current?.value || '',
       pageCount: parseInt(this.pageCountRef.current?.value || '0', 10),
-      authors: this.authorsRef.current?.value.split(',') || [],
+      authors: this.authorsRef.current?.value.split(',').map((s) => s.trim()) || [],
       shortDescription: this.shortDescriptionRef.current?.value || '',
       longDescription: this.longDescriptionRef.current?.value || '',
       publishedDate: { $date: this.publishedDateRef.current?.value || '' },
@@ -131,6 +131,7 @@ export default class BookForm extends Component<Props, State> {
       status: this.statusRef.current?.value || '',
       categories: categoriesValues || [],
     };
+
     if (!this.validationForm(newBook)) {
       return;
     }
@@ -141,14 +142,14 @@ export default class BookForm extends Component<Props, State> {
 
   render() {
     return (
-      <form onSubmit={this.handleAddBook} className={s.form}>
+      <form data-testid="BookForm-testId" onSubmit={this.handleAddBook} className={s.form}>
         <InputText required={true} refLink={this.titleRef} name="title" label="Title" />
         <InputText refLink={this.isbnRef} name="isbn" label="isbn" />
         <InputAnother
           required={true}
           refLink={this.pageCountRef}
           name="pageCount"
-          label="pageCount"
+          label="Page count"
           type="number"
         />
         <InputText
@@ -156,29 +157,34 @@ export default class BookForm extends Component<Props, State> {
           error={this.state.authorsError}
           refLink={this.authorsRef}
           name="authors"
-          label="authors"
+          label="Authors"
         />
         <TextareaComponent
           required={true}
           refLink={this.shortDescriptionRef}
           name="shortDescription"
           rows={3}
-          label="shortDescription"
+          label="Short description"
         />
         <TextareaComponent
           refLink={this.longDescriptionRef}
-          name="longDescription"
+          name="LongDescription"
           rows={5}
-          label="longDescription"
+          label="long description"
         />
         <InputAnother
           refLink={this.publishedDateRef}
           name="publishedDate"
-          label="publishedDate"
+          label="Published date"
           type="date"
         />
         <DownloadImg refLink={this.downloadImgRef} />
-        <SelectComponent options={this.state.options} refLink={this.statusRef} name="status" />
+        <SelectComponent
+          label="Status"
+          options={this.state.options}
+          refLink={this.statusRef}
+          name="status"
+        />
         <Categories
           options={this.state.categories}
           error={this.state.categoriesError}
