@@ -16,6 +16,9 @@ interface State {
   options: string[];
   authorsError: string;
   categoriesError: string;
+  titleError: string;
+  pagesError: string;
+  shortDescriptionError: string;
 }
 
 export default class BookForm extends Component<Props, State> {
@@ -59,6 +62,9 @@ export default class BookForm extends Component<Props, State> {
       options: ['PUBLISH', 'IN PROGRESS', 'BACKORDER', 'OUT OF STOCK', 'UNPUBLISHED'],
       authorsError: '',
       categoriesError: '',
+      titleError: '',
+      pagesError: '',
+      shortDescriptionError: '',
     };
   }
 
@@ -76,19 +82,55 @@ export default class BookForm extends Component<Props, State> {
     });
   }
 
-  private checkAuthors = (authors: string[]) => {
+  private validateShortDescription = (description: string | undefined) => {
+    if (!description) {
+      this.setState({ shortDescriptionError: `title should't be empty` });
+      return;
+    }
+    if (description.length < 3) {
+      this.setState({ shortDescriptionError: `title should't be less then 20` });
+      return;
+    }
+    this.setState({ shortDescriptionError: '' });
+    return true;
+  };
+  private validateTitle = (title: string) => {
+    if (!title) {
+      this.setState({ titleError: `title should't be empty` });
+      return;
+    }
+    if (title.length < 3) {
+      this.setState({ titleError: `title should't be less then 3` });
+      return;
+    }
+    this.setState({ titleError: '' });
+    return true;
+  };
+  private validatePages = (title: number) => {
+    if (!title) {
+      this.setState({ pagesError: `title should't be empty` });
+      return;
+    }
+    this.setState({ pagesError: '' });
+    return true;
+  };
+  private validateAuthors = (authors: string[]) => {
     const check = authors.every((name) => {
       const words = name.split(' ');
       return words.every((word) => word.charAt(0) === word.charAt(0).toUpperCase());
     });
-    if (check) {
-      this.setState({ authorsError: '' });
-    } else {
-      this.setState({ authorsError: 'should start with big letter' });
+    if (!authors[0] && authors.length === 1) {
+      this.setState({ authorsError: `authors should't be empty` });
+      return;
     }
-    return check;
+    if (!check) {
+      this.setState({ authorsError: 'should start with big letter' });
+      return;
+    }
+    this.setState({ authorsError: '' });
+    return true;
   };
-  private checkCategories = (categories: string[]) => {
+  private validateCategories = (categories: string[]) => {
     let check;
     if (categories.length < 1) {
       this.setState({ categoriesError: 'at least one checkbox must be selected' });
@@ -100,10 +142,20 @@ export default class BookForm extends Component<Props, State> {
     return check;
   };
   validationForm = (book: InfoData) => {
-    const { authors, categories } = book;
-    const authorsResult = this.checkAuthors(authors);
-    const categoriesResult = this.checkCategories(categories);
-    if (!authorsResult || !categoriesResult) return false;
+    const { authors, categories, title, pageCount, shortDescription } = book;
+    const authorsResult = this.validateAuthors(authors);
+    const categoriesResult = this.validateCategories(categories);
+    const titleResult = this.validateTitle(title);
+    const pagesResult = this.validatePages(pageCount);
+    const shortDescriptionResult = this.validateShortDescription(shortDescription);
+    if (
+      !authorsResult ||
+      !categoriesResult ||
+      !titleResult ||
+      !pagesResult ||
+      !shortDescriptionResult
+    )
+      return false;
     return true;
   };
 
@@ -143,9 +195,16 @@ export default class BookForm extends Component<Props, State> {
   render() {
     return (
       <form data-testid="BookForm-testId" onSubmit={this.handleAddBook} className={s.form}>
-        <InputText required={true} refLink={this.titleRef} name="title" label="Title" />
+        <InputText
+          error={this.state.titleError}
+          required={true}
+          refLink={this.titleRef}
+          name="title"
+          label="Title"
+        />
         <InputText refLink={this.isbnRef} name="isbn" label="isbn" />
         <InputAnother
+          error={this.state.pagesError}
           required={true}
           refLink={this.pageCountRef}
           name="pageCount"
@@ -160,6 +219,7 @@ export default class BookForm extends Component<Props, State> {
           label="Authors"
         />
         <TextareaComponent
+          error={this.state.shortDescriptionError}
           required={true}
           refLink={this.shortDescriptionRef}
           name="shortDescription"

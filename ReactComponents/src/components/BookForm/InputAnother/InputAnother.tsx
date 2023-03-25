@@ -20,7 +20,6 @@ export default class InputAnother extends Component<Props> {
         </span>
         <input
           id={this.props.label}
-          required={this.props.required}
           name={this.props.name}
           ref={this.props.refLink}
           className={s.input}

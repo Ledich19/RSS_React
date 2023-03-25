@@ -17,7 +17,7 @@ export default class InputText extends Component<Props> {
         {this.props.label} : {this.props.required && <span className={s.required}>*</span>}
         <input
           id={this.props.label}
-          required={this.props.required}
+          // required={this.props.required}
           name={this.props.name}
           ref={this.props.refLink}
           className={s.input}

@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Categories from './Categories';
 
 const mockProps = {
@@ -27,5 +27,14 @@ describe('Categories component', () => {
     const { getByText } = render(<Categories {...mockProps} error={errorMessage} />);
     const errorElement = getByText(errorMessage);
     expect(errorElement).toBeInTheDocument();
+  });
+
+  test('calls the ref function when a checkbox is clicked', () => {
+    const { getAllByRole } = render(<Categories {...mockProps} />);
+
+    const checkboxes = getAllByRole('checkbox');
+    fireEvent.click(checkboxes[0]);
+
+    expect(mockProps.refsLinks[0].current).toEqual(checkboxes[0]);
   });
 });
