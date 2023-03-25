@@ -1,6 +1,5 @@
 import Collection from '../../pages/Collection/Collection';
 import React, { Component } from 'react';
-import s from './AddBook.module.scss';
 import { InfoData } from 'app/types';
 import BookForm from '../../components/BookForm/BookForm';
 

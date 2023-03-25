@@ -5,7 +5,6 @@ import Page404 from './pages/Page404/Page404';
 import './App.css';
 import Layout from './pages/Layout/Layout';
 import Collection from './pages/Collection/Collection';
-import BookForm from './components/BookForm/BookForm';
 import { InfoData } from 'app/types';
 import booksData from './data/booksDb.json';
 import AddBook from './pages/AddBook/AddBook';

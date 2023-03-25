@@ -21,7 +21,6 @@ export default class DownloadImg extends Component<Props, State> {
   };
 
   render() {
-    console.log(this.state.addImgWay);
     return (
       <div data-testid="download-img-container" className={s.box}>
         <div className={s.radioBox}>

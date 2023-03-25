@@ -4,13 +4,6 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import BookForm from './BookForm';
 import { vi } from 'vitest';
 
-const mockProps = {
-  name: 'BookForm',
-  label: 'BookForm-label',
-  rows: 5,
-  refLink: React.createRef<HTMLTextAreaElement>(),
-};
-
 describe('BookForm component', () => {
   test('renders BookForm', () => {
     const handleSearch = vi.fn();
