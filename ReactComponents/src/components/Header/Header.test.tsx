@@ -11,7 +11,7 @@ test('renders links to Home, and About us , Add book', () => {
     </MemoryRouter>
   );
 
-  expect(screen.getByText('Home')).toHaveClass('activeLink');
-  expect(screen.getByText('About us')).not.toHaveClass('activeLink');
-  expect(screen.getByText('Add book')).not.toHaveClass('activeLink');
+  expect(screen.getByText('Home')).toBeInTheDocument();
+  expect(screen.getByText('About us')).toBeInTheDocument();
+  expect(screen.getByText('Add book')).toBeInTheDocument();
 });

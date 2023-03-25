@@ -6,6 +6,6 @@ import Page404 from './Page404';
 test('renders Page404', () => {
   render(<Page404 />);
 
-  const element = screen.getByText('404');
-  expect(element).toBeDefined();
+  expect(screen.getByText('404')).toBeDefined();
+  expect(screen.getByText('Sorry, an unexpected error has occurred.')).toBeDefined();
 });

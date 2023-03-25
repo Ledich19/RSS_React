@@ -71,6 +71,4 @@ describe('BookForm component', () => {
     fireEvent.click(screen.getByText(/add book/i));
     expect(mockAddBook).toHaveBeenCalledTimes(0);
   });
-
-  
 });

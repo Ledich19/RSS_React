@@ -13,17 +13,11 @@ const mockProps = {
 describe('SelectComponent component', () => {
   test('renders SelectComponent', () => {
     render(<SelectComponent {...mockProps} />);
-    const selectElement = screen.getByLabelText('status :') as HTMLSelectElement;
+    const selectElement = screen.getByTestId('SelectComponent-testId') as HTMLSelectElement;
     expect(selectElement).toBeInTheDocument();
     expect(selectElement.options.length).toBe(3);
     expect(selectElement.options[0].value).toBe('option 1');
     expect(selectElement.options[1].value).toBe('option 2');
     expect(selectElement.options[2].value).toBe('option 3');
   });
-
-  // it('should render sign when is required', () => {
-  //   const { getByText } = render(<SelectComponent {...mockProps} required={true} />);
-  //   const errorElement = getByText('*');
-  //   expect(errorElement).toBeInTheDocument();
-  // });
 });
