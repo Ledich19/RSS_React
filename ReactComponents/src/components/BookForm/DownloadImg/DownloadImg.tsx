@@ -17,10 +17,13 @@ export default class DownloadImg extends Component<Props, State> {
   }
 
   handleChoose = () => {
-    this.setState({ addImgWay: !this.state.addImgWay });
+    const { addImgWay } = this.state;
+    this.setState({ addImgWay: !addImgWay });
   };
 
   render() {
+    const { refLink } = this.props;
+    const { addImgWay } = this.state;
     return (
       <div data-testid="download-img-container" className={s.box}>
         <div className={s.radioBox}>
@@ -29,7 +32,7 @@ export default class DownloadImg extends Component<Props, State> {
             <input
               id="choose-url-img"
               onChange={this.handleChoose}
-              checked={this.state.addImgWay}
+              checked={addImgWay}
               className={s.input}
               name="download-img"
               type="radio"
@@ -40,21 +43,21 @@ export default class DownloadImg extends Component<Props, State> {
             <input
               id="choose-file-img"
               onChange={this.handleChoose}
-              checked={!this.state.addImgWay}
+              checked={!addImgWay}
               className={s.input}
               name="download-img"
               type="radio"
             />
           </label>
         </div>
-        <label className={s.label} htmlFor="">
+        <div className={s.label}>
           thumbnailUrl :
-          {this.state.addImgWay ? (
-            <input ref={this.props.refLink} className={s.input} type="text" />
+          {addImgWay ? (
+            <input ref={refLink} className={s.input} type="text" />
           ) : (
-            <input ref={this.props.refLink} className={s.input} type="file" />
+            <input ref={refLink} className={s.input} type="file" />
           )}
-        </label>
+        </div>
       </div>
     );
   }

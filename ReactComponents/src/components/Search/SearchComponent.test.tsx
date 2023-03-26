@@ -1,10 +1,10 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { vi } from 'vitest';
+import userEvent from '@testing-library/user-event';
 import SearchComponent from './SearchComponent';
 import SearchContainer from './SearchContainer';
-import userEvent from '@testing-library/user-event';
-import { vi } from 'vitest';
 
 describe('<SearchComponent />', () => {
   test('input should update value correctly', async () => {
@@ -18,7 +18,7 @@ describe('<SearchComponent />', () => {
     const handleSearch = vi.fn();
     render(
       <SearchComponent
-        value={'search value test'}
+        value="search value test"
         handleInputChange={() => {}}
         handleSearch={handleSearch}
       />

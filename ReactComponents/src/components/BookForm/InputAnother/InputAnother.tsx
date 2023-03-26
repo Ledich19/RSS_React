@@ -12,19 +12,14 @@ interface Props {
 
 export default class InputAnother extends Component<Props> {
   render() {
+    const { label, error, required, name, type, refLink } = this.props;
     return (
-      <label className={s.label} htmlFor={this.props.label}>
-        {this.props.error && <div className={s.error}>{this.props.error}</div>}
+      <label className={s.label} htmlFor={label}>
+        {error && <div className={s.error}>{error}</div>}
         <span>
-          {this.props.label}:{this.props.required && <span className={s.required}>*</span>}
+          {label}:{required && <span className={s.required}>*</span>}
         </span>
-        <input
-          id={this.props.label}
-          name={this.props.name}
-          ref={this.props.refLink}
-          className={s.input}
-          type={this.props.type}
-        />
+        <input id={label} name={name} ref={refLink} className={s.input} type={type} />
       </label>
     );
   }

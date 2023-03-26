@@ -9,15 +9,4 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './setupTest.ts',
   },
-  // optimizeDeps: {
-  //   include: [
-  //     'src/**/*.ts',
-  //     'src/**/*.tsx',
-  //     'src/**/*.js',
-  //     'src/**/*.jsx',
-  //     'public/index.html',
-  //     'src/**/*.css',
-  //     'src/**/*.scss',
-  //   ],
-  // },
 });

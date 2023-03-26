@@ -12,17 +12,13 @@ interface Props {
 
 export default class TextareaComponent extends Component<Props> {
   render() {
+    const { label, error, required, rows, refLink, name } = this.props;
+
     return (
-      <label className={s.label} htmlFor={this.props.label}>
-        {this.props.error && <div className={s.error}>{this.props.error}</div>}
-        {this.props.label} : {this.props.required && <span className={s.required}>*</span>}
-        <textarea
-          id={this.props.label}
-          rows={this.props.rows}
-          ref={this.props.refLink}
-          name={this.props.name}
-          className={s.textarea}
-        />
+      <label className={s.label} htmlFor={label}>
+        {error && <div className={s.error}>{error}</div>}
+        {label} : {required && <span className={s.required}>*</span>}
+        <textarea id={label} rows={rows} ref={refLink} name={name} className={s.textarea} />
       </label>
     );
   }

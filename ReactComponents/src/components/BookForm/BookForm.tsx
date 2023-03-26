@@ -1,4 +1,5 @@
 import React, { Component, createRef, RefObject } from 'react';
+import { InfoData } from 'app/types';
 import s from './BookForm.module.scss';
 import Categories from './Categories/Categories';
 import DownloadImg from './DownloadImg/DownloadImg';
@@ -6,7 +7,6 @@ import InputAnother from './InputAnother/InputAnother';
 import InputText from './InputText/InputText';
 import SelectComponent from './SelectComponent/SelectComponent';
 import TextareaComponent from './TextareaComponent/TextareaComponent';
-import { InfoData } from 'app/types';
 
 interface Props {
   addBook: (value: InfoData) => void;
@@ -23,15 +23,25 @@ interface State {
 
 export default class BookForm extends Component<Props, State> {
   private titleRef: RefObject<HTMLInputElement>;
+
   private isbnRef: RefObject<HTMLInputElement>;
+
   private pageCountRef: RefObject<HTMLInputElement>;
+
   private authorsRef: RefObject<HTMLInputElement>;
+
   private publishedDateRef: RefObject<HTMLInputElement>;
+
   private checkboxRefs: RefObject<HTMLInputElement>[];
+
   private statusRef: RefObject<HTMLSelectElement>;
+
   private shortDescriptionRef: RefObject<HTMLTextAreaElement>;
+
   private longDescriptionRef: RefObject<HTMLTextAreaElement>;
+
   private downloadImgRef: RefObject<HTMLInputElement>;
+
   constructor(props: Props) {
     super(props);
     this.titleRef = createRef();
@@ -94,43 +104,48 @@ export default class BookForm extends Component<Props, State> {
     this.setState({ shortDescriptionError: '' });
     return true;
   };
-  private validateTitle = (title: string) => {
+
+  private validateTitle = (title: string): boolean => {
     if (!title) {
       this.setState({ titleError: `title should't be empty` });
-      return;
+      return false;
     }
+
     if (title.length < 3) {
       this.setState({ titleError: `title should't be less then 3` });
-      return;
+      return false;
     }
     this.setState({ titleError: '' });
     return true;
   };
-  private validatePages = (title: number) => {
+
+  private validatePages = (title: number): boolean => {
     if (!title) {
       this.setState({ pagesError: `title should't be empty` });
-      return;
+      return false;
     }
     this.setState({ pagesError: '' });
     return true;
   };
-  private validateAuthors = (authors: string[]) => {
+
+  private validateAuthors = (authors: string[]): boolean => {
     const check = authors.every((name) => {
       const words = name.split(' ');
       return words.every((word) => word.charAt(0) === word.charAt(0).toUpperCase());
     });
     if (!authors[0] && authors.length === 1) {
       this.setState({ authorsError: `authors should't be empty` });
-      return;
+      return false;
     }
     if (!check) {
       this.setState({ authorsError: 'should start with big letter' });
-      return;
+      return false;
     }
     this.setState({ authorsError: '' });
     return true;
   };
-  private validateCategories = (categories: string[]) => {
+
+  private validateCategories = (categories: string[]): boolean => {
     let check;
     if (categories.length < 1) {
       this.setState({ categoriesError: 'at least one checkbox must be selected' });
@@ -141,7 +156,8 @@ export default class BookForm extends Component<Props, State> {
     }
     return check;
   };
-  validationForm = (book: InfoData) => {
+
+  validationForm = (book: InfoData): boolean => {
     const { authors, categories, title, pageCount, shortDescription } = book;
     const authorsResult = this.validateAuthors(authors);
     const categoriesResult = this.validateCategories(categories);
@@ -187,40 +203,44 @@ export default class BookForm extends Component<Props, State> {
     if (!this.validationForm(newBook)) {
       return;
     }
-
-    this.props.addBook(newBook);
+    const { addBook } = this.props;
+    addBook(newBook);
     (e.target as HTMLFormElement).reset();
   };
 
   render() {
+    const {
+      titleError,
+      pagesError,
+      authorsError,
+      shortDescriptionError,
+      options,
+      categories,
+      categoriesError,
+    } = this.state;
+
     return (
       <form data-testid="BookForm-testId" onSubmit={this.handleAddBook} className={s.form}>
-        <InputText
-          error={this.state.titleError}
-          required={true}
-          refLink={this.titleRef}
-          name="title"
-          label="Title"
-        />
+        <InputText error={titleError} required refLink={this.titleRef} name="title" label="Title" />
         <InputText refLink={this.isbnRef} name="isbn" label="isbn" />
         <InputAnother
-          error={this.state.pagesError}
-          required={true}
+          error={pagesError}
+          required
           refLink={this.pageCountRef}
           name="pageCount"
           label="Page count"
           type="number"
         />
         <InputText
-          required={true}
-          error={this.state.authorsError}
+          required
+          error={authorsError}
           refLink={this.authorsRef}
           name="authors"
           label="Authors"
         />
         <TextareaComponent
-          error={this.state.shortDescriptionError}
-          required={true}
+          error={shortDescriptionError}
+          required
           refLink={this.shortDescriptionRef}
           name="shortDescription"
           rows={3}
@@ -239,15 +259,10 @@ export default class BookForm extends Component<Props, State> {
           type="date"
         />
         <DownloadImg refLink={this.downloadImgRef} />
-        <SelectComponent
-          label="Status"
-          options={this.state.options}
-          refLink={this.statusRef}
-          name="status"
-        />
+        <SelectComponent label="Status" options={options} refLink={this.statusRef} name="status" />
         <Categories
-          options={this.state.categories}
-          error={this.state.categoriesError}
+          options={categories}
+          error={categoriesError}
           refsLinks={this.checkboxRefs}
           name="categories"
         />

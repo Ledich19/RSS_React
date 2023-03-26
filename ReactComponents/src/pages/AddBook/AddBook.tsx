@@ -1,6 +1,6 @@
-import Collection from '../../pages/Collection/Collection';
 import React, { Component } from 'react';
 import { InfoData } from 'app/types';
+import Collection from '../Collection/Collection';
 import BookForm from '../../components/BookForm/BookForm';
 import NotifyComponent from '../../components/NotifyComponent/NotifyComponent';
 
@@ -25,7 +25,8 @@ export default class AddBook extends Component<object, State> {
   }
 
   addBook = (newBook: InfoData) => {
-    this.setState({ books: this.state.books.concat(newBook) });
+    const { books } = this.state;
+    this.setState({ books: books.concat(newBook) });
     this.setState({ notifyMessage: { type: 'success', text: 'book added' } });
     setTimeout(() => {
       this.setState({ notifyMessage: { type: '', text: '' } });
@@ -33,11 +34,12 @@ export default class AddBook extends Component<object, State> {
   };
 
   render() {
+    const { notifyMessage, books } = this.state;
     return (
       <>
         <BookForm addBook={this.addBook} />
-        <NotifyComponent notifyMessage={this.state.notifyMessage} />
-        <Collection books={this.state.books} search="" />
+        <NotifyComponent notifyMessage={notifyMessage} />
+        <Collection books={books} search="" />
       </>
     );
   }
