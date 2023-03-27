@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useMemo } from 'react';
 import { InfoData } from 'app/types';
 import Card from '../../components/Card/Card';
 import s from './Collection.module.scss';
@@ -7,22 +7,22 @@ interface Props {
   search: string;
   books: InfoData[];
 }
-export default class Collection extends Component<Props> {
-  filterBooks = (search: string) => {
-    const { books } = this.props;
-    return books.filter((book) => book.title.toUpperCase().includes(search.toUpperCase()));
-  };
 
-  render() {
-    const { search } = this.props;
-    const filteredBooks = this.filterBooks(search);
+const Collection = ({ search, books }: Props) => {
+  const filteredBooks = useMemo(() => {
+    const filterBooks = (search: string) => {
+      return books.filter((book) => book.title.toUpperCase().includes(search.toUpperCase()));
+    };
+    return filterBooks(search);
+  }, [search, books]);
 
-    return (
-      <div className={s.collection}>
-        {filteredBooks.map((book) => (
-          <Card key={book.title} infoData={book} />
-        ))}
-      </div>
-    );
-  }
-}
+  return (
+    <div className={s.collection}>
+      {filteredBooks.map((book) => (
+        <Card key={book.title} infoData={book} />
+      ))}
+    </div>
+  );
+};
+
+export default Collection;
