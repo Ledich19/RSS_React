@@ -1,48 +1,35 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchComponent from './SearchComponent';
 
 interface Props {
   setSearchState: (value: string) => void;
 }
 
-interface State {
-  value: string;
-}
+const SearchContainer = ({ setSearchState }: Props) => {
+  const [searchValue, setSearchValue] = useState<string>(
+    localStorage.getItem('searchString') || ''
+  );
 
-export default class SearchContainer extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = {
-      value: localStorage.getItem('searchString') || '',
+  useEffect(() => {
+    return () => {
+      localStorage.setItem('searchString', searchValue);
     };
-  }
-  componentDidMount(): void {
-    this.setState({ value: localStorage.getItem('searchString') || '' });
-  }
+  }, [searchValue]);
 
-  componentWillUnmount() {
-    const { value } = this.state;
-    localStorage.setItem('searchString', value);
-  }
-
-  handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ value: e.target.value });
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value);
   };
 
-  handleSearch = () => {
-    const { setSearchState } = this.props;
-    const { value } = this.state;
-    setSearchState(value);
+  const handleSearch = () => {
+    setSearchState(searchValue);
   };
 
-  render() {
-    const { value } = this.state;
-    return (
-      <SearchComponent
-        value={value}
-        handleInputChange={this.handleInputChange}
-        handleSearch={this.handleSearch}
-      />
-    );
-  }
-}
+  return (
+    <SearchComponent
+      value={searchValue}
+      handleInputChange={handleInputChange}
+      handleSearch={handleSearch}
+    />
+  );
+};
+export default SearchContainer;
