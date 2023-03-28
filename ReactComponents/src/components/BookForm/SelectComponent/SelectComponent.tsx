@@ -1,28 +1,25 @@
-import React, { Component, RefObject } from 'react';
+import { UseFormRegisterReturn } from 'react-hook-form';
 import s from './SelectComponent.module.scss';
 
 interface Props {
-  name: string;
+  register: UseFormRegisterReturn;
   options: string[];
   label: string;
-  refLink: RefObject<HTMLSelectElement>;
 }
 
-export default class SelectComponent extends Component<Props> {
-  render() {
-    const { label, name, options, refLink } = this.props;
+const SelectComponent = ({ register, options, label }: Props) => {
+  return (
+    <label className={s.label} htmlFor={label}>
+      {label}
+      <select {...register} data-testid="SelectComponent-testId" id={label}>
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+};
 
-    return (
-      <label className={s.label} htmlFor={label}>
-        {label}
-        <select data-testid="SelectComponent-testId" id={label} name={name} ref={refLink}>
-          {options.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-      </label>
-    );
-  }
-}
+export default SelectComponent;

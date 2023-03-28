@@ -9,8 +9,6 @@ interface Props {
 }
 
 const InputText = ({ required, error, register, label }: Props) => {
-  console.log(register);
-
   return (
     <label className={s.label} htmlFor={register.name}>
       {error && <div className={s.error}>{error}</div>}

@@ -1,35 +1,32 @@
-import React, { Component, RefObject } from 'react';
 import s from './Categories.module.scss';
 
 interface Props {
-  name: string;
-  error?: string;
-  options: string[];
-  refsLinks: RefObject<HTMLInputElement>[];
+  value: string[];
+  categories: string[];
+  onChange: ([]) => void;
 }
 
-export default class Categories extends Component<Props> {
-  render() {
-    const { error, options, name, refsLinks } = this.props;
-    return (
-      <div data-testid="category-checkboxes" className={s.categories}>
-        {error && <div className={s.error}>{error}</div>}
-        {options.map((cat, i) => {
-          return (
-            <label key={i} className={s.label} htmlFor={cat}>
-              <input
-                name={name}
-                id={cat}
-                ref={refsLinks[i]}
-                className={s.input}
-                type="checkbox"
-                value={cat}
-              />
-              {cat}
-            </label>
-          );
-        })}
-      </div>
-    );
-  }
-}
+const Categories = ({ value, categories, onChange }: Props) => {
+  return (
+    <div data-testid="category-checkboxes" className={s.categories}>
+      {categories.map((option) => (
+        <label key={option} className={s.label}>
+          <input
+            className={s.input}
+            type="checkbox"
+            name={`categories[${option}]`}
+            value={option}
+            onChange={(e) => {
+              const checked = e.target.checked;
+              onChange([...value.filter((v) => v !== option), ...(checked ? [option] : [])]);
+            }}
+            checked={value.includes(option)}
+          />
+          {option}
+        </label>
+      ))}
+    </div>
+  );
+};
+
+export default Categories;

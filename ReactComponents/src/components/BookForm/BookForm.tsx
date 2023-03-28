@@ -7,7 +7,7 @@ import InputAnother from './InputAnother/InputAnother';
 import InputText from './InputText/InputText';
 import SelectComponent from './SelectComponent/SelectComponent';
 import TextareaComponent from './TextareaComponent/TextareaComponent';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 
 interface Props {
   addBook: (value: InfoData) => void;
@@ -29,28 +29,13 @@ export type FormData = {
 const BookForm = ({ addBook }: Props) => {
   const {
     register,
+    control,
     setValue,
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>({
     mode: 'onSubmit',
   });
-
-  const isbnRef = useRef<HTMLInputElement>(null);
-  const pageCountRef = useRef<HTMLInputElement>(null);
-  const authorsRef = useRef<HTMLInputElement>(null);
-  const shortDescriptionRef = useRef<HTMLTextAreaElement>(null);
-  const longDescriptionRef = useRef<HTMLTextAreaElement>(null);
-  const publishedDateRef = useRef<HTMLInputElement>(null);
-  const statusRef = useRef<HTMLSelectElement>(null);
-  const downloadImgRef = useRef<HTMLInputElement>(null);
-  // const checkboxRefs = Array(10)
-  //   .fill('')
-  //   .map(() => useRef<HTMLInputElement>(null));
-
-  const [authorsError, setAuthorsError] = useState('');
-  const [categoriesError, setCategoriesError] = useState('');
-  const [shortDescriptionError, setShortDescriptionError] = useState('');
 
   const categories = [
     'open Source',
@@ -80,46 +65,8 @@ const BookForm = ({ addBook }: Props) => {
     });
   }
 
-  const validateShortDescription = (description: string | undefined) => {
-    if (!description) {
-      setShortDescriptionError(`title should't be empty`);
-      return;
-    }
-    if (description.length < 3) {
-      setShortDescriptionError(`title should't be less then 20`);
-      return;
-    }
-    setShortDescriptionError('');
-    return true;
-  };
-
-  // const validateCategories = (categories: string[]): boolean => {
-  //   let check;
-  //   if (categories.length < 1) {
-  //     this.setState({ categoriesError: 'at least one checkbox must be selected' });
-  //     check = false;
-  //   } else {
-  //     this.setState({ categoriesError: '' });
-  //     check = true;
-  //   }
-  //   return check;
-  // };
-
-  const validationForm = (book: InfoData): boolean => {
-    const { authors, categories, title, pageCount, shortDescription } = book;
-    //const categoriesResult = this.validateCategories(categories);
-
-    const shortDescriptionResult = validateShortDescription(shortDescription);
-    if (
-      //!categoriesResult ||
-      !shortDescriptionResult
-    )
-      return false;
-    return true;
-  };
-
   const handleAddBook = handleSubmit(async (data) => {
-    console.log(data);
+    console.log('data', data);
 
     // const categoriesValues = this.checkboxRefs
     //   .filter((ref) => ref.current?.checked)
@@ -151,15 +98,6 @@ const BookForm = ({ addBook }: Props) => {
     // addBook(newBook);
     //(e.target as HTMLFormElement).reset();
   });
-  const validateFirstLetter = (authors: string): string | boolean => {
-    console.log(typeof authors);
-
-    const isValid = authors.split(',').every((name) => {
-      const words = name.split(' ');
-      return words.every((word) => word.charAt(0) === word.charAt(0).toUpperCase());
-    });
-    return isValid || 'should start with big letter';
-  };
 
   return (
     <form onSubmit={handleAddBook} data-testid="BookForm-testId" className={s.form}>
@@ -209,18 +147,20 @@ const BookForm = ({ addBook }: Props) => {
         type="date"
         label="Published date"
         register={register('publishedDate', {
-          required: 'Page count is required',
+          required: 'Published date is required',
         })}
       />
       <DownloadImg register={register('thumbnailUrl')} />
-      {/* 
-      <SelectComponent label="Status" options={options} refLink={statusRef} name="status" /> */}
-      {/* <Categories
-        options={categories}
-        error={categoriesError}
-        refsLinks={this.checkboxRefs}
+      <SelectComponent label="Status" options={options} register={register('status')} />
+
+      <Controller
         name="categories"
-      /> */}
+        control={control}
+        render={({ field: { onChange, value = [] } }) => (
+          <Categories onChange={onChange} categories={categories} value={value} />
+        )}
+      />
+
       <button className={s.submit} type="submit">
         add book
       </button>

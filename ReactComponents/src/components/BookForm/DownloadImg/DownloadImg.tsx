@@ -1,4 +1,4 @@
-import React, { Component, RefObject, useState } from 'react';
+import { useState } from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
 import s from './DownloadImg.module.scss';
