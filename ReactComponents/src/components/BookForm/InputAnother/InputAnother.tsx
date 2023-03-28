@@ -1,26 +1,25 @@
 import React, { Component, RefObject } from 'react';
 import s from './InputAnother.module.scss';
+import { UseFormRegisterReturn } from 'react-hook-form';
 
 interface Props {
-  label: string;
-  type: string;
-  name: string;
   required?: boolean;
+  label: string;
   error?: string;
-  refLink: RefObject<HTMLInputElement>;
+  type: string;
+  register: UseFormRegisterReturn;
 }
 
-export default class InputAnother extends Component<Props> {
-  render() {
-    const { label, error, required, name, type, refLink } = this.props;
-    return (
-      <label className={s.label} htmlFor={label}>
-        {error && <div className={s.error}>{error}</div>}
-        <span>
-          {label}:{required && <span className={s.required}>*</span>}
-        </span>
-        <input id={label} name={name} ref={refLink} className={s.input} type={type} />
-      </label>
-    );
-  }
-}
+const InputAnother = ({ required, label, error, type, register }: Props) => {
+  return (
+    <label className={s.label} htmlFor={register.name}>
+      {error && <div className={s.error}>{error}</div>}
+      <span>
+        {label}:{required && <span className={s.required}>*</span>}
+      </span>
+      <input id={register.name} {...register} className={s.input} type={type} />
+    </label>
+  );
+};
+
+export default InputAnother;

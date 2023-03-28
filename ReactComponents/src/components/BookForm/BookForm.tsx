@@ -12,15 +12,19 @@ import { useForm } from 'react-hook-form';
 interface Props {
   addBook: (value: InfoData) => void;
 }
-interface State {
+
+export type FormData = {
+  title: string;
+  isbn?: string;
+  pageCount: number;
+  publishedDate: { $date: string };
+  thumbnailUrl?: string;
+  shortDescription?: string;
+  longDescription?: string;
+  status: string;
+  authors: string[];
   categories: string[];
-  options: string[];
-  authorsError: string;
-  categoriesError: string;
-  titleError: string;
-  pagesError: string;
-  shortDescriptionError: string;
-}
+};
 
 const BookForm = ({ addBook }: Props) => {
   const {
@@ -28,9 +32,10 @@ const BookForm = ({ addBook }: Props) => {
     setValue,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm<FormData>({
+    mode: 'onSubmit',
+  });
 
-  const titleRef = useRef<HTMLInputElement>(null);
   const isbnRef = useRef<HTMLInputElement>(null);
   const pageCountRef = useRef<HTMLInputElement>(null);
   const authorsRef = useRef<HTMLInputElement>(null);
@@ -45,8 +50,6 @@ const BookForm = ({ addBook }: Props) => {
 
   const [authorsError, setAuthorsError] = useState('');
   const [categoriesError, setCategoriesError] = useState('');
-  const [titleError, setTitleError] = useState('');
-  const [pagesError, setPagesError] = useState('');
   const [shortDescriptionError, setShortDescriptionError] = useState('');
 
   const categories = [
@@ -90,46 +93,6 @@ const BookForm = ({ addBook }: Props) => {
     return true;
   };
 
-  const validateTitle = (title: string): boolean => {
-    if (!title) {
-      setTitleError(`title should't be empty`);
-      return false;
-    }
-
-    if (title.length < 3) {
-      setTitleError(`title should't be less then 3`);
-      return false;
-    }
-    setTitleError('');
-    return true;
-  };
-
-  const validatePages = (title: number): boolean => {
-    if (!title) {
-      setPagesError(`title should't be empty`);
-      return false;
-    }
-    setPagesError('');
-    return true;
-  };
-
-  const validateAuthors = (authors: string[]): boolean => {
-    const check = authors.every((name) => {
-      const words = name.split(' ');
-      return words.every((word) => word.charAt(0) === word.charAt(0).toUpperCase());
-    });
-    if (!authors[0] && authors.length === 1) {
-      setAuthorsError(`authors should't be empty`);
-      return false;
-    }
-    if (!check) {
-      setAuthorsError('should start with big letter');
-      return false;
-    }
-    setAuthorsError('');
-    return true;
-  };
-
   // const validateCategories = (categories: string[]): boolean => {
   //   let check;
   //   if (categories.length < 1) {
@@ -146,14 +109,11 @@ const BookForm = ({ addBook }: Props) => {
     const { authors, categories, title, pageCount, shortDescription } = book;
     const authorsResult = validateAuthors(authors);
     //const categoriesResult = this.validateCategories(categories);
-    const titleResult = validateTitle(title);
-    const pagesResult = validatePages(pageCount);
+
     const shortDescriptionResult = validateShortDescription(shortDescription);
     if (
       !authorsResult ||
       //!categoriesResult ||
-      !titleResult ||
-      !pagesResult ||
       !shortDescriptionResult
     )
       return false;
@@ -167,52 +127,78 @@ const BookForm = ({ addBook }: Props) => {
     //   .filter((ref) => ref.current?.checked)
     //   .map((ref) => ref.current?.value || '');
 
-    const files = downloadImgRef.current?.files;
-    let imageUrl = '';
-    if (files && files[0]) {
-      imageUrl = await readImageFile(files[0]);
-    }
+    // const files = downloadImgRef.current?.files;
+    // let imageUrl = '';
+    // if (files && files[0]) {
+    //   imageUrl = await readImageFile(files[0]);
+    // }
 
-    const newBook = {
-      title: titleRef.current?.value || '',
-      isbn: isbnRef.current?.value || '',
-      pageCount: parseInt(pageCountRef.current?.value || '0', 10),
-      authors: authorsRef.current?.value.split(',').map((s) => s.trim()) || [],
-      shortDescription: shortDescriptionRef.current?.value || '',
-      longDescription: longDescriptionRef.current?.value || '',
-      publishedDate: { $date: publishedDateRef.current?.value || '' },
-      thumbnailUrl: imageUrl || '',
-      status: statusRef.current?.value || '',
-      categories: [],
-      //categories: categoriesValues || [],
-    };
+    // const newBook = {
+    //   title: titleRef.current?.value || '',
+    //   isbn: isbnRef.current?.value || '',
+    //   pageCount: parseInt(pageCountRef.current?.value || '0', 10),
+    //   authors: authorsRef.current?.value.split(',').map((s) => s.trim()) || [],
+    //   shortDescription: shortDescriptionRef.current?.value || '',
+    //   longDescription: longDescriptionRef.current?.value || '',
+    //   publishedDate: { $date: publishedDateRef.current?.value || '' },
+    //   thumbnailUrl: imageUrl || '',
+    //   status: statusRef.current?.value || '',
+    //   categories: [],
+    //   //categories: categoriesValues || [],
+    // };
 
-    if (!validationForm(newBook)) {
-      return;
-    }
-    addBook(newBook);
+    // if (!validationForm(newBook)) {
+    //   return;
+    // }
+    // addBook(newBook);
     //(e.target as HTMLFormElement).reset();
   });
+  const validateFirstLetter = (authors: string): string | boolean => {
+    console.log(typeof authors);
+
+    const isValid = authors.split(',').every((name) => {
+      const words = name.split(' ');
+      return words.every((word) => word.charAt(0) === word.charAt(0).toUpperCase());
+    });
+    return isValid || 'should start with big letter';
+  };
 
   return (
     <form onSubmit={handleAddBook} data-testid="BookForm-testId" className={s.form}>
-      <InputText error={titleError} required refLink={titleRef} name="title" label="Title" />
-      <InputText refLink={isbnRef} name="isbn" label="isbn" />
-      <InputAnother
-        error={pagesError}
+      <InputText
         required
-        refLink={pageCountRef}
-        name="pageCount"
-        label="Page count"
+        label="Title"
+        register={register('title', {
+          required: 'Title is required',
+          minLength: { value: 3, message: "title should't be less then 3" },
+        })}
+        error={errors.title?.message}
+      />
+      <InputText label="isbn" register={register('isbn')} />
+      <InputAnother
+        required
         type="number"
+        label="Page count"
+        register={register('pageCount', {
+          required: 'Page count is required',
+        })}
+        error={errors.pageCount?.message}
       />
       <InputText
         required
-        error={authorsError}
-        refLink={authorsRef}
-        name="authors"
         label="Authors"
+        register={register('authors', {
+          required: 'Authors is required',
+          pattern: {
+            value: /^[A-Z][a-z]*(\s+[A-Z][a-z]*)*$/,
+            message: 'should start with big letter',
+          },
+        })}
+        error={errors.authors?.message}
       />
+
+      {/* 
+      
       <TextareaComponent
         error={shortDescriptionError}
         required
@@ -234,7 +220,7 @@ const BookForm = ({ addBook }: Props) => {
         type="date"
       />
       <DownloadImg refLink={downloadImgRef} />
-      <SelectComponent label="Status" options={options} refLink={statusRef} name="status" />
+      <SelectComponent label="Status" options={options} refLink={statusRef} name="status" /> */}
       {/* <Categories
         options={categories}
         error={categoriesError}

@@ -1,24 +1,22 @@
-import React, { Component, RefObject } from 'react';
+import { UseFormRegisterReturn } from 'react-hook-form';
 import s from './InputText.module.scss';
 
 interface Props {
-  label: string;
-  name: string;
   required?: boolean;
+  label: string;
   error?: string;
-  refLink: RefObject<HTMLInputElement>;
+  register: UseFormRegisterReturn;
 }
 
-export default class InputText extends Component<Props> {
-  render() {
-    const { label, error, required, name, refLink } = this.props;
+const InputText = ({ required, error, register, label }: Props) => {
+  console.log(register);
 
-    return (
-      <label className={s.label} htmlFor={label}>
-        {error && <div className={s.error}>{error}</div>}
-        {label} : {required && <span className={s.required}>*</span>}
-        <input id={label} name={name} ref={refLink} className={s.input} type="text" />
-      </label>
-    );
-  }
-}
+  return (
+    <label className={s.label} htmlFor={register.name}>
+      {error && <div className={s.error}>{error}</div>}
+      {label} : {required && <span className={s.required}>*</span>}
+      <input {...register} id={register.name} className={s.input} type="text" />
+    </label>
+  );
+};
+export default InputText;
