@@ -1,4 +1,4 @@
-import React, { Component, createRef, RefObject } from 'react';
+import React, { useState, useRef } from 'react';
 import { InfoData } from 'app/types';
 import s from './BookForm.module.scss';
 import Categories from './Categories/Categories';
@@ -7,6 +7,7 @@ import InputAnother from './InputAnother/InputAnother';
 import InputText from './InputText/InputText';
 import SelectComponent from './SelectComponent/SelectComponent';
 import TextareaComponent from './TextareaComponent/TextareaComponent';
+import { useForm } from 'react-hook-form';
 
 interface Props {
   addBook: (value: InfoData) => void;
@@ -21,64 +22,41 @@ interface State {
   shortDescriptionError: string;
 }
 
-export default class BookForm extends Component<Props, State> {
-  private titleRef: RefObject<HTMLInputElement>;
+const BookForm = ({ addBook }: Props) => {
+  const titleRef = useRef<HTMLInputElement>(null);
+  const isbnRef = useRef<HTMLInputElement>(null);
+  const pageCountRef = useRef<HTMLInputElement>(null);
+  const authorsRef = useRef<HTMLInputElement>(null);
+  const shortDescriptionRef = useRef<HTMLTextAreaElement>(null);
+  const longDescriptionRef = useRef<HTMLTextAreaElement>(null);
+  const publishedDateRef = useRef<HTMLInputElement>(null);
+  const statusRef = useRef<HTMLSelectElement>(null);
+  const downloadImgRef = useRef<HTMLInputElement>(null);
+  // const checkboxRefs = Array(10)
+  //   .fill('')
+  //   .map(() => useRef<HTMLInputElement>(null));
 
-  private isbnRef: RefObject<HTMLInputElement>;
+  const [authorsError, setAuthorsError] = useState('');
+  const [categoriesError, setCategoriesError] = useState('');
+  const [titleError, setTitleError] = useState('');
+  const [pagesError, setPagesError] = useState('');
+  const [shortDescriptionError, setShortDescriptionError] = useState('');
 
-  private pageCountRef: RefObject<HTMLInputElement>;
+  const categories = [
+    'open Source',
+    'mobile',
+    'web',
+    'software',
+    'internet',
+    'microsoft',
+    'programming',
+    'business',
+    'Graph',
+    'server',
+  ];
+  const options = ['PUBLISH', 'IN PROGRESS', 'BACKORDER', 'OUT OF STOCK', 'UNPUBLISHED'];
 
-  private authorsRef: RefObject<HTMLInputElement>;
-
-  private publishedDateRef: RefObject<HTMLInputElement>;
-
-  private checkboxRefs: RefObject<HTMLInputElement>[];
-
-  private statusRef: RefObject<HTMLSelectElement>;
-
-  private shortDescriptionRef: RefObject<HTMLTextAreaElement>;
-
-  private longDescriptionRef: RefObject<HTMLTextAreaElement>;
-
-  private downloadImgRef: RefObject<HTMLInputElement>;
-
-  constructor(props: Props) {
-    super(props);
-    this.titleRef = createRef();
-    this.isbnRef = createRef();
-    this.pageCountRef = createRef();
-    this.authorsRef = createRef();
-    this.shortDescriptionRef = createRef();
-    this.longDescriptionRef = createRef();
-    this.publishedDateRef = createRef();
-    this.statusRef = createRef();
-    this.downloadImgRef = createRef();
-    this.checkboxRefs = Array(10)
-      .fill('')
-      .map(() => React.createRef());
-    this.state = {
-      categories: [
-        'open Source',
-        'mobile',
-        'web',
-        'software',
-        'internet',
-        'microsoft',
-        'programming',
-        'business',
-        'Graph',
-        'server',
-      ],
-      options: ['PUBLISH', 'IN PROGRESS', 'BACKORDER', 'OUT OF STOCK', 'UNPUBLISHED'],
-      authorsError: '',
-      categoriesError: '',
-      titleError: '',
-      pagesError: '',
-      shortDescriptionError: '',
-    };
-  }
-
-  readImageFile(file: File): Promise<string> {
+  function readImageFile(file: File): Promise<string> {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.addEventListener('load', () => {
@@ -92,81 +70,81 @@ export default class BookForm extends Component<Props, State> {
     });
   }
 
-  private validateShortDescription = (description: string | undefined) => {
+  const validateShortDescription = (description: string | undefined) => {
     if (!description) {
-      this.setState({ shortDescriptionError: `title should't be empty` });
+      setShortDescriptionError(`title should't be empty`);
       return;
     }
     if (description.length < 3) {
-      this.setState({ shortDescriptionError: `title should't be less then 20` });
+      setShortDescriptionError(`title should't be less then 20`);
       return;
     }
-    this.setState({ shortDescriptionError: '' });
+    setShortDescriptionError('');
     return true;
   };
 
-  private validateTitle = (title: string): boolean => {
+  const validateTitle = (title: string): boolean => {
     if (!title) {
-      this.setState({ titleError: `title should't be empty` });
+      setTitleError(`title should't be empty`);
       return false;
     }
 
     if (title.length < 3) {
-      this.setState({ titleError: `title should't be less then 3` });
+      setTitleError(`title should't be less then 3`);
       return false;
     }
-    this.setState({ titleError: '' });
+    setTitleError('');
     return true;
   };
 
-  private validatePages = (title: number): boolean => {
+  const validatePages = (title: number): boolean => {
     if (!title) {
-      this.setState({ pagesError: `title should't be empty` });
+      setPagesError(`title should't be empty`);
       return false;
     }
-    this.setState({ pagesError: '' });
+    setPagesError('');
     return true;
   };
 
-  private validateAuthors = (authors: string[]): boolean => {
+  const validateAuthors = (authors: string[]): boolean => {
     const check = authors.every((name) => {
       const words = name.split(' ');
       return words.every((word) => word.charAt(0) === word.charAt(0).toUpperCase());
     });
     if (!authors[0] && authors.length === 1) {
-      this.setState({ authorsError: `authors should't be empty` });
+      setAuthorsError(`authors should't be empty`);
       return false;
     }
     if (!check) {
-      this.setState({ authorsError: 'should start with big letter' });
+      setAuthorsError('should start with big letter');
       return false;
     }
-    this.setState({ authorsError: '' });
+    setAuthorsError('');
     return true;
   };
 
-  private validateCategories = (categories: string[]): boolean => {
-    let check;
-    if (categories.length < 1) {
-      this.setState({ categoriesError: 'at least one checkbox must be selected' });
-      check = false;
-    } else {
-      this.setState({ categoriesError: '' });
-      check = true;
-    }
-    return check;
-  };
+  // const validateCategories = (categories: string[]): boolean => {
+  //   let check;
+  //   if (categories.length < 1) {
+  //     this.setState({ categoriesError: 'at least one checkbox must be selected' });
+  //     check = false;
+  //   } else {
+  //     this.setState({ categoriesError: '' });
+  //     check = true;
+  //   }
+  //   return check;
+  // };
 
-  validationForm = (book: InfoData): boolean => {
+  const validationForm = (book: InfoData): boolean => {
     const { authors, categories, title, pageCount, shortDescription } = book;
-    const authorsResult = this.validateAuthors(authors);
-    const categoriesResult = this.validateCategories(categories);
-    const titleResult = this.validateTitle(title);
-    const pagesResult = this.validatePages(pageCount);
-    const shortDescriptionResult = this.validateShortDescription(shortDescription);
+    const authorsResult = validateAuthors(authors);
+    //const categoriesResult = this.validateCategories(categories);
+    const titleResult = validateTitle(title);
+    const pagesResult = validatePages(pageCount);
+    const shortDescriptionResult = validateShortDescription(shortDescription);
     if (
       !authorsResult ||
-      !categoriesResult ||
+      //!categoriesResult ||
       !titleResult ||
       !pagesResult ||
       !shortDescriptionResult
@@ -175,101 +153,90 @@ export default class BookForm extends Component<Props, State> {
     return true;
   };
 
-  handleAddBook = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleAddBook = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const categoriesValues = this.checkboxRefs
-      .filter((ref) => ref.current?.checked)
-      .map((ref) => ref.current?.value || '');
+    // const categoriesValues = this.checkboxRefs
+    //   .filter((ref) => ref.current?.checked)
+    //   .map((ref) => ref.current?.value || '');
 
-    const files = this.downloadImgRef.current?.files;
+    const files = downloadImgRef.current?.files;
     let imageUrl = '';
     if (files && files[0]) {
-      imageUrl = await this.readImageFile(files[0]);
+      imageUrl = await readImageFile(files[0]);
     }
 
     const newBook = {
-      title: this.titleRef.current?.value || '',
-      isbn: this.isbnRef.current?.value || '',
-      pageCount: parseInt(this.pageCountRef.current?.value || '0', 10),
-      authors: this.authorsRef.current?.value.split(',').map((s) => s.trim()) || [],
-      shortDescription: this.shortDescriptionRef.current?.value || '',
-      longDescription: this.longDescriptionRef.current?.value || '',
-      publishedDate: { $date: this.publishedDateRef.current?.value || '' },
+      title: titleRef.current?.value || '',
+      isbn: isbnRef.current?.value || '',
+      pageCount: parseInt(pageCountRef.current?.value || '0', 10),
+      authors: authorsRef.current?.value.split(',').map((s) => s.trim()) || [],
+      shortDescription: shortDescriptionRef.current?.value || '',
+      longDescription: longDescriptionRef.current?.value || '',
+      publishedDate: { $date: publishedDateRef.current?.value || '' },
       thumbnailUrl: imageUrl || '',
-      status: this.statusRef.current?.value || '',
-      categories: categoriesValues || [],
+      status: statusRef.current?.value || '',
+      categories: [],
+      //categories: categoriesValues || [],
     };
 
-    if (!this.validationForm(newBook)) {
+    if (!validationForm(newBook)) {
       return;
     }
-    const { addBook } = this.props;
     addBook(newBook);
     (e.target as HTMLFormElement).reset();
   };
 
-  render() {
-    const {
-      titleError,
-      pagesError,
-      authorsError,
-      shortDescriptionError,
-      options,
-      categories,
-      categoriesError,
-    } = this.state;
-
-    return (
-      <form data-testid="BookForm-testId" onSubmit={this.handleAddBook} className={s.form}>
-        <InputText error={titleError} required refLink={this.titleRef} name="title" label="Title" />
-        <InputText refLink={this.isbnRef} name="isbn" label="isbn" />
-        <InputAnother
-          error={pagesError}
-          required
-          refLink={this.pageCountRef}
-          name="pageCount"
-          label="Page count"
-          type="number"
-        />
-        <InputText
-          required
-          error={authorsError}
-          refLink={this.authorsRef}
-          name="authors"
-          label="Authors"
-        />
-        <TextareaComponent
-          error={shortDescriptionError}
-          required
-          refLink={this.shortDescriptionRef}
-          name="shortDescription"
-          rows={3}
-          label="Short description"
-        />
-        <TextareaComponent
-          refLink={this.longDescriptionRef}
-          name="LongDescription"
-          rows={5}
-          label="long description"
-        />
-        <InputAnother
-          refLink={this.publishedDateRef}
-          name="publishedDate"
-          label="Published date"
-          type="date"
-        />
-        <DownloadImg refLink={this.downloadImgRef} />
-        <SelectComponent label="Status" options={options} refLink={this.statusRef} name="status" />
-        <Categories
-          options={categories}
-          error={categoriesError}
-          refsLinks={this.checkboxRefs}
-          name="categories"
-        />
-        <button className={s.submit} type="submit">
-          add book
-        </button>
-      </form>
-    );
-  }
-}
+  return (
+    <form data-testid="BookForm-testId" onSubmit={handleAddBook} className={s.form}>
+      <InputText error={titleError} required refLink={titleRef} name="title" label="Title" />
+      <InputText refLink={isbnRef} name="isbn" label="isbn" />
+      <InputAnother
+        error={pagesError}
+        required
+        refLink={pageCountRef}
+        name="pageCount"
+        label="Page count"
+        type="number"
+      />
+      <InputText
+        required
+        error={authorsError}
+        refLink={authorsRef}
+        name="authors"
+        label="Authors"
+      />
+      <TextareaComponent
+        error={shortDescriptionError}
+        required
+        refLink={shortDescriptionRef}
+        name="shortDescription"
+        rows={3}
+        label="Short description"
+      />
+      <TextareaComponent
+        refLink={longDescriptionRef}
+        name="LongDescription"
+        rows={5}
+        label="long description"
+      />
+      <InputAnother
+        refLink={publishedDateRef}
+        name="publishedDate"
+        label="Published date"
+        type="date"
+      />
+      <DownloadImg refLink={downloadImgRef} />
+      <SelectComponent label="Status" options={options} refLink={statusRef} name="status" />
+      {/* <Categories
+        options={categories}
+        error={categoriesError}
+        refsLinks={this.checkboxRefs}
+        name="categories"
+      /> */}
+      <button className={s.submit} type="submit">
+        add book
+      </button>
+    </form>
+  );
+};
+export default BookForm;
