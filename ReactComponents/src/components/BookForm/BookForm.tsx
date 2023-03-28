@@ -23,6 +23,13 @@ interface State {
 }
 
 const BookForm = ({ addBook }: Props) => {
+  const {
+    register,
+    setValue,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>();
+
   const titleRef = useRef<HTMLInputElement>(null);
   const isbnRef = useRef<HTMLInputElement>(null);
   const pageCountRef = useRef<HTMLInputElement>(null);
@@ -153,8 +160,9 @@ const BookForm = ({ addBook }: Props) => {
     return true;
   };
 
-  const handleAddBook = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleAddBook = handleSubmit(async (data) => {
+    console.log(data);
+
     // const categoriesValues = this.checkboxRefs
     //   .filter((ref) => ref.current?.checked)
     //   .map((ref) => ref.current?.value || '');
@@ -183,11 +191,11 @@ const BookForm = ({ addBook }: Props) => {
       return;
     }
     addBook(newBook);
-    (e.target as HTMLFormElement).reset();
-  };
+    //(e.target as HTMLFormElement).reset();
+  });
 
   return (
-    <form data-testid="BookForm-testId" onSubmit={handleAddBook} className={s.form}>
+    <form onSubmit={handleAddBook} data-testid="BookForm-testId" className={s.form}>
       <InputText error={titleError} required refLink={titleRef} name="title" label="Title" />
       <InputText refLink={isbnRef} name="isbn" label="isbn" />
       <InputAnother
