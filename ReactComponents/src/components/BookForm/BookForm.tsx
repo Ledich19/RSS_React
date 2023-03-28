@@ -194,7 +194,6 @@ const BookForm = ({ addBook }: Props) => {
         })}
         error={errors.authors?.message}
       />
-
       <TextareaComponent
         required
         label="Short description"
@@ -205,15 +204,16 @@ const BookForm = ({ addBook }: Props) => {
         error={errors.shortDescription?.message}
       />
       <TextareaComponent rows={5} label="long description" register={register('longDescription')} />
-      {/* 
-      
       <InputAnother
-        refLink={publishedDateRef}
-        name="publishedDate"
-        label="Published date"
+        required
         type="date"
+        label="Published date"
+        register={register('publishedDate', {
+          required: 'Page count is required',
+        })}
       />
-      <DownloadImg refLink={downloadImgRef} />
+      <DownloadImg register={register('thumbnailUrl')} />
+      {/* 
       <SelectComponent label="Status" options={options} refLink={statusRef} name="status" /> */}
       {/* <Categories
         options={categories}
