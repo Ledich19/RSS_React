@@ -107,12 +107,10 @@ const BookForm = ({ addBook }: Props) => {
 
   const validationForm = (book: InfoData): boolean => {
     const { authors, categories, title, pageCount, shortDescription } = book;
-    const authorsResult = validateAuthors(authors);
     //const categoriesResult = this.validateCategories(categories);
 
     const shortDescriptionResult = validateShortDescription(shortDescription);
     if (
-      !authorsResult ||
       //!categoriesResult ||
       !shortDescriptionResult
     )
@@ -197,22 +195,18 @@ const BookForm = ({ addBook }: Props) => {
         error={errors.authors?.message}
       />
 
+      <TextareaComponent
+        required
+        label="Short description"
+        rows={3}
+        register={register('shortDescription', {
+          required: 'Short description is required',
+        })}
+        error={errors.shortDescription?.message}
+      />
+      <TextareaComponent rows={5} label="long description" register={register('longDescription')} />
       {/* 
       
-      <TextareaComponent
-        error={shortDescriptionError}
-        required
-        refLink={shortDescriptionRef}
-        name="shortDescription"
-        rows={3}
-        label="Short description"
-      />
-      <TextareaComponent
-        refLink={longDescriptionRef}
-        name="LongDescription"
-        rows={5}
-        label="long description"
-      />
       <InputAnother
         refLink={publishedDateRef}
         name="publishedDate"

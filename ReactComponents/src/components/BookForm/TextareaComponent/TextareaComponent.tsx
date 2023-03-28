@@ -1,25 +1,22 @@
+import { UseFormRegisterReturn } from 'react-hook-form';
 import React, { Component, RefObject } from 'react';
 import s from './TextareaComponent.module.scss';
 
 interface Props {
-  label: string;
-  name: string;
-  rows: number;
   required?: boolean;
+  label: string;
   error?: string;
-  refLink: RefObject<HTMLTextAreaElement>;
+  register: UseFormRegisterReturn;
+  rows: number;
 }
 
-export default class TextareaComponent extends Component<Props> {
-  render() {
-    const { label, error, required, rows, refLink, name } = this.props;
-
-    return (
-      <label className={s.label} htmlFor={label}>
-        {error && <div className={s.error}>{error}</div>}
-        {label} : {required && <span className={s.required}>*</span>}
-        <textarea id={label} rows={rows} ref={refLink} name={name} className={s.textarea} />
-      </label>
-    );
-  }
-}
+const TextareaComponent = ({ required, label, error, register, rows }: Props) => {
+  return (
+    <label className={s.label} htmlFor={label}>
+      {error && <div className={s.error}>{error}</div>}
+      {label} : {required && <span className={s.required}>*</span>}
+      <textarea {...register} id={label} rows={rows} className={s.textarea} />
+    </label>
+  );
+};
+export default TextareaComponent;

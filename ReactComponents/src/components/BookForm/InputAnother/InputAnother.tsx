@@ -1,4 +1,3 @@
-import React, { Component, RefObject } from 'react';
 import s from './InputAnother.module.scss';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
