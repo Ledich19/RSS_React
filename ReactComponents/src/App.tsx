@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Outlet, Routes, Route, Navigate } from 'react-router-dom';
-import { InfoData } from 'app/types';
 import AboutUs from './pages/AboutUs/AboutUs';
 import Page404 from './pages/Page404/Page404';
 import './App.css';
@@ -9,7 +8,7 @@ import Collection from './pages/Collection/Collection';
 import booksData from './data/booksDb.json';
 import AddBook from './pages/AddBook/AddBook';
 
-function App() {
+const App = () => {
   const [search, setSearch] = useState('');
   const [books] = useState(booksData);
 
@@ -32,6 +31,6 @@ function App() {
       <Outlet />
     </div>
   );
-}
+};
 
 export default App;

@@ -12,14 +12,15 @@ const Categories = ({ value, categories, onChange, error }: Props) => {
     <div data-testid="category-checkboxes" className={s.categories}>
       {error && <div className={s.error}>{error}</div>}
       {categories.map((option) => (
-        <label key={option} className={s.label}>
+        <label key={option} className={s.label} htmlFor={`categories[${option}]`}>
           <input
+            id={`categories[${option}]`}
             className={s.input}
             type="checkbox"
             name={`categories[${option}]`}
             value={option}
             onChange={(e) => {
-              const checked = e.target.checked;
+              const { checked } = e.target;
               onChange([...value.filter((v) => v !== option), ...(checked ? [option] : [])]);
             }}
             checked={value.includes(option)}
@@ -29,6 +30,10 @@ const Categories = ({ value, categories, onChange, error }: Props) => {
       ))}
     </div>
   );
+};
+
+Categories.defaultProps = {
+  error: '',
 };
 
 export default Categories;

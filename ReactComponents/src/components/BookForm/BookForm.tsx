@@ -1,4 +1,5 @@
 import { InfoData } from 'app/types';
+import { useForm, Controller } from 'react-hook-form';
 import s from './BookForm.module.scss';
 import Categories from './Categories/Categories';
 import DownloadImg from './DownloadImg/DownloadImg';
@@ -6,7 +7,6 @@ import InputAnother from './InputAnother/InputAnother';
 import InputText from './InputText/InputText';
 import SelectComponent from './SelectComponent/SelectComponent';
 import TextareaComponent from './TextareaComponent/TextareaComponent';
-import { useForm, Controller } from 'react-hook-form';
 
 interface Props {
   addBook: (value: InfoData) => void;
@@ -59,7 +59,7 @@ const BookForm = ({ addBook }: Props) => {
       });
       reader.readAsDataURL(file);
       reader.addEventListener('error', () => {
-        reject('Failed to load image');
+        reject(new Error('Failed to load image'));
       });
     });
   }
@@ -75,9 +75,10 @@ const BookForm = ({ addBook }: Props) => {
     }
     const newBook = {
       ...data,
-      authors: data.authors.split(',').map((s) => s.trim()),
+      authors: data.authors.split(',').map((author) => author.trim()),
       thumbnailUrl: imageUrl,
       publishedDate: { $date: data.publishedDate },
+      categories: data.categories || [],
     };
 
     addBook(newBook);
@@ -111,7 +112,8 @@ const BookForm = ({ addBook }: Props) => {
         register={register('authors', {
           required: 'Authors is required',
           pattern: {
-            value: /^[A-ZА-Я][a-zа-я]*(\s+[A-ZА-Я][a-zа-я]*)*$/,
+            value:
+              /^([A-ZА-Я][a-zа-я]+(\s+[A-ZА-Я][a-zа-я]+)*)+(\s*,\s*([A-ZА-Я][a-zа-я]+(\s+[A-ZА-Я][a-zа-я]+)*))?$/,
             message: 'should start with one big letter',
           },
         })}

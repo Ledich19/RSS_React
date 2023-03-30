@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { InfoData } from 'app/types';
 import Collection from '../Collection/Collection';
 import BookForm from '../../components/BookForm/BookForm';

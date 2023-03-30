@@ -1,5 +1,4 @@
 import { UseFormRegisterReturn } from 'react-hook-form';
-import React, { Component, RefObject } from 'react';
 import s from './TextareaComponent.module.scss';
 
 interface Props {
@@ -19,4 +18,10 @@ const TextareaComponent = ({ required, label, error, register, rows }: Props) =>
     </label>
   );
 };
+
+TextareaComponent.defaultProps = {
+  required: false,
+  error: '',
+};
+
 export default TextareaComponent;

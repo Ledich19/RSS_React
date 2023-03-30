@@ -10,8 +10,10 @@ interface Props {
 
 const Collection = ({ search, books }: Props) => {
   const filteredBooks = useMemo(() => {
-    const filterBooks = (search: string) => {
-      return books.filter((book) => book.title.toUpperCase().includes(search.toUpperCase()));
+    const filterBooks = (searchParameter: string) => {
+      return books.filter((book) =>
+        book.title.toUpperCase().includes(searchParameter.toUpperCase())
+      );
     };
     return filterBooks(search);
   }, [search, books]);

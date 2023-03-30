@@ -1,5 +1,5 @@
-import s from './InputAnother.module.scss';
 import { UseFormRegisterReturn } from 'react-hook-form';
+import s from './InputAnother.module.scss';
 
 interface Props {
   required?: boolean;
@@ -19,6 +19,11 @@ const InputAnother = ({ required, label, error, type, register }: Props) => {
       <input id={register.name} {...register} className={s.input} type={type} />
     </label>
   );
+};
+
+InputAnother.defaultProps = {
+  required: false,
+  error: '',
 };
 
 export default InputAnother;

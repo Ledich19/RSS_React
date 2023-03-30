@@ -29,4 +29,8 @@ const NotifyComponent = ({ className, notifyMessage }: Props) => {
   );
 };
 
+NotifyComponent.defaultProps = {
+  className: '',
+};
+
 export default NotifyComponent;

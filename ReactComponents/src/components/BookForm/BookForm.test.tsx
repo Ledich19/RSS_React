@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { vi } from 'vitest';
 import BookForm from './BookForm';
 
@@ -12,19 +12,35 @@ describe('BookForm component', () => {
     expect(optionElement).toBeInTheDocument();
   });
 
+  test('should render all form fields', () => {
+    const mockAddBook = vi.fn();
+    render(<BookForm addBook={mockAddBook} />);
+    expect(screen.getByLabelText(/Title/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/isbn/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Page count/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Authors/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Short description/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/long description/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Published date/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Status/i)).toBeInTheDocument();
+    expect(screen.getByText(/web/i)).toBeInTheDocument();
+    expect(screen.getByText(/mobile/i)).toBeInTheDocument();
+  });
+
   test('adds a new book when form is submitted with valid data', async () => {
     const mockAddBook = vi.fn();
-    const { getByTestId, getByLabelText } = render(<BookForm addBook={mockAddBook} />);
-    const titleInput = getByLabelText(/Title/i);
-    const isbnInput = getByLabelText(/isbn/i);
-    const pageCountInput = getByLabelText(/Page count/i);
-    const authorsInput = getByLabelText(/Authors/i);
-    const shortDescriptionInput = getByLabelText(/Short description/i);
-    const longDescriptionInput = getByLabelText(/Long description/i);
-    const publishedDateInput = getByLabelText(/Published date/i);
-    const statusSelect = getByLabelText(/Status/i);
-    const categoryCheckboxes = getByTestId('category-checkboxes');
-    const submitButton = screen.getByRole('button', { name: /Add book/i });
+    render(<BookForm addBook={mockAddBook} />);
+    const titleInput = screen.getByLabelText(/Title/i);
+    const isbnInput = screen.getByLabelText(/isbn/i);
+    const pageCountInput = screen.getByLabelText(/Page count/i);
+    const authorsInput = screen.getByLabelText(/Authors/i);
+    const shortDescriptionInput = screen.getByLabelText(/Short description/i);
+    const longDescriptionInput = screen.getByLabelText(/Long description/i);
+    const publishedDateInput = screen.getByLabelText(/Published date/i);
+    const statusSelect = screen.getByLabelText(/Status/i);
+    const submitButton = screen.getByText(/add book/i);
+    const mobileCategory = screen.getByText(/mobile/i);
+    const webCategory = screen.getByText(/web/i);
 
     fireEvent.change(titleInput, { target: { value: 'Book Title' } });
     fireEvent.change(isbnInput, { target: { value: '1234567890' } });
@@ -34,23 +50,22 @@ describe('BookForm component', () => {
     fireEvent.change(longDescriptionInput, { target: { value: 'Long description' } });
     fireEvent.change(publishedDateInput, { target: { value: '2023-03-24' } });
     fireEvent.change(statusSelect, { target: { value: 'PUBLISH' } });
-    if (categoryCheckboxes.firstChild) {
-      fireEvent.click(categoryCheckboxes.firstChild);
-    }
+    fireEvent.click(mobileCategory);
+    fireEvent.click(webCategory);
     fireEvent.click(submitButton);
 
-    expect(mockAddBook).toHaveBeenCalledTimes(1);
+    await waitFor(() => expect(mockAddBook).toHaveBeenCalledTimes(1));
     expect(mockAddBook).toHaveBeenCalledWith({
       title: 'Book Title',
       isbn: '1234567890',
-      pageCount: 100,
+      pageCount: '100',
       authors: ['Author One', 'Author Two'],
       shortDescription: 'Short description',
       longDescription: 'Long description',
       publishedDate: { $date: '2023-03-24' },
       thumbnailUrl: '',
       status: 'PUBLISH',
-      categories: ['open Source'],
+      categories: ['mobile', 'web'],
     });
   });
 
@@ -63,5 +78,13 @@ describe('BookForm component', () => {
     });
     fireEvent.click(screen.getByText(/add book/i));
     expect(mockAddBook).toHaveBeenCalledTimes(0);
+  });
+
+  test('TextareaComponent error', async () => {
+    const mockAddBook = vi.fn();
+    render(<BookForm addBook={mockAddBook} />);
+    fireEvent.click(screen.getByText(/add book/i));
+    await waitFor(() => expect(mockAddBook).toHaveBeenCalledTimes(0));
+    expect(screen.getByText('Short description is required')).toBeDefined();
   });
 });

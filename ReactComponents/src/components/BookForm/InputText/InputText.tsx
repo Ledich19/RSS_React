@@ -17,4 +17,10 @@ const InputText = ({ required, error, register, label }: Props) => {
     </label>
   );
 };
+
+InputText.defaultProps = {
+  required: false,
+  error: '',
+};
+
 export default InputText;
