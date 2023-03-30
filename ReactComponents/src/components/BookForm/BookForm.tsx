@@ -22,13 +22,14 @@ export type FormData = {
   shortDescription?: string;
   longDescription?: string;
   status: string;
-  authors: string[];
+  authors: string;
   categories: string[];
 };
 
 const BookForm = ({ addBook }: Props) => {
   const {
     register,
+    reset,
     control,
     setValue,
     handleSubmit,
@@ -66,37 +67,23 @@ const BookForm = ({ addBook }: Props) => {
   }
 
   const handleAddBook = handleSubmit(async (data) => {
-    console.log('data', data);
+    let imageUrl = '';
+    if (typeof data.thumbnailUrl === 'string') {
+      imageUrl = data.thumbnailUrl;
+    }
+    const files = data.thumbnailUrl;
+    if (files && typeof files === 'object') {
+      console.log(typeof files);
+      imageUrl = await readImageFile(files[0]);
+    }
+    const newBook = {
+      ...data,
+      authors: data.authors.split(',').map((s) => s.trim()),
+      thumbnailUrl: imageUrl,
+    };
 
-    // const categoriesValues = this.checkboxRefs
-    //   .filter((ref) => ref.current?.checked)
-    //   .map((ref) => ref.current?.value || '');
-
-    // const files = downloadImgRef.current?.files;
-    // let imageUrl = '';
-    // if (files && files[0]) {
-    //   imageUrl = await readImageFile(files[0]);
-    // }
-
-    // const newBook = {
-    //   title: titleRef.current?.value || '',
-    //   isbn: isbnRef.current?.value || '',
-    //   pageCount: parseInt(pageCountRef.current?.value || '0', 10),
-    //   authors: authorsRef.current?.value.split(',').map((s) => s.trim()) || [],
-    //   shortDescription: shortDescriptionRef.current?.value || '',
-    //   longDescription: longDescriptionRef.current?.value || '',
-    //   publishedDate: { $date: publishedDateRef.current?.value || '' },
-    //   thumbnailUrl: imageUrl || '',
-    //   status: statusRef.current?.value || '',
-    //   categories: [],
-    //   //categories: categoriesValues || [],
-    // };
-
-    // if (!validationForm(newBook)) {
-    //   return;
-    // }
-    // addBook(newBook);
-    //(e.target as HTMLFormElement).reset();
+    addBook(newBook);
+    reset();
   });
 
   return (
@@ -126,8 +113,8 @@ const BookForm = ({ addBook }: Props) => {
         register={register('authors', {
           required: 'Authors is required',
           pattern: {
-            value: /^[A-Z][a-z]*(\s+[A-Z][a-z]*)*$/,
-            message: 'should start with big letter',
+            value: /^[A-ZА-Я][a-zа-я]*(\s+[A-ZА-Я][a-zа-я]*)*$/,
+            message: 'should start with one big letter',
           },
         })}
         error={errors.authors?.message}
@@ -142,22 +129,21 @@ const BookForm = ({ addBook }: Props) => {
         error={errors.shortDescription?.message}
       />
       <TextareaComponent rows={5} label="long description" register={register('longDescription')} />
-      <InputAnother
-        required
-        type="date"
-        label="Published date"
-        register={register('publishedDate', {
-          required: 'Published date is required',
-        })}
-      />
+      <InputAnother type="date" label="Published date" register={register('publishedDate')} />
       <DownloadImg register={register('thumbnailUrl')} />
       <SelectComponent label="Status" options={options} register={register('status')} />
 
       <Controller
         name="categories"
         control={control}
+        rules={{ required: 'Please select at least one category' }}
         render={({ field: { onChange, value = [] } }) => (
-          <Categories onChange={onChange} categories={categories} value={value} />
+          <Categories
+            error={errors.categories?.message}
+            onChange={onChange}
+            categories={categories}
+            value={value}
+          />
         )}
       />
 

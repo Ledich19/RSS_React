@@ -1,46 +1,33 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { InfoData } from 'app/types';
 import Collection from '../Collection/Collection';
 import BookForm from '../../components/BookForm/BookForm';
 import NotifyComponent from '../../components/NotifyComponent/NotifyComponent';
 
-interface State {
-  books: InfoData[];
-  notifyMessage: {
-    type: string;
-    text: string;
-  };
+interface NotifyMessage {
+  type: string;
+  text: string;
 }
 
-export default class AddBook extends Component<object, State> {
-  constructor(props: object) {
-    super(props);
-    this.state = {
-      books: [],
-      notifyMessage: {
-        type: '',
-        text: '',
-      },
-    };
-  }
+const AddBook = () => {
+  const [books, setBooks] = useState<InfoData[]>([]);
+  const [notifyMessage, setNotifyMessage] = useState<NotifyMessage>({ type: '', text: '' });
 
-  addBook = (newBook: InfoData) => {
-    const { books } = this.state;
-    this.setState({ books: books.concat(newBook) });
-    this.setState({ notifyMessage: { type: 'success', text: 'book added' } });
+  const addBook = (newBook: InfoData) => {
+    setBooks([...books, newBook]);
+    setNotifyMessage({ type: 'success', text: 'book added' });
     setTimeout(() => {
-      this.setState({ notifyMessage: { type: '', text: '' } });
+      setNotifyMessage({ type: '', text: '' });
     }, 3000);
   };
 
-  render() {
-    const { notifyMessage, books } = this.state;
-    return (
-      <>
-        <BookForm addBook={this.addBook} />
-        <NotifyComponent notifyMessage={notifyMessage} />
-        <Collection books={books} search="" />
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <BookForm addBook={addBook} />
+      <NotifyComponent notifyMessage={notifyMessage} />
+      <Collection books={books} search="" />
+    </>
+  );
+};
+
+export default AddBook;
