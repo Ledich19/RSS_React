@@ -1,4 +1,3 @@
-import React, { useState, useRef } from 'react';
 import { InfoData } from 'app/types';
 import s from './BookForm.module.scss';
 import Categories from './Categories/Categories';
@@ -17,7 +16,7 @@ export type FormData = {
   title: string;
   isbn?: string;
   pageCount: number;
-  publishedDate: { $date: string };
+  publishedDate: string;
   thumbnailUrl?: string;
   shortDescription?: string;
   longDescription?: string;
@@ -31,7 +30,6 @@ const BookForm = ({ addBook }: Props) => {
     register,
     reset,
     control,
-    setValue,
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>({
@@ -73,13 +71,13 @@ const BookForm = ({ addBook }: Props) => {
     }
     const files = data.thumbnailUrl;
     if (files && typeof files === 'object') {
-      console.log(typeof files);
       imageUrl = await readImageFile(files[0]);
     }
     const newBook = {
       ...data,
       authors: data.authors.split(',').map((s) => s.trim()),
       thumbnailUrl: imageUrl,
+      publishedDate: { $date: data.publishedDate },
     };
 
     addBook(newBook);
@@ -132,7 +130,6 @@ const BookForm = ({ addBook }: Props) => {
       <InputAnother type="date" label="Published date" register={register('publishedDate')} />
       <DownloadImg register={register('thumbnailUrl')} />
       <SelectComponent label="Status" options={options} register={register('status')} />
-
       <Controller
         name="categories"
         control={control}
