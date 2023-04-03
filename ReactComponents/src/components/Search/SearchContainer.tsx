@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import SearchComponent from './SearchComponent';
 
 interface Props {
@@ -6,14 +6,19 @@ interface Props {
 }
 
 const SearchContainer = ({ setSearchState }: Props) => {
+  const searchRef = useRef<string>('');
   const [searchValue, setSearchValue] = useState<string>(
     localStorage.getItem('searchString') || ''
   );
 
   useEffect(() => {
     return () => {
-      localStorage.setItem('searchString', searchValue);
+      localStorage.setItem('searchString', searchRef.current);
     };
+  }, []);
+
+  useEffect(() => {
+    searchRef.current = searchValue;
   }, [searchValue]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
