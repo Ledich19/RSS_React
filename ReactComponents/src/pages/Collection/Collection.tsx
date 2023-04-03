@@ -1,27 +1,28 @@
 import React, { useMemo } from 'react';
-import { InfoData } from 'app/types';
-import Card from '../../components/Card/Card';
+import { GoogleBook } from 'app/types';
+import CardNew from '../../components/CardNew/CardNew';
 import s from './Collection.module.scss';
 
 interface Props {
   search: string;
-  books: InfoData[];
+  books: GoogleBook[];
 }
 
 const Collection = ({ search, books }: Props) => {
-  const filteredBooks = useMemo(() => {
-    const filterBooks = (searchParameter: string) => {
-      return books.filter((book) =>
-        book.title.toUpperCase().includes(searchParameter.toUpperCase())
-      );
-    };
-    return filterBooks(search);
-  }, [search, books]);
+  // const filteredBooks = useMemo(() => {
+  //   const filterBooks = (searchParameter: string) => {
+  //     return books.filter((book) =>
+  //       book.title.toUpperCase().includes(searchParameter.toUpperCase())
+  //     );
+  //   };
+  //   return filterBooks(search);
+  // }, [search, books]);
+  console.log(books);
 
   return (
     <div className={s.collection}>
-      {filteredBooks.map((book) => (
-        <Card key={book.title} infoData={book} />
+      {books.map((book) => (
+        <CardNew key={book.id} infoData={book} />
       ))}
     </div>
   );

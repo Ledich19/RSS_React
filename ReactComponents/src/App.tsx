@@ -6,11 +6,12 @@ import './App.css';
 import Layout from './pages/Layout/Layout';
 import Collection from './pages/Collection/Collection';
 import booksData from './data/booksDb.json';
+import booksDataNew from './data/booksDbNew.json';
 import AddBook from './pages/AddBook/AddBook';
 
 const App = () => {
   const [search, setSearch] = useState('');
-  const [books] = useState(booksData);
+  const [books] = useState(booksDataNew.items);
 
   const setSearchState = (value: string) => {
     setSearch(value);

@@ -1,0 +1,55 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+ width: 235px;
+  background: whitesmoke;
+  color: black;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+}
+.title{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.img {
+  margin-top: 10px;
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  height: 188px;
+}
+.img img {
+  height: 100%;
+}
+.info {
+  text-align: left;
+  padding: 0 0px 0 10px;
+}
+.textBold {
+  font-weight: bold;
+}
+.pages {
+  display: flex;
+  justify-content: space-between;
+}
+.language {
+  display: flex;
+  justify-content: space-between;
+}
+.authors {
+  margin-top: 10px;
+}
+.categoriesList {
+  display: block;
+  flex-wrap: wrap;
+}
+.date {
+  display: flex;
+  justify-content: space-between;
+}
+.shortDescription {
+  margin-top: 10px;
+  text-align: justify;
+}

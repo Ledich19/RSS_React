@@ -1,0 +1,1267 @@
+{
+  "kind": "books#volumes",
+  "totalItems": 500,
+  "items": [
+      {
+          "kind": "books#volume",
+          "id": "hjq7oyeoATwC",
+          "etag": "mDKgZVxOMiI",
+          "selfLink": "https://www.googleapis.com/books/v1/volumes/hjq7oyeoATwC",
+          "volumeInfo": {
+              "title": "Watermelon",
+              "authors": [
+                  "Marian Keyes"
+              ],
+              "publisher": "Harper Collins",
+              "publishedDate": "2009-03-17",
+              "description": "February the fifteenth is a very special day for me. It is the day I gave birth to my first child. It is also the day my husband left me...I can only assume the two events weren't entirely unrelated. Claire has everything she ever wanted: a husband she adores, a great apartment, a good job. Then, on the day she gives birth to their first baby, James informs her that he's leaving her. Claire is left with a newborn daughter, a broken heart, and a postpartum body that she can hardly bear to look at. She decides to go home to Dublin. And there, sheltered by the love of a quirky family, she gets better. So much so, in fact, that when James slithers back into her life, he's in for a bit of a surprise.",
+              "industryIdentifiers": [
+                  {
+                      "type": "ISBN_13",
+                      "identifier": "9780061833045"
+                  },
+                  {
+                      "type": "ISBN_10",
+                      "identifier": "0061833045"
+                  }
+              ],
+              "readingModes": {
+                  "text": true,
+                  "image": false
+              },
+              "pageCount": 432,
+              "printType": "BOOK",
+              "categories": [
+                  "Fiction"
+              ],
+              "averageRating": 3.5,
+              "ratingsCount": 38,
+              "maturityRating": "NOT_MATURE",
+              "allowAnonLogging": true,
+              "contentVersion": "0.2.2.0.preview.2",
+              "panelizationSummary": {
+                  "containsEpubBubbles": false,
+                  "containsImageBubbles": false
+              },
+              "imageLinks": {
+                  "smallThumbnail": "http://books.google.com/books/content?id=hjq7oyeoATwC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=hjq7oyeoATwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+              },
+              "language": "en",
+              "previewLink": "http://books.google.com.ua/books?id=hjq7oyeoATwC&printsec=frontcover&dq=:keyes&hl=&cd=1&source=gbs_api",
+              "infoLink": "https://play.google.com/store/books/details?id=hjq7oyeoATwC&source=gbs_api",
+              "canonicalVolumeLink": "https://play.google.com/store/books/details?id=hjq7oyeoATwC"
+          },
+          "saleInfo": {
+              "country": "UA",
+              "saleability": "FOR_SALE",
+              "isEbook": true,
+              "listPrice": {
+                  "amount": 598.66,
+                  "currencyCode": "UAH"
+              },
+              "retailPrice": {
+                  "amount": 419.06,
+                  "currencyCode": "UAH"
+              },
+              "buyLink": "https://play.google.com/store/books/details?id=hjq7oyeoATwC&rdid=book-hjq7oyeoATwC&rdot=1&source=gbs_api",
+              "offers": [
+                  {
+                      "finskyOfferType": 1,
+                      "listPrice": {
+                          "amountInMicros": 598660000,
+                          "currencyCode": "UAH"
+                      },
+                      "retailPrice": {
+                          "amountInMicros": 419060000,
+                          "currencyCode": "UAH"
+                      }
+                  }
+              ]
+          },
+          "accessInfo": {
+              "country": "UA",
+              "viewability": "PARTIAL",
+              "embeddable": true,
+              "publicDomain": false,
+              "textToSpeechPermission": "ALLOWED",
+              "epub": {
+                  "isAvailable": true,
+                  "acsTokenLink": "http://books.google.com.ua/books/download/Watermelon-sample-epub.acsm?id=hjq7oyeoATwC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+              },
+              "pdf": {
+                  "isAvailable": false
+              },
+              "webReaderLink": "http://play.google.com/books/reader?id=hjq7oyeoATwC&hl=&source=gbs_api",
+              "accessViewStatus": "SAMPLE",
+              "quoteSharingAllowed": false
+          },
+          "searchInfo": {
+              "textSnippet": "February the fifteenth is a very special day for me."
+          }
+      },
+      {
+          "kind": "books#volume",
+          "id": "FLiOEAAAQBAJ",
+          "etag": "tejT10uz1Qk",
+          "selfLink": "https://www.googleapis.com/books/v1/volumes/FLiOEAAAQBAJ",
+          "volumeInfo": {
+              "title": "Saved By Cake",
+              "authors": [
+                  "Marian Keyes"
+              ],
+              "publisher": "National Geographic Books",
+              "publishedDate": "2012-03-13",
+              "description": "Learn to bake with Britain's favourite women's fiction author Marian Keyes, in her startlingly honest cook-book Saved by Cake. Saved by Cake gives an extremely honest account of Marian Keyes' battle with depression, and how baking has helped her. A complete novice in the kitchen, Marian decided to bake a cake for a friend and that was it - she realised that baking was what she needed to do in order to get her through each day. And so she baked, and she wrote her recipes down, and little by little the depression started to lift, along with her sponges... With chapters on cupcakes, cheesecakes, meringues and macaroons, chocolate cakes, fruit cakes and favourite classics, Marian's recipes are aimed firmly at beginner bakers, offering hints and tips to help along the way. From her Consistently Reliable Cupcakes and Very Chocolately Macaroons, to the ease of her Fridge-set Honeycomb Cheesecake, you will want to have a go at making all of Marian's recipes. The shoe and handbag biscuits particularly. Very covetable. Very Marian. Never patronising, always honest and witty, accessible and full of fun, the bakes and cakes that Marian serves up in this cookbook will put a smile on your face and make you happy. __________ 'Medically speaking, there is no such thing as a nervous breakdown. Which is very annoying to discover when you're right in the middle of one. Whatever was going on with me, I had to wait it out. I had to find ways of passing the time until I was restored to myself again. So I baked a cake - a chocolate cheesecake, as it happens. And I enjoyed making it so much that I baked another. And another' Marian Keyes",
+              "industryIdentifiers": [
+                  {
+                      "type": "ISBN_13",
+                      "identifier": "9780718158897"
+                  },
+                  {
+                      "type": "ISBN_10",
+                      "identifier": "071815889X"
+                  }
+              ],
+              "readingModes": {
+                  "text": true,
+                  "image": false
+              },
+              "pageCount": 0,
+              "printType": "BOOK",
+              "categories": [
+                  "Cooking"
+              ],
+              "averageRating": 4.5,
+              "ratingsCount": 4,
+              "maturityRating": "NOT_MATURE",
+              "allowAnonLogging": false,
+              "contentVersion": "preview-1.0.0",
+              "panelizationSummary": {
+                  "containsEpubBubbles": false,
+                  "containsImageBubbles": false
+              },
+              "imageLinks": {
+                  "smallThumbnail": "http://books.google.com/books/content?id=FLiOEAAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=FLiOEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+              },
+              "language": "en",
+              "previewLink": "http://books.google.com.ua/books?id=FLiOEAAAQBAJ&dq=:keyes&hl=&cd=2&source=gbs_api",
+              "infoLink": "http://books.google.com.ua/books?id=FLiOEAAAQBAJ&dq=:keyes&hl=&source=gbs_api",
+              "canonicalVolumeLink": "https://books.google.com/books/about/Saved_By_Cake.html?hl=&id=FLiOEAAAQBAJ"
+          },
+          "saleInfo": {
+              "country": "UA",
+              "saleability": "NOT_FOR_SALE",
+              "isEbook": false
+          },
+          "accessInfo": {
+              "country": "UA",
+              "viewability": "NO_PAGES",
+              "embeddable": false,
+              "publicDomain": false,
+              "textToSpeechPermission": "ALLOWED",
+              "epub": {
+                  "isAvailable": false
+              },
+              "pdf": {
+                  "isAvailable": false
+              },
+              "webReaderLink": "http://play.google.com/books/reader?id=FLiOEAAAQBAJ&hl=&source=gbs_api",
+              "accessViewStatus": "NONE",
+              "quoteSharingAllowed": false
+          },
+          "searchInfo": {
+              "textSnippet": "Learn to bake with Britain&#39;s favourite women&#39;s fiction author Marian Keyes, in her startlingly honest cook-book Saved by Cake."
+          }
+      },
+      {
+          "kind": "books#volume",
+          "id": "fUWdVfuStdEC",
+          "etag": "f1TqVIdbvlM",
+          "selfLink": "https://www.googleapis.com/books/v1/volumes/fUWdVfuStdEC",
+          "volumeInfo": {
+              "title": "Sammy Keyes and the Skeleton Man",
+              "publisher": "Knopf Books for Young Readers",
+              "publishedDate": "2003-09-09",
+              "description": "This Halloween is more than just tricks and treats--it's deadly serious. It was supposed to be a simple ding-dong ditch. A dare to give them bragging rights. But as Sammy and her friends sneak up to the spookiest house in town, they get scared witless by a skeleton, and then witness something frightening enough to make even Sammy scream. Things have taken a scary turn at school, too, with horrible Heather spreading embarrassing rumors about Sammy. Sammy devises a plan to expose her, but it's going to take a deceptive disguise, some good friends, and a lot of guts to pull it off... Praise for the Sammy Keyes series: “If Kinsey Millhone ever hires a junior partner, Sammy Keyes will be the first candidate on the list. She’s feisty, fearless, and funny. A top-notch investigator!” —New York Times bestselling author Sue Grafton “The sleuth delights from start to finish. Keep your binoculars trained on Sammy Keyes.” —Publishers Weekly “The most winning junior detective ever in teen lit. (Take that, Nancy Drew!)” —Midwest Children’s Book Review",
+              "industryIdentifiers": [
+                  {
+                      "type": "ISBN_13",
+                      "identifier": "9780375890451"
+                  },
+                  {
+                      "type": "ISBN_10",
+                      "identifier": "0375890459"
+                  }
+              ],
+              "readingModes": {
+                  "text": true,
+                  "image": false
+              },
+              "pageCount": 176,
+              "printType": "BOOK",
+              "categories": [
+                  "Juvenile Fiction"
+              ],
+              "averageRating": 3.5,
+              "ratingsCount": 6,
+              "maturityRating": "NOT_MATURE",
+              "allowAnonLogging": true,
+              "contentVersion": "1.5.4.0.preview.2",
+              "panelizationSummary": {
+                  "containsEpubBubbles": false,
+                  "containsImageBubbles": false
+              },
+              "imageLinks": {
+                  "smallThumbnail": "http://books.google.com/books/content?id=fUWdVfuStdEC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=fUWdVfuStdEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+              },
+              "language": "en",
+              "previewLink": "http://books.google.com.ua/books?id=fUWdVfuStdEC&printsec=frontcover&dq=:keyes&hl=&cd=3&source=gbs_api",
+              "infoLink": "https://play.google.com/store/books/details?id=fUWdVfuStdEC&source=gbs_api",
+              "canonicalVolumeLink": "https://play.google.com/store/books/details?id=fUWdVfuStdEC"
+          },
+          "saleInfo": {
+              "country": "UA",
+              "saleability": "FOR_SALE",
+              "isEbook": true,
+              "listPrice": {
+                  "amount": 347.9,
+                  "currencyCode": "UAH"
+              },
+              "retailPrice": {
+                  "amount": 347.9,
+                  "currencyCode": "UAH"
+              },
+              "buyLink": "https://play.google.com/store/books/details?id=fUWdVfuStdEC&rdid=book-fUWdVfuStdEC&rdot=1&source=gbs_api",
+              "offers": [
+                  {
+                      "finskyOfferType": 1,
+                      "listPrice": {
+                          "amountInMicros": 347900000,
+                          "currencyCode": "UAH"
+                      },
+                      "retailPrice": {
+                          "amountInMicros": 347900000,
+                          "currencyCode": "UAH"
+                      }
+                  }
+              ]
+          },
+          "accessInfo": {
+              "country": "UA",
+              "viewability": "PARTIAL",
+              "embeddable": true,
+              "publicDomain": false,
+              "textToSpeechPermission": "ALLOWED",
+              "epub": {
+                  "isAvailable": true,
+                  "acsTokenLink": "http://books.google.com.ua/books/download/Sammy_Keyes_and_the_Skeleton_Man-sample-epub.acsm?id=fUWdVfuStdEC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+              },
+              "pdf": {
+                  "isAvailable": false
+              },
+              "webReaderLink": "http://play.google.com/books/reader?id=fUWdVfuStdEC&hl=&source=gbs_api",
+              "accessViewStatus": "SAMPLE",
+              "quoteSharingAllowed": false
+          },
+          "searchInfo": {
+              "textSnippet": "Praise for the Sammy Keyes series: “If Kinsey Millhone ever hires a junior partner, Sammy Keyes will be the first candidate on the list. She’s feisty, fearless, and funny."
+          }
+      },
+      {
+          "kind": "books#volume",
+          "id": "f0Kvm3KObXoC",
+          "etag": "kwsdxw8ftjM",
+          "selfLink": "https://www.googleapis.com/books/v1/volumes/f0Kvm3KObXoC",
+          "volumeInfo": {
+              "title": "The Post-Truth Era",
+              "subtitle": "Dishonesty and Deception in Contemporary Life",
+              "authors": [
+                  "Ralph Keyes"
+              ],
+              "publisher": "St. Martin's Press",
+              "publishedDate": "2004-10-03",
+              "description": "\"Dishonesty inspires more euphemisms than copulation or defecation. This helps desensitize us to its implications. In the post-truth era we don't just have truth and lies but a third category of ambiguous statements that are not exactly the truth but fall just short of a lie. Enhanced truth it might be called. Neo-truth. Soft truth. Faux truth. Truth lite.\" Deception has become the modern way of life. Where once the boundary line between truth and lies was clear and distinct, it is no longer so. In the post-truth era, deceiving others has become a challenge, a game, a habit. High-profile dissemblers compete for news coverage, from journalists like Jayson Blair and professors like Joseph Ellis to politicians (of all stripes), executives, and \"creative\" accountants. Research suggests that the average American tells multiple lies on a daily basis, often for no good reason. Not a finger-wagging scolding, The Post-Truth Era is a combination of Ralph Keyes's investigative journalism and solid science. The result is a spirited exploration of why we lie about practically everything and the consequences such casual dishonesty has on society. American society has become permeated from top to bottom by deception. Its consequences for the nature of public discourse, media, business, literature, academia, and politics are profound. With dry humor, passionate fervor, and deep understanding, Ralph Keyes takes us on a tour of a world where truth and honesty are no longer absolutes but mutable, fluid concepts.",
+              "industryIdentifiers": [
+                  {
+                      "type": "ISBN_13",
+                      "identifier": "9781429976220"
+                  },
+                  {
+                      "type": "ISBN_10",
+                      "identifier": "1429976225"
+                  }
+              ],
+              "readingModes": {
+                  "text": true,
+                  "image": false
+              },
+              "pageCount": 320,
+              "printType": "BOOK",
+              "categories": [
+                  "Social Science"
+              ],
+              "maturityRating": "NOT_MATURE",
+              "allowAnonLogging": true,
+              "contentVersion": "0.5.6.0.preview.2",
+              "panelizationSummary": {
+                  "containsEpubBubbles": false,
+                  "containsImageBubbles": false
+              },
+              "imageLinks": {
+                  "smallThumbnail": "http://books.google.com/books/content?id=f0Kvm3KObXoC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=f0Kvm3KObXoC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+              },
+              "language": "en",
+              "previewLink": "http://books.google.com.ua/books?id=f0Kvm3KObXoC&printsec=frontcover&dq=:keyes&hl=&cd=4&source=gbs_api",
+              "infoLink": "https://play.google.com/store/books/details?id=f0Kvm3KObXoC&source=gbs_api",
+              "canonicalVolumeLink": "https://play.google.com/store/books/details?id=f0Kvm3KObXoC"
+          },
+          "saleInfo": {
+              "country": "UA",
+              "saleability": "FOR_SALE",
+              "isEbook": true,
+              "listPrice": {
+                  "amount": 449.72,
+                  "currencyCode": "UAH"
+              },
+              "retailPrice": {
+                  "amount": 314.8,
+                  "currencyCode": "UAH"
+              },
+              "buyLink": "https://play.google.com/store/books/details?id=f0Kvm3KObXoC&rdid=book-f0Kvm3KObXoC&rdot=1&source=gbs_api",
+              "offers": [
+                  {
+                      "finskyOfferType": 1,
+                      "listPrice": {
+                          "amountInMicros": 449720000,
+                          "currencyCode": "UAH"
+                      },
+                      "retailPrice": {
+                          "amountInMicros": 314800000,
+                          "currencyCode": "UAH"
+                      }
+                  }
+              ]
+          },
+          "accessInfo": {
+              "country": "UA",
+              "viewability": "PARTIAL",
+              "embeddable": true,
+              "publicDomain": false,
+              "textToSpeechPermission": "ALLOWED",
+              "epub": {
+                  "isAvailable": true,
+                  "acsTokenLink": "http://books.google.com.ua/books/download/The_Post_Truth_Era-sample-epub.acsm?id=f0Kvm3KObXoC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+              },
+              "pdf": {
+                  "isAvailable": false
+              },
+              "webReaderLink": "http://play.google.com/books/reader?id=f0Kvm3KObXoC&hl=&source=gbs_api",
+              "accessViewStatus": "SAMPLE",
+              "quoteSharingAllowed": false
+          },
+          "searchInfo": {
+              "textSnippet": "I was transfixed by what Ralph Keyes discovered. This eye-opening book covers every important base."
+          }
+      },
+      {
+          "kind": "books#volume",
+          "id": "UMmMEAAAQBAJ",
+          "etag": "6fFCRtEo7Ag",
+          "selfLink": "https://www.googleapis.com/books/v1/volumes/UMmMEAAAQBAJ",
+          "volumeInfo": {
+              "title": "Last Chance Saloon",
+              "authors": [
+                  "Marian Keyes"
+              ],
+              "publisher": "National Geographic Books",
+              "publishedDate": "2017-09-26",
+              "description": "*** CONGRATULATIONS TO THE BRITISH BOOK AWARDS AUTHOR OF THE YEAR 2022*** Discover the gorgeously funny and heartwarming bestseller about final chances from the No 1. bestselling author of Grown Ups 'Moving, relatable and infinitely tender' INDEPENDENT 'Plenty of heart, lots of laughs, and a fantastic twist in the tail' COSMOPOLITAN ___________ 'Love is blind, there was no doubt about it. In Tara's case it was also deaf, dumb, dyslexic, had a bad hip and the beginnings of Alzheimer's . . .' Tara, Katherine and Fintan have been best friends since they were teenagers. Now in their early thirties, they've been living it up in London for ten years. But what have they to show for a decade of hedonism? Sure, Tara's got a boyfriend - but only because she's terrified of spending five minutes alone. Katherine, on the other hand, has a neatness fetish that won't let anyone too close to mess up her life. And Fintan? Well, he has everything. Until he learns that without your health, you've got nothing . . . All three are drinking in the last chance saloon and they're about to discover that if you don't change your life, life has a way of changing you . . . 'A comforting doorstopper of a read that's as addictive as solitaire' Daily Mail ___________ Praise for Marian Keyes 'An outstanding writer and chronicler of our times' Independent on Sunday 'Mercilessly funny' Times 'The voice of a generation' Daily Mirror",
+              "industryIdentifiers": [
+                  {
+                      "type": "ISBN_13",
+                      "identifier": "9780241958452"
+                  },
+                  {
+                      "type": "ISBN_10",
+                      "identifier": "0241958458"
+                  }
+              ],
+              "readingModes": {
+                  "text": true,
+                  "image": false
+              },
+              "pageCount": 0,
+              "printType": "BOOK",
+              "categories": [
+                  "Fiction"
+              ],
+              "maturityRating": "NOT_MATURE",
+              "allowAnonLogging": false,
+              "contentVersion": "preview-1.0.0",
+              "panelizationSummary": {
+                  "containsEpubBubbles": false,
+                  "containsImageBubbles": false
+              },
+              "imageLinks": {
+                  "smallThumbnail": "http://books.google.com/books/content?id=UMmMEAAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=UMmMEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+              },
+              "language": "en",
+              "previewLink": "http://books.google.com.ua/books?id=UMmMEAAAQBAJ&dq=:keyes&hl=&cd=5&source=gbs_api",
+              "infoLink": "http://books.google.com.ua/books?id=UMmMEAAAQBAJ&dq=:keyes&hl=&source=gbs_api",
+              "canonicalVolumeLink": "https://books.google.com/books/about/Last_Chance_Saloon.html?hl=&id=UMmMEAAAQBAJ"
+          },
+          "saleInfo": {
+              "country": "UA",
+              "saleability": "NOT_FOR_SALE",
+              "isEbook": false
+          },
+          "accessInfo": {
+              "country": "UA",
+              "viewability": "NO_PAGES",
+              "embeddable": false,
+              "publicDomain": false,
+              "textToSpeechPermission": "ALLOWED",
+              "epub": {
+                  "isAvailable": false
+              },
+              "pdf": {
+                  "isAvailable": false
+              },
+              "webReaderLink": "http://play.google.com/books/reader?id=UMmMEAAAQBAJ&hl=&source=gbs_api",
+              "accessViewStatus": "NONE",
+              "quoteSharingAllowed": false
+          },
+          "searchInfo": {
+              "textSnippet": "*** CONGRATULATIONS TO THE BRITISH BOOK AWARDS AUTHOR OF THE YEAR 2022*** Discover the gorgeously funny and heartwarming bestseller about final chances from the No 1. bestselling author of Grown Ups &#39;Moving, relatable and infinitely tender&#39; ..."
+          }
+      },
+      {
+          "kind": "books#volume",
+          "id": "PyBbAAAAIAAJ",
+          "etag": "lAF8qFvp2a4",
+          "selfLink": "https://www.googleapis.com/books/v1/volumes/PyBbAAAAIAAJ",
+          "volumeInfo": {
+              "title": "Publications of the Navy Records Society",
+              "publishedDate": "1972",
+              "industryIdentifiers": [
+                  {
+                      "type": "OTHER",
+                      "identifier": "UCAL:B3453788"
+                  }
+              ],
+              "readingModes": {
+                  "text": false,
+                  "image": false
+              },
+              "pageCount": 594,
+              "printType": "BOOK",
+              "categories": [
+                  "Great Britain"
+              ],
+              "maturityRating": "NOT_MATURE",
+              "allowAnonLogging": false,
+              "contentVersion": "0.3.2.0.preview.0",
+              "panelizationSummary": {
+                  "containsEpubBubbles": false,
+                  "containsImageBubbles": false
+              },
+              "imageLinks": {
+                  "smallThumbnail": "http://books.google.com/books/content?id=PyBbAAAAIAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=PyBbAAAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+              },
+              "language": "en",
+              "previewLink": "http://books.google.com.ua/books?id=PyBbAAAAIAAJ&q=:keyes&dq=:keyes&hl=&cd=6&source=gbs_api",
+              "infoLink": "http://books.google.com.ua/books?id=PyBbAAAAIAAJ&dq=:keyes&hl=&source=gbs_api",
+              "canonicalVolumeLink": "https://books.google.com/books/about/Publications_of_the_Navy_Records_Society.html?hl=&id=PyBbAAAAIAAJ"
+          },
+          "saleInfo": {
+              "country": "UA",
+              "saleability": "NOT_FOR_SALE",
+              "isEbook": false
+          },
+          "accessInfo": {
+              "country": "UA",
+              "viewability": "NO_PAGES",
+              "embeddable": false,
+              "publicDomain": false,
+              "textToSpeechPermission": "ALLOWED",
+              "epub": {
+                  "isAvailable": false
+              },
+              "pdf": {
+                  "isAvailable": false
+              },
+              "webReaderLink": "http://play.google.com/books/reader?id=PyBbAAAAIAAJ&hl=&source=gbs_api",
+              "accessViewStatus": "NONE",
+              "quoteSharingAllowed": false
+          },
+          "searchInfo": {
+              "textSnippet": "Memorandum by <b>Keyes</b> and Minute by First Sea Lord 8 Dec . 1917 <b>Keyes</b> MSS . 6 / 8 424 202 . Vice - Admiral Sir Reginald H . Bacon to <b>Keyes</b> 15 Dec . 1917 <b>Keyes</b> MSS . 6 / 8 431 203 . Report of the Channel Barrage Committee 21 Dec ."
+          }
+      },
+      {
+          "kind": "books#volume",
+          "id": "dn51DwAAQBAJ",
+          "etag": "WYTStF7lOXM",
+          "selfLink": "https://www.googleapis.com/books/v1/volumes/dn51DwAAQBAJ",
+          "volumeInfo": {
+              "title": "Війни Міллігана",
+              "authors": [
+                  "Деніел Кіз"
+              ],
+              "publisher": "Family Leisure Club",
+              "description": "•Світовий бестселер •Продовження історії Біллі Міллігана Коли здавалося, що всі неприємності вже позаду, життя кидає Біллі нове випробування. На нього чекає курс лікування у психіатричній клініці для злочинців у Лімі. Це місце вважалося справдешнім пеклом на землі. Те, що коїли з пацієнтами у цих стінах, мало залишатися моторошною таємницею. І побиття та щоденні знущання було далеко не найжахливішим з того, що чекало тут на Біллі. Але він не такий, як інші хворі. Він має 24 особистості та безмежну волю до життя. У голові Біллі точаться запеклі війни, і його намагатимуться знищити, не розуміючи, що мають справу не з ним одним… Яка боротьба буде простішою — із системою чи із самим собою?",
+              "industryIdentifiers": [
+                  {
+                      "type": "ISBN_13",
+                      "identifier": "9786171256422"
+                  },
+                  {
+                      "type": "ISBN_10",
+                      "identifier": "6171256420"
+                  }
+              ],
+              "readingModes": {
+                  "text": true,
+                  "image": true
+              },
+              "printType": "BOOK",
+              "categories": [
+                  "Fiction"
+              ],
+              "maturityRating": "NOT_MATURE",
+              "allowAnonLogging": true,
+              "contentVersion": "1.1.1.0.preview.3",
+              "panelizationSummary": {
+                  "containsEpubBubbles": false,
+                  "containsImageBubbles": false
+              },
+              "imageLinks": {
+                  "smallThumbnail": "http://books.google.com/books/content?id=dn51DwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=dn51DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+              },
+              "language": "uk",
+              "previewLink": "http://books.google.com.ua/books?id=dn51DwAAQBAJ&printsec=frontcover&dq=:keyes&hl=&cd=7&source=gbs_api",
+              "infoLink": "https://play.google.com/store/books/details?id=dn51DwAAQBAJ&source=gbs_api",
+              "canonicalVolumeLink": "https://play.google.com/store/books/details?id=dn51DwAAQBAJ"
+          },
+          "saleInfo": {
+              "country": "UA",
+              "saleability": "FOR_SALE",
+              "isEbook": true,
+              "listPrice": {
+                  "amount": 132,
+                  "currencyCode": "UAH"
+              },
+              "retailPrice": {
+                  "amount": 89.76,
+                  "currencyCode": "UAH"
+              },
+              "buyLink": "https://play.google.com/store/books/details?id=dn51DwAAQBAJ&rdid=book-dn51DwAAQBAJ&rdot=1&source=gbs_api",
+              "offers": [
+                  {
+                      "finskyOfferType": 1,
+                      "listPrice": {
+                          "amountInMicros": 132000000,
+                          "currencyCode": "UAH"
+                      },
+                      "retailPrice": {
+                          "amountInMicros": 89760000,
+                          "currencyCode": "UAH"
+                      }
+                  }
+              ]
+          },
+          "accessInfo": {
+              "country": "UA",
+              "viewability": "PARTIAL",
+              "embeddable": true,
+              "publicDomain": false,
+              "textToSpeechPermission": "ALLOWED",
+              "epub": {
+                  "isAvailable": true,
+                  "acsTokenLink": "http://books.google.com.ua/books/download/%D0%92%D1%96%D0%B9%D0%BD%D0%B8_%D0%9C%D1%96%D0%BB%D0%BB%D1%96%D0%B3%D0%B0%D0%BD%D0%B0-sample-epub.acsm?id=dn51DwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+              },
+              "pdf": {
+                  "isAvailable": true,
+                  "acsTokenLink": "http://books.google.com.ua/books/download/%D0%92%D1%96%D0%B9%D0%BD%D0%B8_%D0%9C%D1%96%D0%BB%D0%BB%D1%96%D0%B3%D0%B0%D0%BD%D0%B0-sample-pdf.acsm?id=dn51DwAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+              },
+              "webReaderLink": "http://play.google.com/books/reader?id=dn51DwAAQBAJ&hl=&source=gbs_api",
+              "accessViewStatus": "SAMPLE",
+              "quoteSharingAllowed": false
+          },
+          "searchInfo": {
+              "textSnippet": "•Світовий бестселер •Продовження історії Біллі Міллігана Коли здавалося, що всі неприємності вже позаду, життя кидає Біллі нове ..."
+          }
+      },
+      {
+          "kind": "books#volume",
+          "id": "D_N1wuHLPQIC",
+          "etag": "mZMswkV5HXo",
+          "selfLink": "https://www.googleapis.com/books/v1/volumes/D_N1wuHLPQIC",
+          "volumeInfo": {
+              "title": "Sammy Keyes and the Wild Things",
+              "authors": [
+                  "Wendelin Van Draanen"
+              ],
+              "publisher": "Yearling",
+              "publishedDate": "2008-12-09",
+              "description": "\"The most winning junior detective ever in teen lit. (Take that, Nancy Drew!)\" —Midwest Children's Book Review This is not the summer camping trip of Sammy's dreams. She imagined shady glades, meandering streams, a deer or two. What she gets are scrubby shrubs, blazing sun, rattlesnakes, ticks, and scorpions. Her fellow campers are desperate to catch a rare glimpse of an endangered condor. To Sammy, the trip is nothing more than the painful in pursuit of the unspeakably ugly. But when she and two other girls find an injured condor, Sammy's intrigued at last. As they track down a clue, they stumble onto two classmates and wind up lost. Which leaves three girls and two boys in a canyon with one tent and six billion biting flies. Oh—and an armed and dangerous highstakes poacher. S'mores anyone? The Sammy Keyes mysteries are fast-paced, funny, thoroughly modern, and true whodunits. Each mystery is exciting and dramatic, but it's the drama in Sammy's personal life that keeps readers coming back to see what happens next with her love interest Casey, her soap-star mother, and her mysterious father.",
+              "industryIdentifiers": [
+                  {
+                      "type": "ISBN_13",
+                      "identifier": "9780375892196"
+                  },
+                  {
+                      "type": "ISBN_10",
+                      "identifier": "0375892192"
+                  }
+              ],
+              "readingModes": {
+                  "text": true,
+                  "image": true
+              },
+              "pageCount": 304,
+              "printType": "BOOK",
+              "categories": [
+                  "Juvenile Fiction"
+              ],
+              "averageRating": 5,
+              "ratingsCount": 1,
+              "maturityRating": "NOT_MATURE",
+              "allowAnonLogging": true,
+              "contentVersion": "0.6.5.0.preview.3",
+              "panelizationSummary": {
+                  "containsEpubBubbles": false,
+                  "containsImageBubbles": false
+              },
+              "imageLinks": {
+                  "smallThumbnail": "http://books.google.com/books/content?id=D_N1wuHLPQIC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=D_N1wuHLPQIC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+              },
+              "language": "en",
+              "previewLink": "http://books.google.com.ua/books?id=D_N1wuHLPQIC&printsec=frontcover&dq=:keyes&hl=&cd=8&source=gbs_api",
+              "infoLink": "https://play.google.com/store/books/details?id=D_N1wuHLPQIC&source=gbs_api",
+              "canonicalVolumeLink": "https://play.google.com/store/books/details?id=D_N1wuHLPQIC"
+          },
+          "saleInfo": {
+              "country": "UA",
+              "saleability": "FOR_SALE",
+              "isEbook": true,
+              "listPrice": {
+                  "amount": 347.9,
+                  "currencyCode": "UAH"
+              },
+              "retailPrice": {
+                  "amount": 347.9,
+                  "currencyCode": "UAH"
+              },
+              "buyLink": "https://play.google.com/store/books/details?id=D_N1wuHLPQIC&rdid=book-D_N1wuHLPQIC&rdot=1&source=gbs_api",
+              "offers": [
+                  {
+                      "finskyOfferType": 1,
+                      "listPrice": {
+                          "amountInMicros": 347900000,
+                          "currencyCode": "UAH"
+                      },
+                      "retailPrice": {
+                          "amountInMicros": 347900000,
+                          "currencyCode": "UAH"
+                      }
+                  }
+              ]
+          },
+          "accessInfo": {
+              "country": "UA",
+              "viewability": "PARTIAL",
+              "embeddable": true,
+              "publicDomain": false,
+              "textToSpeechPermission": "ALLOWED",
+              "epub": {
+                  "isAvailable": true,
+                  "acsTokenLink": "http://books.google.com.ua/books/download/Sammy_Keyes_and_the_Wild_Things-sample-epub.acsm?id=D_N1wuHLPQIC&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+              },
+              "pdf": {
+                  "isAvailable": true,
+                  "acsTokenLink": "http://books.google.com.ua/books/download/Sammy_Keyes_and_the_Wild_Things-sample-pdf.acsm?id=D_N1wuHLPQIC&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+              },
+              "webReaderLink": "http://play.google.com/books/reader?id=D_N1wuHLPQIC&hl=&source=gbs_api",
+              "accessViewStatus": "SAMPLE",
+              "quoteSharingAllowed": false
+          },
+          "searchInfo": {
+              "textSnippet": "&quot;The most winning junior detective ever in teen lit. (Take that, Nancy Drew!)&quot; —Midwest Children&#39;s Book Review This is not the summer camping trip of Sammy&#39;s dreams."
+          }
+      },
+      {
+          "kind": "books#volume",
+          "id": "QCF9AHclv_4C",
+          "etag": "2z/AkmeIEio",
+          "selfLink": "https://www.googleapis.com/books/v1/volumes/QCF9AHclv_4C",
+          "volumeInfo": {
+              "title": "Angels",
+              "subtitle": "A Novel",
+              "authors": [
+                  "Marian Keyes"
+              ],
+              "publisher": "Harper Collins",
+              "publishedDate": "2009-03-17",
+              "description": "After catching her husband having an affair and being fired from her job, Maggie Walsh suddenly finds her perfectly organized existence has become a perfect mess. She decides, for the first time in her life, to do something daring -- and flees to her best friend, Emily, in the faraway wonderland of Los Angeles. In this mecca of tanned, beautiful bodies, unsvelte, uncool Maggie is decidedly a fish out of water. Yet, overnight, she's mixing with film folk, pitching scripts, even experimenting with sex -- and discovering that the end of a marriage is not the end of the world.",
+              "industryIdentifiers": [
+                  {
+                      "type": "ISBN_13",
+                      "identifier": "9780061828058"
+                  },
+                  {
+                      "type": "ISBN_10",
+                      "identifier": "006182805X"
+                  }
+              ],
+              "readingModes": {
+                  "text": true,
+                  "image": false
+              },
+              "pageCount": 448,
+              "printType": "BOOK",
+              "categories": [
+                  "Fiction"
+              ],
+              "averageRating": 3.5,
+              "ratingsCount": 23,
+              "maturityRating": "NOT_MATURE",
+              "allowAnonLogging": true,
+              "contentVersion": "0.6.2.0.preview.2",
+              "panelizationSummary": {
+                  "containsEpubBubbles": false,
+                  "containsImageBubbles": false
+              },
+              "imageLinks": {
+                  "smallThumbnail": "http://books.google.com/books/content?id=QCF9AHclv_4C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=QCF9AHclv_4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+              },
+              "language": "en",
+              "previewLink": "http://books.google.com.ua/books?id=QCF9AHclv_4C&printsec=frontcover&dq=:keyes&hl=&cd=9&source=gbs_api",
+              "infoLink": "https://play.google.com/store/books/details?id=QCF9AHclv_4C&source=gbs_api",
+              "canonicalVolumeLink": "https://play.google.com/store/books/details?id=QCF9AHclv_4C"
+          },
+          "saleInfo": {
+              "country": "UA",
+              "saleability": "FOR_SALE",
+              "isEbook": true,
+              "listPrice": {
+                  "amount": 565.43,
+                  "currencyCode": "UAH"
+              },
+              "retailPrice": {
+                  "amount": 395.8,
+                  "currencyCode": "UAH"
+              },
+              "buyLink": "https://play.google.com/store/books/details?id=QCF9AHclv_4C&rdid=book-QCF9AHclv_4C&rdot=1&source=gbs_api",
+              "offers": [
+                  {
+                      "finskyOfferType": 1,
+                      "listPrice": {
+                          "amountInMicros": 565430000,
+                          "currencyCode": "UAH"
+                      },
+                      "retailPrice": {
+                          "amountInMicros": 395800000,
+                          "currencyCode": "UAH"
+                      }
+                  }
+              ]
+          },
+          "accessInfo": {
+              "country": "UA",
+              "viewability": "PARTIAL",
+              "embeddable": true,
+              "publicDomain": false,
+              "textToSpeechPermission": "ALLOWED",
+              "epub": {
+                  "isAvailable": true,
+                  "acsTokenLink": "http://books.google.com.ua/books/download/Angels-sample-epub.acsm?id=QCF9AHclv_4C&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+              },
+              "pdf": {
+                  "isAvailable": false
+              },
+              "webReaderLink": "http://play.google.com/books/reader?id=QCF9AHclv_4C&hl=&source=gbs_api",
+              "accessViewStatus": "SAMPLE",
+              "quoteSharingAllowed": false
+          },
+          "searchInfo": {
+              "textSnippet": "After catching her husband having an affair and being fired from her job, Maggie Walsh suddenly finds her perfectly organized existence has become a perfect mess."
+          }
+      },
+      {
+          "kind": "books#volume",
+          "id": "2jH5-iDldvwC",
+          "etag": "scm03cWYe8E",
+          "selfLink": "https://www.googleapis.com/books/v1/volumes/2jH5-iDldvwC",
+          "volumeInfo": {
+              "title": "Sammy Keyes and the Hotel Thief",
+              "authors": [
+                  "Wendelin Van Draanen"
+              ],
+              "publisher": "Yearling",
+              "publishedDate": "1998-08-18",
+              "description": "Sammy Keyes must be a magnet for trouble... I mean it's bad enough that she has to live illegally in a seniors-only building with her grandmother while her mother tries to make it as a move star. And worse that she witnessed a burglary in progress--and that the theif saw her. And worse still that nosy neighbor Mrs. Graybill is onto her, and that the thief is after her. But on top of all that, she also manages to make an enemy of the queen of mean at her new school and get suspended on the first day. Welcome to the wild world of Sammy Keyes! Praise for the Sammy Keyes series: “Sammy Keyes is feisty, fearless, and funny. A top-notch investigator!” —New York Times bestselling author Sue Grafton “The sleuth delights from start to finish. Keep your binoculars trained on Sammy Keyes.” —Publishers Weekly “Sammy Keyes is the hottest sleuth to appear in children’s books since Nancy Drew.”—The Boston Globe",
+              "industryIdentifiers": [
+                  {
+                      "type": "ISBN_10",
+                      "identifier": "0679892648"
+                  },
+                  {
+                      "type": "ISBN_13",
+                      "identifier": "9780679892649"
+                  }
+              ],
+              "readingModes": {
+                  "text": false,
+                  "image": false
+              },
+              "pageCount": 180,
+              "printType": "BOOK",
+              "categories": [
+                  "Juvenile Fiction"
+              ],
+              "averageRating": 4,
+              "ratingsCount": 21,
+              "maturityRating": "NOT_MATURE",
+              "allowAnonLogging": false,
+              "contentVersion": "1.2.2.0.preview.0",
+              "panelizationSummary": {
+                  "containsEpubBubbles": false,
+                  "containsImageBubbles": false
+              },
+              "imageLinks": {
+                  "smallThumbnail": "http://books.google.com/books/content?id=2jH5-iDldvwC&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=2jH5-iDldvwC&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+              },
+              "language": "en",
+              "previewLink": "http://books.google.com.ua/books?id=2jH5-iDldvwC&q=:keyes&dq=:keyes&hl=&cd=10&source=gbs_api",
+              "infoLink": "http://books.google.com.ua/books?id=2jH5-iDldvwC&dq=:keyes&hl=&source=gbs_api",
+              "canonicalVolumeLink": "https://books.google.com/books/about/Sammy_Keyes_and_the_Hotel_Thief.html?hl=&id=2jH5-iDldvwC"
+          },
+          "saleInfo": {
+              "country": "UA",
+              "saleability": "NOT_FOR_SALE",
+              "isEbook": false
+          },
+          "accessInfo": {
+              "country": "UA",
+              "viewability": "NO_PAGES",
+              "embeddable": false,
+              "publicDomain": false,
+              "textToSpeechPermission": "ALLOWED",
+              "epub": {
+                  "isAvailable": false
+              },
+              "pdf": {
+                  "isAvailable": false
+              },
+              "webReaderLink": "http://play.google.com/books/reader?id=2jH5-iDldvwC&hl=&source=gbs_api",
+              "accessViewStatus": "NONE",
+              "quoteSharingAllowed": false
+          },
+          "searchInfo": {
+              "textSnippet": "Welcome to the wild world of Sammy Keyes! Praise for the Sammy Keyes series: “Sammy Keyes is feisty, fearless, and funny."
+          }
+      },
+      {
+          "kind": "books#volume",
+          "id": "SlKaygAACAAJ",
+          "etag": "RINlUpLk2aM",
+          "selfLink": "https://www.googleapis.com/books/v1/volumes/SlKaygAACAAJ",
+          "volumeInfo": {
+              "title": "This Charming Man",
+              "authors": [
+                  "Marian Keyes"
+              ],
+              "publisher": "Michael Joseph",
+              "publishedDate": "2012",
+              "description": "'Everybody remembers where they were the day they heard that Paddy de Courcy was getting married'. But for four women in particular, the big news about the charismatic politician is especially momentous. Stylist Lola has every reason to be interested in who Paddy's marrying--because she's his girlfriend, yet she definitely isn't the bride-to-be. Journalist Grace wants the inside story on the de Courcy engagement and thinks Lola holds the key, while Grace's sister, Marnie, still can't forget her first love: a certain Paddy de Courcy. And what of the soon-to-be Mrs de Courcy? Alicia will do anything for her fiance and is determined to be the perfect wife. But does she know the real Paddy? Four very different women. One awfully charming man. And the dark secret that binds them all.",
+              "industryIdentifiers": [
+                  {
+                      "type": "ISBN_10",
+                      "identifier": "0241958482"
+                  },
+                  {
+                      "type": "ISBN_13",
+                      "identifier": "9780241958483"
+                  }
+              ],
+              "readingModes": {
+                  "text": false,
+                  "image": false
+              },
+              "pageCount": 0,
+              "printType": "BOOK",
+              "categories": [
+                  "Chick lit"
+              ],
+              "averageRating": 3.5,
+              "ratingsCount": 38,
+              "maturityRating": "NOT_MATURE",
+              "allowAnonLogging": false,
+              "contentVersion": "preview-1.0.0",
+              "panelizationSummary": {
+                  "containsEpubBubbles": false,
+                  "containsImageBubbles": false
+              },
+              "imageLinks": {
+                  "smallThumbnail": "http://books.google.com/books/content?id=SlKaygAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=SlKaygAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+              },
+              "language": "en",
+              "previewLink": "http://books.google.com.ua/books?id=SlKaygAACAAJ&dq=:keyes&hl=&cd=11&source=gbs_api",
+              "infoLink": "http://books.google.com.ua/books?id=SlKaygAACAAJ&dq=:keyes&hl=&source=gbs_api",
+              "canonicalVolumeLink": "https://books.google.com/books/about/This_Charming_Man.html?hl=&id=SlKaygAACAAJ"
+          },
+          "saleInfo": {
+              "country": "UA",
+              "saleability": "NOT_FOR_SALE",
+              "isEbook": false
+          },
+          "accessInfo": {
+              "country": "UA",
+              "viewability": "NO_PAGES",
+              "embeddable": false,
+              "publicDomain": false,
+              "textToSpeechPermission": "ALLOWED",
+              "epub": {
+                  "isAvailable": false
+              },
+              "pdf": {
+                  "isAvailable": false
+              },
+              "webReaderLink": "http://play.google.com/books/reader?id=SlKaygAACAAJ&hl=&source=gbs_api",
+              "accessViewStatus": "NONE",
+              "quoteSharingAllowed": false
+          },
+          "searchInfo": {
+              "textSnippet": "Four very different women. One awfully charming man. And the dark secret that binds them all . . . &#39;So funny, so perceptive, so real. I changed my life for this book&#39; Mail on Sunday &#39;The laughs come fast and furious."
+          }
+      },
+      {
+          "kind": "books#volume",
+          "id": "_qpwCgAAQBAJ",
+          "etag": "UUKTxv8XW8U",
+          "selfLink": "https://www.googleapis.com/books/v1/volumes/_qpwCgAAQBAJ",
+          "volumeInfo": {
+              "title": "A Study Guide for Daniel Keyes's Flowers for Algernon",
+              "authors": [
+                  "Gale, Cengage Learning"
+              ],
+              "publisher": "Gale, Cengage Learning ",
+              "publishedDate": "2015-03-13",
+              "description": "A Study Guide for Daniel Keyes's \"Flowers for Algernon,\" excerpted from Gale's acclaimed Novels for Students.This concise study guide includes plot summary; character analysis; author biography; study questions; historical context; suggestions for further reading; and much more. For any literature project, trust Novels for Students for all of your research needs.",
+              "industryIdentifiers": [
+                  {
+                      "type": "ISBN_13",
+                      "identifier": "9781410335821"
+                  },
+                  {
+                      "type": "ISBN_10",
+                      "identifier": "1410335828"
+                  }
+              ],
+              "readingModes": {
+                  "text": true,
+                  "image": true
+              },
+              "pageCount": 15,
+              "printType": "BOOK",
+              "categories": [
+                  "Literary Criticism"
+              ],
+              "maturityRating": "NOT_MATURE",
+              "allowAnonLogging": false,
+              "contentVersion": "1.3.3.0.preview.3",
+              "panelizationSummary": {
+                  "containsEpubBubbles": false,
+                  "containsImageBubbles": false
+              },
+              "imageLinks": {
+                  "smallThumbnail": "http://books.google.com/books/content?id=_qpwCgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=_qpwCgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+              },
+              "language": "en",
+              "previewLink": "http://books.google.com.ua/books?id=_qpwCgAAQBAJ&pg=PT4&dq=:keyes&hl=&cd=12&source=gbs_api",
+              "infoLink": "https://play.google.com/store/books/details?id=_qpwCgAAQBAJ&source=gbs_api",
+              "canonicalVolumeLink": "https://play.google.com/store/books/details?id=_qpwCgAAQBAJ"
+          },
+          "saleInfo": {
+              "country": "UA",
+              "saleability": "FOR_SALE",
+              "isEbook": true,
+              "listPrice": {
+                  "amount": 176.14,
+                  "currencyCode": "UAH"
+              },
+              "retailPrice": {
+                  "amount": 119.78,
+                  "currencyCode": "UAH"
+              },
+              "buyLink": "https://play.google.com/store/books/details?id=_qpwCgAAQBAJ&rdid=book-_qpwCgAAQBAJ&rdot=1&source=gbs_api",
+              "offers": [
+                  {
+                      "finskyOfferType": 1,
+                      "listPrice": {
+                          "amountInMicros": 176140000,
+                          "currencyCode": "UAH"
+                      },
+                      "retailPrice": {
+                          "amountInMicros": 119780000,
+                          "currencyCode": "UAH"
+                      }
+                  }
+              ]
+          },
+          "accessInfo": {
+              "country": "UA",
+              "viewability": "PARTIAL",
+              "embeddable": true,
+              "publicDomain": false,
+              "textToSpeechPermission": "ALLOWED",
+              "epub": {
+                  "isAvailable": true,
+                  "acsTokenLink": "http://books.google.com.ua/books/download/A_Study_Guide_for_Daniel_Keyes_s_Flowers-sample-epub.acsm?id=_qpwCgAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+              },
+              "pdf": {
+                  "isAvailable": true,
+                  "acsTokenLink": "http://books.google.com.ua/books/download/A_Study_Guide_for_Daniel_Keyes_s_Flowers-sample-pdf.acsm?id=_qpwCgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+              },
+              "webReaderLink": "http://play.google.com/books/reader?id=_qpwCgAAQBAJ&hl=&source=gbs_api",
+              "accessViewStatus": "SAMPLE",
+              "quoteSharingAllowed": false
+          },
+          "searchInfo": {
+              "textSnippet": "Although some critics have found portions of the novel overly predictable or sentimental, <b>Keyes&#39;s</b> most famous work has continued to enjoy great popularity. Over thirty years after publication, Flowers for Algernon is still regarded with&nbsp;..."
+          }
+      },
+      {
+          "kind": "books#volume",
+          "id": "Z61_EAAAQBAJ",
+          "etag": "OOIQY7Dm9lA",
+          "selfLink": "https://www.googleapis.com/books/v1/volumes/Z61_EAAAQBAJ",
+          "volumeInfo": {
+              "title": "Summary of Edward Keyes's The Michigan Murders",
+              "authors": [
+                  "Everest Media,"
+              ],
+              "publisher": "Everest Media LLC",
+              "publishedDate": "2022-08-08T22:59:00Z",
+              "description": "Please note: This is a companion version & not the original book. Sample Book Insights: #1 When Marilyn Pindar did not come home on Sunday night, her sister, Sheila, was alarmed. She and a couple of friends had dropped by the apartment a little after 7:30 the previous evening, to find her sister out, and after waiting a few minutes, had left. They had not heard from Marilyn since. #2 The typical missing persons case is some restless student taking off on a lark. In such environments, the police are usually hard pressed to find anything suspicious. #3 Following her disappearance, the Pindars showed themselves to be people of extraordinary self-possession. They remained on the surface unruffled. The father returned to his job, the mother to her normal household routine. #4 The Marilyn Pindar case was opened up on July 11, when Detective Lieutenant Vern Howard was assigned to it. He pieced together a timeline of her last known movements on Sunday, July 9, the day she went missing. She went to church, then to the university, and finally to Silver Lake.",
+              "industryIdentifiers": [
+                  {
+                      "type": "ISBN_13",
+                      "identifier": "9798822582446"
+                  }
+              ],
+              "readingModes": {
+                  "text": true,
+                  "image": true
+              },
+              "pageCount": 63,
+              "printType": "BOOK",
+              "categories": [
+                  "True Crime"
+              ],
+              "maturityRating": "NOT_MATURE",
+              "allowAnonLogging": false,
+              "contentVersion": "preview-1.0.0",
+              "panelizationSummary": {
+                  "containsEpubBubbles": false,
+                  "containsImageBubbles": false
+              },
+              "imageLinks": {
+                  "smallThumbnail": "http://books.google.com/books/content?id=Z61_EAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=Z61_EAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+              },
+              "language": "en",
+              "previewLink": "http://books.google.com.ua/books?id=Z61_EAAAQBAJ&pg=PP1&dq=:keyes&hl=&cd=13&source=gbs_api",
+              "infoLink": "http://books.google.com.ua/books?id=Z61_EAAAQBAJ&dq=:keyes&hl=&source=gbs_api",
+              "canonicalVolumeLink": "https://books.google.com/books/about/Summary_of_Edward_Keyes_s_The_Michigan_M.html?hl=&id=Z61_EAAAQBAJ"
+          },
+          "saleInfo": {
+              "country": "UA",
+              "saleability": "NOT_FOR_SALE",
+              "isEbook": false
+          },
+          "accessInfo": {
+              "country": "UA",
+              "viewability": "PARTIAL",
+              "embeddable": true,
+              "publicDomain": false,
+              "textToSpeechPermission": "ALLOWED",
+              "epub": {
+                  "isAvailable": true,
+                  "acsTokenLink": "http://books.google.com.ua/books/download/Summary_of_Edward_Keyes_s_The_Michigan_M-sample-epub.acsm?id=Z61_EAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+              },
+              "pdf": {
+                  "isAvailable": true,
+                  "acsTokenLink": "http://books.google.com.ua/books/download/Summary_of_Edward_Keyes_s_The_Michigan_M-sample-pdf.acsm?id=Z61_EAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+              },
+              "webReaderLink": "http://play.google.com/books/reader?id=Z61_EAAAQBAJ&hl=&source=gbs_api",
+              "accessViewStatus": "SAMPLE",
+              "quoteSharingAllowed": false
+          },
+          "searchInfo": {
+              "textSnippet": "Everest Media,. Insights on Edward <b>Keyes&#39;s</b> The Michigan Murders Contents Insights from Chapter 1 Insights from Chapter 2 Insights Front Cover."
+          }
+      },
+      {
+          "kind": "books#volume",
+          "id": "UsmMEAAAQBAJ",
+          "etag": "wuBw/GAMB3s",
+          "selfLink": "https://www.googleapis.com/books/v1/volumes/UsmMEAAAQBAJ",
+          "volumeInfo": {
+              "title": "The Other Side of the Story",
+              "authors": [
+                  "Marian Keyes"
+              ],
+              "publisher": "National Geographic Books",
+              "publishedDate": "2017-09-26",
+              "description": "*** CONGRATULATIONS TO THE BRITISH BOOK AWARDS AUTHOR OF THE YEAR 2022*** Step into the lives of three women whose ambitions collide in the hilarious and heart-warming novel from the No. 1 bestselling author of Grown Ups 'Wonderful, subtle, hilarious and highly sophisticated. You can't stop reading' EVENING STANDARD 'It had me in tears . . . and barking with laughter' DAILY TELEGRAPH ___________ 'There are three sides to every story. Your side, their side, and the truth . . .' Jojo, a sharkish literary agent, has just made a very bad career move - she's slept with her married boss Mark. Lily, Jojo's bestselling author, has blown her advance on a house with new boyfriend Anton, only to come down with writer's block. Gemma used to be Lily's best friend until Lily ran off with Anton. Now she's pouring her heart out, and a certain literary agent likes her style . . . Soon the fortunes of Jojo, Lily and Gemma are horribly entangled. But each is about to discover that there's more than one side to every story . . . ___________ 'Keyes's genius lies in making the darkest, most difficult aspects of humanity mentionable and manageable . . . Keyes's plot is cracking, but the story becomes even bolder and brighter because she lets her characters tell it' Independent 'Packed with sound writing, wit and common sense' Guardian Praise for Marian Keyes: 'Mercilessly funny' The Times 'Funny, tender and completely absorbing!' Graham Norton 'Keyes is in a class of her own' Daily Express",
+              "industryIdentifiers": [
+                  {
+                      "type": "ISBN_13",
+                      "identifier": "9780241958445"
+                  },
+                  {
+                      "type": "ISBN_10",
+                      "identifier": "024195844X"
+                  }
+              ],
+              "readingModes": {
+                  "text": true,
+                  "image": false
+              },
+              "pageCount": 0,
+              "printType": "BOOK",
+              "categories": [
+                  "Fiction"
+              ],
+              "maturityRating": "NOT_MATURE",
+              "allowAnonLogging": false,
+              "contentVersion": "preview-1.0.0",
+              "panelizationSummary": {
+                  "containsEpubBubbles": false,
+                  "containsImageBubbles": false
+              },
+              "imageLinks": {
+                  "smallThumbnail": "http://books.google.com/books/content?id=UsmMEAAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=UsmMEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+              },
+              "language": "en",
+              "previewLink": "http://books.google.com.ua/books?id=UsmMEAAAQBAJ&dq=:keyes&hl=&cd=14&source=gbs_api",
+              "infoLink": "http://books.google.com.ua/books?id=UsmMEAAAQBAJ&dq=:keyes&hl=&source=gbs_api",
+              "canonicalVolumeLink": "https://books.google.com/books/about/The_Other_Side_of_the_Story.html?hl=&id=UsmMEAAAQBAJ"
+          },
+          "saleInfo": {
+              "country": "UA",
+              "saleability": "NOT_FOR_SALE",
+              "isEbook": false
+          },
+          "accessInfo": {
+              "country": "UA",
+              "viewability": "NO_PAGES",
+              "embeddable": false,
+              "publicDomain": false,
+              "textToSpeechPermission": "ALLOWED",
+              "epub": {
+                  "isAvailable": false
+              },
+              "pdf": {
+                  "isAvailable": false
+              },
+              "webReaderLink": "http://play.google.com/books/reader?id=UsmMEAAAQBAJ&hl=&source=gbs_api",
+              "accessViewStatus": "NONE",
+              "quoteSharingAllowed": false
+          },
+          "searchInfo": {
+              "textSnippet": "*** CONGRATULATIONS TO THE BRITISH BOOK AWARDS AUTHOR OF THE YEAR 2022*** Step into the lives of three women whose ambitions collide in the hilarious and heart-warming novel from the No. 1 bestselling author of Grown Ups &#39;Wonderful, subtle, ..."
+          }
+      },
+      {
+          "kind": "books#volume",
+          "id": "54eMEAAAQBAJ",
+          "etag": "ElnGWQFbPUg",
+          "selfLink": "https://www.googleapis.com/books/v1/volumes/54eMEAAAQBAJ",
+          "volumeInfo": {
+              "title": "The Mystery of Mercy Close",
+              "authors": [
+                  "Marian Keyes"
+              ],
+              "publisher": "National Geographic Books",
+              "publishedDate": "2017-09-26",
+              "description": "*** CONGRATULATIONS TO THE BRITISH BOOK AWARDS AUTHOR OF THE YEAR 2022*** Discover the seriously funny, stunningly written novel about one woman's attempts to put her past behind her, from the No. 1 bestselling author of Grown Ups 'A brilliant, unusual, brave book . Confirms Keyes's place as one of our finest writers' Jojo Moyes _________ Meet Helen Walsh. Wasp-tongued private investigator Helen doesn't believe in love, fear or hot drinks. But when a missing persons case takes her into the dark, glamorous world of her dodgy ex, Jay Parker, she is drawn away from Artie Devlin, her distinctly unglamorous detective boyfriend. This isn't good news for Helen. For Jay's fame-hungry world is one of smoke and mirrors, and Helen is no longer sure what she's doing, or quite why she's doing it... To save herself from the brink, she'll have to start believing in something - and fast. But will it be fear? Or love? Love the Walsh sisters? Don't miss out on the eagerly awaited sequel to Rachel's Holiday: AGAIN, RACHEL . . . _________ 'Zips along with engaging characters, fabulous plotting and spot-on dialogue. Marian Keyes: what a genius' Daily Mail 'Gut-bustingly funny' Independent on Sunday FAMOUS FANS AND WHY THEY LOVE MARIAN KEYES 'Marian's writing is the truth. With big laughs' Dawn French 'A giant of Irish writing' Naoise Dolan 'Will make you laugh and make you cry, but will also reveal the truth of who you really are' Louise O'Neill 'Keyes weaves the joy and pain of life in a unique and magical way' Cathy Rentzenbrink 'One of the most honest writers writing today' Pandora Sykes 'Compassionate, tender, incisive writing' Lucy Foley 'Her talent for tackling serious issues with such humanity and wit is balm for the soul' Nigella Lawson 'Marian Keyes is a brilliant writer. No one is better at making terrifically funny jokes while telling such important, perceptive and agonizing stories of the heart. She is a genius' Sali Hughes 'Irresistible, profound. Keyes's comic gift is always evident' Independent 'Joyful. Keyes' clever way with words and extraordinary wit. People stared at me as I laughed to myself' C.L. Taylor 'A born storyteller' Independent on Sunday",
+              "industryIdentifiers": [
+                  {
+                      "type": "ISBN_13",
+                      "identifier": "9780141043098"
+                  },
+                  {
+                      "type": "ISBN_10",
+                      "identifier": "0141043091"
+                  }
+              ],
+              "readingModes": {
+                  "text": true,
+                  "image": false
+              },
+              "pageCount": 0,
+              "printType": "BOOK",
+              "categories": [
+                  "Fiction"
+              ],
+              "averageRating": 3.5,
+              "ratingsCount": 21,
+              "maturityRating": "NOT_MATURE",
+              "allowAnonLogging": false,
+              "contentVersion": "preview-1.0.0",
+              "panelizationSummary": {
+                  "containsEpubBubbles": false,
+                  "containsImageBubbles": false
+              },
+              "imageLinks": {
+                  "smallThumbnail": "http://books.google.com/books/content?id=54eMEAAAQBAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=54eMEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+              },
+              "language": "en",
+              "previewLink": "http://books.google.com.ua/books?id=54eMEAAAQBAJ&dq=:keyes&hl=&cd=15&source=gbs_api",
+              "infoLink": "http://books.google.com.ua/books?id=54eMEAAAQBAJ&dq=:keyes&hl=&source=gbs_api",
+              "canonicalVolumeLink": "https://books.google.com/books/about/The_Mystery_of_Mercy_Close.html?hl=&id=54eMEAAAQBAJ"
+          },
+          "saleInfo": {
+              "country": "UA",
+              "saleability": "NOT_FOR_SALE",
+              "isEbook": false
+          },
+          "accessInfo": {
+              "country": "UA",
+              "viewability": "NO_PAGES",
+              "embeddable": false,
+              "publicDomain": false,
+              "textToSpeechPermission": "ALLOWED",
+              "epub": {
+                  "isAvailable": false
+              },
+              "pdf": {
+                  "isAvailable": false
+              },
+              "webReaderLink": "http://play.google.com/books/reader?id=54eMEAAAQBAJ&hl=&source=gbs_api",
+              "accessViewStatus": "NONE",
+              "quoteSharingAllowed": false
+          },
+          "searchInfo": {
+              "textSnippet": "*** CONGRATULATIONS TO THE BRITISH BOOK AWARDS AUTHOR OF THE YEAR 2022*** Discover the seriously funny, stunningly written novel about one woman&#39;s attempts to put her past behind her, from the No. 1 bestselling author of Grown Ups &#39;A ..."
+          }
+      }
+  ]
+}
