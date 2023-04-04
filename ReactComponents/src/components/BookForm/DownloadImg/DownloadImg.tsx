@@ -45,7 +45,7 @@ const DownloadImg = ({ register, error }: Props) => {
       <div className={s.label}>
         thumbnailUrl :
         {addImgWay ? (
-          <input {...register} className={s.input} type="text" />
+          <input data-testid="testid-thumbnailUrl" {...register} className={s.input} type="text" />
         ) : (
           <input {...register} className={s.input} type="file" />
         )}
