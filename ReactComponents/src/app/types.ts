@@ -38,8 +38,8 @@ type VolumeInfo = {
     containsEpubBubbles: boolean;
     containsImageBubbles: boolean;
   };
-  imageLinks: {
-    smallThumbnail: string;
+  imageLinks?: {
+    smallThumbnail?: string;
     thumbnail: string;
   };
   language: string;

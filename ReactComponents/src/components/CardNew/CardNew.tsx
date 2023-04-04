@@ -7,22 +7,14 @@ interface Props {
 }
 
 const CardNew = ({ infoData }: Props) => {
-  console.log(infoData.volumeInfo);
-  const {
-    authors,
-    language,
-    pageCount,
-    publishedDate,
-    title,
-    imageLinks: { smallThumbnail },
-  } = infoData.volumeInfo;
+  const { authors, language, pageCount, publishedDate, title, imageLinks } = infoData.volumeInfo;
 
   return (
     <div className={s.card}>
       <div>
         <h2 className={s.title}>{title}</h2>
         <div className={s.img}>
-          <img src={smallThumbnail} alt={title} />
+          <img src={imageLinks ? imageLinks.smallThumbnail : ''} alt={title} />
         </div>
       </div>
       <div className={s.info}>
