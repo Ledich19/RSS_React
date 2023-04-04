@@ -19,7 +19,7 @@ const App = () => {
   return (
     <div data-testid="App-testId" className="App">
       <Routes>
-        <Route path="/" element={<Layout setSearchState={setSearchState} />}>
+        <Route path="*" element={<Layout setSearchState={setSearchState} />}>
           <Route index element={<Navigate to="/app" />} />
           <Route path="app" element={<Collection books={books} search={search} />} />
           <Route path="about" element={<AboutUs />} />
