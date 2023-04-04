@@ -8,12 +8,13 @@ import Collection from './pages/Collection/Collection';
 import booksDataNew from './data/booksDbNew.json';
 import AddBook from './pages/AddBook/AddBook';
 import booksService from './services/books';
+import { GoogleBook } from 'app/types';
 
 const App = () => {
   const [search, setSearch] = useState('');
-  const [islLoad, setIslLoad] = useState(false);
-  const [books, setBooks] = useState(booksDataNew.items);
-  const [error, setError] = useState('');
+  const [islLoad, setIslLoad] = useState<boolean>(false);
+  const [books, setBooks] = useState<GoogleBook[]>(booksDataNew.items);
+  const [error, setError] = useState<string | null>(null);
   const [totalItems, setTotalItems] = useState<number>(booksDataNew.totalItems);
 
   const setSearchState = (value: string) => {
@@ -27,7 +28,7 @@ const App = () => {
         const data = await booksService.getAll(search);
         setBooks(data.items);
         setTotalItems(booksDataNew.totalItems);
-        setError('');
+        setError(null);
         setIslLoad(false);
       } catch (error) {
         if (error instanceof Error) {

@@ -9,7 +9,7 @@ interface Props {
   search: string;
   books: GoogleBook[];
   islLoad: boolean;
-  error: string;
+  error: string | null;
 }
 
 const Collection = ({ search, books, islLoad, error }: Props) => {
