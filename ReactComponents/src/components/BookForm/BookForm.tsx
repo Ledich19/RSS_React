@@ -129,9 +129,29 @@ const BookForm = ({ addBook }: Props) => {
         error={errors.shortDescription?.message}
       />
       <TextareaComponent rows={5} label="long description" register={register('longDescription')} />
-      <InputAnother type="date" label="Published date" register={register('publishedDate')} />
-      <DownloadImg register={register('thumbnailUrl')} />
-      <SelectComponent label="Status" options={options} register={register('status')} />
+      <InputAnother
+        required
+        type="date"
+        label="Published date"
+        register={register('publishedDate', {
+          required: 'date is required',
+        })}
+        error={errors.publishedDate?.message}
+      />
+      <DownloadImg
+        register={register('thumbnailUrl', {
+          required: 'thumbnailUrl is required',
+        })}
+        error={errors.thumbnailUrl?.message}
+      />
+      <SelectComponent
+        label="Status"
+        options={options}
+        register={register('status', {
+          required: 'Status is required',
+        })}
+        error={errors.status?.message}
+      />
       <Controller
         name="categories"
         control={control}

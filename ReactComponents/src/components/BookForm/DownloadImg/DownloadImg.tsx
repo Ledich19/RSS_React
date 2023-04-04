@@ -5,9 +5,10 @@ import s from './DownloadImg.module.scss';
 
 interface Props {
   register: UseFormRegisterReturn;
+  error?: string;
 }
 
-const DownloadImg = ({ register }: Props) => {
+const DownloadImg = ({ register, error }: Props) => {
   const [addImgWay, setAddImgWay] = useState(true);
 
   const handleChoose = () => {
@@ -16,6 +17,7 @@ const DownloadImg = ({ register }: Props) => {
 
   return (
     <div data-testid="download-img-container" className={s.box}>
+      {error && <div className={s.error}>{error}</div>}
       <div className={s.radioBox}>
         <label className={s.label} htmlFor="choose-url-img">
           url :
