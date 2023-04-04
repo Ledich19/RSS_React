@@ -21,10 +21,14 @@ const App = () => {
 
   useEffect(() => {
     (async () => {
-      setIslLoad(true);
-      const data = await booksService.getAll(search);
-      setBooks(data.items);
-      setIslLoad(false);
+      try {
+        setIslLoad(true);
+        const data = await booksService.getAll(search);
+        setBooks(data.items);
+        setIslLoad(false);
+      } catch (error) {
+        console.log(error);
+      }
     })();
   }, [search]);
 
