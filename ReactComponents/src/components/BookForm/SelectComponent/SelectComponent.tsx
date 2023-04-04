@@ -13,8 +13,8 @@ const SelectComponent = ({ register, options, label, error }: Props) => {
     <label className={s.label} htmlFor={label}>
       {error && <div className={s.error}>{error}</div>}
       {label}
-      <select {...register} data-testid="SelectComponent-testId" id={label}>
-        <option value="" disabled selected>
+      <select {...register} defaultValue="" data-testid="SelectComponent-testId" id={label}>
+        <option value="" disabled>
           {label}
         </option>
         {options.map((option) => (
