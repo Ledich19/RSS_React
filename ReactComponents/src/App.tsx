@@ -5,7 +5,6 @@ import Page404 from './pages/Page404/Page404';
 import './App.css';
 import Layout from './pages/Layout/Layout';
 import Collection from './pages/Collection/Collection';
-import booksData from './data/booksDb.json';
 import booksDataNew from './data/booksDbNew.json';
 import AddBook from './pages/AddBook/AddBook';
 import booksService from './services/books';
@@ -14,6 +13,8 @@ const App = () => {
   const [search, setSearch] = useState('');
   const [islLoad, setIslLoad] = useState(false);
   const [books, setBooks] = useState(booksDataNew.items);
+  const [error, setError] = useState('');
+  const [totalItems, setTotalItems] = useState<number>(booksDataNew.totalItems);
 
   const setSearchState = (value: string) => {
     setSearch(value);
@@ -25,9 +26,16 @@ const App = () => {
         setIslLoad(true);
         const data = await booksService.getAll(search);
         setBooks(data.items);
+        setTotalItems(booksDataNew.totalItems);
+        setError('');
         setIslLoad(false);
       } catch (error) {
-        console.log(error);
+        if (error instanceof Error) {
+          console.log(error);
+          setError(error.message);
+        } else {
+          setError(`Unknown error occurred: ${error}`);
+        }
       }
     })();
   }, [search]);
@@ -39,7 +47,7 @@ const App = () => {
           <Route index element={<Navigate to="/app" />} />
           <Route
             path="app"
-            element={<Collection books={books} search={search} islLoad={islLoad} />}
+            element={<Collection error={error} books={books} search={search} islLoad={islLoad} />}
           />
           <Route path="about" element={<AboutUs />} />
           <Route path="blank" element={<AddBook />} />

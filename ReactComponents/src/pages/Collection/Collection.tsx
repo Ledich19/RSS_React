@@ -3,14 +3,16 @@ import { GoogleBook } from 'app/types';
 import CardNew from '../../components/CardNew/CardNew';
 import s from './Collection.module.scss';
 import { MagnifyingGlass } from 'react-loader-spinner';
+import NotifyComponent from '../../components/NotifyComponent/NotifyComponent';
 
 interface Props {
   search: string;
   books: GoogleBook[];
   islLoad: boolean;
+  error: string;
 }
 
-const Collection = ({ search, books, islLoad }: Props) => {
+const Collection = ({ search, books, islLoad, error }: Props) => {
   // const filteredBooks = useMemo(() => {
   //   const filterBooks = (searchParameter: string) => {
   //     return books.filter((book) =>
@@ -22,6 +24,9 @@ const Collection = ({ search, books, islLoad }: Props) => {
 
   return (
     <div className={s.collection}>
+      {error && (
+        <NotifyComponent className={s.error} notifyMessage={{ text: error, type: 'error' }} />
+      )}
       {islLoad ? (
         <MagnifyingGlass
           visible={islLoad}
