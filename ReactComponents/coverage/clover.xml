@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1680523507915" clover="3.2.0">
-  <project timestamp="1680523507915" name="All files">
-    <metrics statements="691" coveredstatements="670" conditionals="68" coveredconditionals="59" methods="32" coveredmethods="29" elements="791" coveredelements="758" complexity="0" loc="691" ncloc="691" packages="17" files="18" classes="18"/>
+<coverage generated="1680611961542" clover="3.2.0">
+  <project timestamp="1680611961542" name="All files">
+    <metrics statements="723" coveredstatements="702" conditionals="72" coveredconditionals="64" methods="32" coveredmethods="29" elements="827" coveredelements="795" complexity="0" loc="723" ncloc="723" packages="17" files="18" classes="18"/>
     <package name="src">
       <metrics statements="36" coveredstatements="34" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="1"/>
       <file name="App.tsx" path="D:\My_Projects\RSS_React\ReactComponents\src\App.tsx">
@@ -45,9 +45,9 @@
       </file>
     </package>
     <package name="src.components.BookForm">
-      <metrics statements="155" coveredstatements="141" conditionals="12" coveredconditionals="9" methods="3" coveredmethods="2"/>
+      <metrics statements="175" coveredstatements="161" conditionals="14" coveredconditionals="12" methods="3" coveredmethods="2"/>
       <file name="BookForm.tsx" path="D:\My_Projects\RSS_React\ReactComponents\src\components\BookForm\BookForm.tsx">
-        <metrics statements="155" coveredstatements="141" conditionals="12" coveredconditionals="9" methods="3" coveredmethods="2"/>
+        <metrics statements="175" coveredstatements="161" conditionals="14" coveredconditionals="12" methods="3" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -120,7 +120,7 @@
         <line num="70" count="2" type="stmt"/>
         <line num="71" count="2" type="stmt"/>
         <line num="72" count="2" type="stmt"/>
-        <line num="73" count="2" type="cond" truecount="0" falsecount="2"/>
+        <line num="73" count="2" type="cond" truecount="0" falsecount="1"/>
         <line num="74" count="0" type="stmt"/>
         <line num="75" count="0" type="stmt"/>
         <line num="76" count="2" type="stmt"/>
@@ -187,12 +187,12 @@
         <line num="137" count="11" type="stmt"/>
         <line num="138" count="11" type="stmt"/>
         <line num="139" count="11" type="cond" truecount="1" falsecount="0"/>
-        <line num="140" count="15" type="stmt"/>
-        <line num="141" count="15" type="cond" truecount="1" falsecount="0"/>
-        <line num="142" count="15" type="stmt"/>
-        <line num="143" count="15" type="stmt"/>
-        <line num="144" count="15" type="stmt"/>
-        <line num="145" count="15" type="stmt"/>
+        <line num="140" count="11" type="stmt"/>
+        <line num="141" count="11" type="stmt"/>
+        <line num="142" count="11" type="stmt"/>
+        <line num="143" count="11" type="stmt"/>
+        <line num="144" count="11" type="stmt"/>
+        <line num="145" count="11" type="cond" truecount="1" falsecount="0"/>
         <line num="146" count="11" type="stmt"/>
         <line num="147" count="11" type="stmt"/>
         <line num="148" count="11" type="stmt"/>
@@ -200,9 +200,29 @@
         <line num="150" count="11" type="stmt"/>
         <line num="151" count="11" type="stmt"/>
         <line num="152" count="11" type="stmt"/>
-        <line num="153" count="11" type="stmt"/>
+        <line num="153" count="11" type="cond" truecount="1" falsecount="0"/>
         <line num="154" count="11" type="stmt"/>
-        <line num="155" count="1" type="stmt"/>
+        <line num="155" count="11" type="stmt"/>
+        <line num="156" count="11" type="stmt"/>
+        <line num="157" count="11" type="stmt"/>
+        <line num="158" count="11" type="stmt"/>
+        <line num="159" count="11" type="cond" truecount="1" falsecount="0"/>
+        <line num="160" count="15" type="stmt"/>
+        <line num="161" count="15" type="cond" truecount="1" falsecount="0"/>
+        <line num="162" count="15" type="stmt"/>
+        <line num="163" count="15" type="stmt"/>
+        <line num="164" count="15" type="stmt"/>
+        <line num="165" count="15" type="stmt"/>
+        <line num="166" count="11" type="stmt"/>
+        <line num="167" count="11" type="stmt"/>
+        <line num="168" count="11" type="stmt"/>
+        <line num="169" count="11" type="stmt"/>
+        <line num="170" count="11" type="stmt"/>
+        <line num="171" count="11" type="stmt"/>
+        <line num="172" count="11" type="stmt"/>
+        <line num="173" count="11" type="stmt"/>
+        <line num="174" count="11" type="stmt"/>
+        <line num="175" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components.BookForm.Categories">
@@ -251,9 +271,9 @@
       </file>
     </package>
     <package name="src.components.BookForm.DownloadImg">
-      <metrics statements="54" coveredstatements="50" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
+      <metrics statements="56" coveredstatements="52" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="1"/>
       <file name="DownloadImg.tsx" path="D:\My_Projects\RSS_React\ReactComponents\src\components\BookForm\DownloadImg\DownloadImg.tsx">
-        <metrics statements="54" coveredstatements="50" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
+        <metrics statements="56" coveredstatements="52" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -263,17 +283,17 @@
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="11" count="11" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="12" count="11" type="stmt"/>
         <line num="13" count="11" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
+        <line num="14" count="11" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
-        <line num="16" count="11" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
         <line num="17" count="11" type="stmt"/>
         <line num="18" count="11" type="stmt"/>
         <line num="19" count="11" type="stmt"/>
-        <line num="20" count="11" type="stmt"/>
+        <line num="20" count="11" type="cond" truecount="1" falsecount="0"/>
         <line num="21" count="11" type="stmt"/>
         <line num="22" count="11" type="stmt"/>
         <line num="23" count="11" type="stmt"/>
@@ -299,21 +319,23 @@
         <line num="43" count="11" type="stmt"/>
         <line num="44" count="11" type="stmt"/>
         <line num="45" count="11" type="stmt"/>
-        <line num="46" count="11" type="cond" truecount="0" falsecount="1"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="49" count="11" type="stmt"/>
-        <line num="50" count="11" type="stmt"/>
+        <line num="46" count="11" type="stmt"/>
+        <line num="47" count="11" type="stmt"/>
+        <line num="48" count="11" type="cond" truecount="0" falsecount="1"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
         <line num="51" count="11" type="stmt"/>
         <line num="52" count="11" type="stmt"/>
         <line num="53" count="11" type="stmt"/>
-        <line num="54" count="1" type="stmt"/>
+        <line num="54" count="11" type="stmt"/>
+        <line num="55" count="11" type="stmt"/>
+        <line num="56" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components.BookForm.InputAnother">
-      <metrics statements="29" coveredstatements="29" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+      <metrics statements="29" coveredstatements="29" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="InputAnother.tsx" path="D:\My_Projects\RSS_React\ReactComponents\src\components\BookForm\InputAnother\InputAnother.tsx">
-        <metrics statements="29" coveredstatements="29" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <metrics statements="29" coveredstatements="29" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -330,7 +352,7 @@
         <line num="14" count="22" type="stmt"/>
         <line num="15" count="22" type="cond" truecount="1" falsecount="0"/>
         <line num="16" count="22" type="stmt"/>
-        <line num="17" count="22" type="cond" truecount="1" falsecount="0"/>
+        <line num="17" count="22" type="stmt"/>
         <line num="18" count="22" type="stmt"/>
         <line num="19" count="22" type="stmt"/>
         <line num="20" count="22" type="stmt"/>
@@ -378,9 +400,9 @@
       </file>
     </package>
     <package name="src.components.BookForm.SelectComponent">
-      <metrics statements="25" coveredstatements="25" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <metrics statements="30" coveredstatements="30" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
       <file name="SelectComponent.tsx" path="D:\My_Projects\RSS_React\ReactComponents\src\components\BookForm\SelectComponent\SelectComponent.tsx">
-        <metrics statements="25" coveredstatements="25" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <metrics statements="30" coveredstatements="30" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -390,22 +412,27 @@
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="11" count="11" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="12" count="11" type="stmt"/>
         <line num="13" count="11" type="stmt"/>
-        <line num="14" count="11" type="stmt"/>
-        <line num="15" count="11" type="cond" truecount="1" falsecount="0"/>
-        <line num="16" count="55" type="stmt"/>
-        <line num="17" count="55" type="stmt"/>
-        <line num="18" count="55" type="stmt"/>
+        <line num="14" count="11" type="cond" truecount="1" falsecount="0"/>
+        <line num="15" count="11" type="stmt"/>
+        <line num="16" count="11" type="stmt"/>
+        <line num="17" count="11" type="stmt"/>
+        <line num="18" count="11" type="stmt"/>
         <line num="19" count="11" type="stmt"/>
-        <line num="20" count="11" type="stmt"/>
-        <line num="21" count="11" type="stmt"/>
-        <line num="22" count="11" type="stmt"/>
-        <line num="23" count="11" type="stmt"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
+        <line num="20" count="11" type="cond" truecount="1" falsecount="0"/>
+        <line num="21" count="55" type="stmt"/>
+        <line num="22" count="55" type="stmt"/>
+        <line num="23" count="55" type="stmt"/>
+        <line num="24" count="11" type="stmt"/>
+        <line num="25" count="11" type="stmt"/>
+        <line num="26" count="11" type="stmt"/>
+        <line num="27" count="11" type="stmt"/>
+        <line num="28" count="11" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components.BookForm.TextareaComponent">
@@ -574,7 +601,7 @@
       </file>
     </package>
     <package name="src.components.Search">
-      <metrics statements="80" coveredstatements="80" conditionals="9" coveredconditionals="9" methods="6" coveredmethods="6"/>
+      <metrics statements="85" coveredstatements="85" conditionals="10" coveredconditionals="10" methods="6" coveredmethods="6"/>
       <file name="SearchComponent.tsx" path="D:\My_Projects\RSS_React\ReactComponents\src\components\Search\SearchComponent.tsx">
         <metrics statements="45" coveredstatements="45" conditionals="3" coveredconditionals="3" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
@@ -624,7 +651,7 @@
         <line num="45" count="1" type="stmt"/>
       </file>
       <file name="SearchContainer.tsx" path="D:\My_Projects\RSS_React\ReactComponents\src\components\Search\SearchContainer.tsx">
-        <metrics statements="35" coveredstatements="35" conditionals="6" coveredconditionals="6" methods="3" coveredmethods="3"/>
+        <metrics statements="40" coveredstatements="40" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -634,32 +661,37 @@
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="9" count="20" type="stmt"/>
-        <line num="10" count="20" type="cond" truecount="1" falsecount="0"/>
-        <line num="11" count="20" type="stmt"/>
+        <line num="10" count="20" type="stmt"/>
+        <line num="11" count="20" type="cond" truecount="1" falsecount="0"/>
         <line num="12" count="20" type="stmt"/>
-        <line num="13" count="20" type="cond" truecount="1" falsecount="0"/>
+        <line num="13" count="20" type="stmt"/>
         <line num="14" count="20" type="cond" truecount="1" falsecount="0"/>
-        <line num="15" count="20" type="stmt"/>
-        <line num="16" count="20" type="stmt"/>
-        <line num="17" count="20" type="stmt"/>
+        <line num="15" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
         <line num="18" count="20" type="stmt"/>
-        <line num="19" count="20" type="cond" truecount="1" falsecount="0"/>
-        <line num="20" count="17" type="stmt"/>
-        <line num="21" count="17" type="stmt"/>
+        <line num="19" count="20" type="stmt"/>
+        <line num="20" count="20" type="cond" truecount="1" falsecount="0"/>
+        <line num="21" count="20" type="stmt"/>
         <line num="22" count="20" type="stmt"/>
-        <line num="23" count="20" type="cond" truecount="1" falsecount="0"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="25" count="1" type="stmt"/>
-        <line num="26" count="20" type="stmt"/>
+        <line num="23" count="20" type="stmt"/>
+        <line num="24" count="20" type="cond" truecount="1" falsecount="0"/>
+        <line num="25" count="17" type="stmt"/>
+        <line num="26" count="17" type="stmt"/>
         <line num="27" count="20" type="stmt"/>
-        <line num="28" count="20" type="stmt"/>
-        <line num="29" count="20" type="stmt"/>
-        <line num="30" count="20" type="stmt"/>
+        <line num="28" count="20" type="cond" truecount="1" falsecount="0"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
         <line num="31" count="20" type="stmt"/>
         <line num="32" count="20" type="stmt"/>
         <line num="33" count="20" type="stmt"/>
         <line num="34" count="20" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
+        <line num="35" count="20" type="stmt"/>
+        <line num="36" count="20" type="stmt"/>
+        <line num="37" count="20" type="stmt"/>
+        <line num="38" count="20" type="stmt"/>
+        <line num="39" count="20" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.pages.AboutUs">

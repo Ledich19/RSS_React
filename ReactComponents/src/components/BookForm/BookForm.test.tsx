@@ -41,8 +41,9 @@ describe('BookForm component', () => {
     const submitButton = screen.getByText(/add book/i);
     const mobileCategory = screen.getByText(/mobile/i);
     const webCategory = screen.getByText(/web/i);
+    const thumbnailUrl = screen.getByTestId('testid-thumbnailUrl');
 
-    fireEvent.change(titleInput, { target: { value: 'Book Title' } });
+    fireEvent.change(titleInput, { target: { value: 'Title' } });
     fireEvent.change(isbnInput, { target: { value: '1234567890' } });
     fireEvent.change(pageCountInput, { target: { value: '100' } });
     fireEvent.change(authorsInput, { target: { value: 'Author One, Author Two' } });
@@ -50,20 +51,21 @@ describe('BookForm component', () => {
     fireEvent.change(longDescriptionInput, { target: { value: 'Long description' } });
     fireEvent.change(publishedDateInput, { target: { value: '2023-03-24' } });
     fireEvent.change(statusSelect, { target: { value: 'PUBLISH' } });
+    fireEvent.change(thumbnailUrl, { target: { value: 'img-link' } });
     fireEvent.click(mobileCategory);
     fireEvent.click(webCategory);
     fireEvent.click(submitButton);
 
     await waitFor(() => expect(mockAddBook).toHaveBeenCalledTimes(1));
     expect(mockAddBook).toHaveBeenCalledWith({
-      title: 'Book Title',
+      title: 'Title',
       isbn: '1234567890',
       pageCount: '100',
       authors: ['Author One', 'Author Two'],
       shortDescription: 'Short description',
       longDescription: 'Long description',
       publishedDate: { $date: '2023-03-24' },
-      thumbnailUrl: '',
+      thumbnailUrl: 'img-link',
       status: 'PUBLISH',
       categories: ['mobile', 'web'],
     });

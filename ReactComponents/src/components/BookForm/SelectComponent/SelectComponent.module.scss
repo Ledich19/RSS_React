@@ -1,4 +1,5 @@
 .label{
+  position: relative;
   display: flex;
   justify-content: space-between;
   font-weight: bold;
@@ -6,4 +7,12 @@
 }
 .input{
 flex: 1 1 auto;
+}
+.error{
+  font-size: 12px;
+  top: -4px;
+  right: 50%;
+  transform: translate(50%,0%);
+  position: absolute;
+  color: red;
 }

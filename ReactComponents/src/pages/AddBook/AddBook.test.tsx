@@ -22,6 +22,7 @@ describe('AddBook', () => {
     const submitButton = screen.getByText(/add book/i);
     const mobileCategory = screen.getByText(/mobile/i);
     const webCategory = screen.getByText(/web/i);
+    const thumbnailUrl = screen.getByTestId('testid-thumbnailUrl');
 
     fireEvent.change(titleInput, { target: { value: 'Book Title' } });
     fireEvent.change(isbnInput, { target: { value: '1234567890' } });
@@ -31,6 +32,7 @@ describe('AddBook', () => {
     fireEvent.change(longDescriptionInput, { target: { value: 'Long description' } });
     fireEvent.change(publishedDateInput, { target: { value: '2023-03-24' } });
     fireEvent.change(statusSelect, { target: { value: 'PUBLISH' } });
+    fireEvent.change(thumbnailUrl, { target: { value: 'img-link' } });
     fireEvent.click(mobileCategory);
     fireEvent.click(webCategory);
     fireEvent.click(submitButton);
