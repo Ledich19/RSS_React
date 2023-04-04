@@ -9,6 +9,7 @@ import booksDataNew from './data/booksDbNew.json';
 import AddBook from './pages/AddBook/AddBook';
 import booksService from './services/books';
 import { GoogleBook } from 'app/types';
+import FullCard from './components/FullCard/FullCard';
 
 const App = () => {
   const [search, setSearch] = useState('');
@@ -52,6 +53,7 @@ const App = () => {
           />
           <Route path="about" element={<AboutUs />} />
           <Route path="blank" element={<AddBook />} />
+          <Route path="book" element={<FullCard />} />
           <Route path="404" element={<Page404 />} />
           <Route path="*" element={<Navigate to="404" />} />
         </Route>

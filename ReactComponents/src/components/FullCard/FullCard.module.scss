@@ -1,0 +1,98 @@
+.blur {
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background: #4b523c88;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  background: whitesmoke;
+  color: black;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+}
+.box {
+  display: flex;
+  justify-content: space-between;
+}
+.info {
+  flex: 1 1 auto;
+}
+
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.img {
+  margin-top: 10px;
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  height: 188px;
+}
+.img img {
+  height: 100%;
+}
+.info {
+  text-align: left;
+  padding: 0 0px 0 10px;
+}
+.textBold {
+  font-weight: bold;
+}
+.pages,
+.language,
+.publisher,
+.images,
+.printType,
+.categories,
+.saleability,
+.isEbook,
+.date {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #d8d7d7;
+}
+.authors {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color:rgb(0, 168, 112);
+}
+.categoriesList {
+  display: block;
+  flex-wrap: wrap;
+}
+
+.ratingBlock {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.averageRating {
+  font-weight: bold;
+  color: rgb(192, 186, 3);
+  .textBold {
+    margin-left: 10px;
+    margin-right: 5px;
+    color: black;
+  }
+}
+.ratingsCount {
+}
+
+.previewLink {
+}
+.description {
+  margin-top: 10px;
+  text-align: justify;
+}
