@@ -50,10 +50,11 @@ const App = () => {
           <Route
             path="app"
             element={<Collection error={error} books={books} search={search} islLoad={islLoad} />}
-          />
+          >
+            <Route path={`:id`} element={<FullCard />} />
+          </Route>
           <Route path="about" element={<AboutUs />} />
           <Route path="blank" element={<AddBook />} />
-          <Route path={`app/:id`} element={<FullCard />} />
           <Route path="404" element={<Page404 />} />
           <Route path="*" element={<Navigate to="404" />} />
         </Route>

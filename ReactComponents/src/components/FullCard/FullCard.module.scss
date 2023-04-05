@@ -4,23 +4,27 @@
   position: fixed;
   height: 100vh;
   width: 100%;
-  background: #4b523c88;
+  background: #13373be5;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 50%;
-  height: 80vh;
-  overflow: auto;
-  background: whitesmoke;
+  max-height: 80vh;
   color: black;
-  padding: 10px 10px 10px 10px;
+  padding: 5px 0px 5px 0px;
+  background: whitesmoke;
   border-radius: 5px;
+}
+.wrapper{
+  padding: 0px 10px 0px 10px;
+  overflow: auto;
   & {
     scrollbar-width: thin;
     scrollbar-color: rgb(255, 255, 255) rgb(0, 0, 0);
@@ -28,16 +32,17 @@
   &::-webkit-scrollbar {
     width: 3px;
   }
-
+  
   &::-webkit-scrollbar-track {
     background: rgb(255, 255, 255);
   }
-
+  
   &::-webkit-scrollbar-thumb {
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
     border: 3px solid rgb(0, 0, 0);
   }
+
 }
 .box {
   display: flex;
@@ -66,9 +71,6 @@
   text-align: left;
   padding: 0 0px 0 10px;
 }
-.textBold {
-  font-weight: bold;
-}
 
 .authors {
   font-size: 1.1rem;
@@ -93,4 +95,18 @@
 .description {
   margin-top: 10px;
   text-align: justify;
+}
+
+.close{
+  position: absolute;
+  right: 5px;
+  top: -10px;
+  color: rgb(145, 3, 3);
+  font-weight: bold;
+  font-size: 30px;
+  cursor: pointer;
+  &:hover{
+  color: red;
+
+  }
 }

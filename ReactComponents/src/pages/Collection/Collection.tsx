@@ -4,7 +4,7 @@ import CardNew from '../../components/CardNew/CardNew';
 import s from './Collection.module.scss';
 import { MagnifyingGlass } from 'react-loader-spinner';
 import NotifyComponent from '../../components/NotifyComponent/NotifyComponent';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 interface Props {
   search: string;
@@ -25,6 +25,7 @@ const Collection = ({ search, books, islLoad, error }: Props) => {
 
   return (
     <div className={s.collection}>
+      <Outlet />
       {error && (
         <NotifyComponent className={s.error} notifyMessage={{ text: error, type: 'error' }} />
       )}

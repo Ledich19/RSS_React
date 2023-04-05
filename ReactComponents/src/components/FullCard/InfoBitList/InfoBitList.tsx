@@ -4,7 +4,6 @@ interface Props {
   list: string[];
   label: string;
 }
-
 const InfoBitList = ({ label, list }: Props) => {
   return (
     <div className={s.block}>

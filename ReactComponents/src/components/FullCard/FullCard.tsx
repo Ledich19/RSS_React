@@ -6,6 +6,7 @@ import { GoogleBook } from 'app/types';
 import InfoBit from './InfoBit/InfoBit';
 import InfoBitBoolean from './InfoBitBoolean/InfoBitBoolean';
 import InfoBitList from './InfoBitList/InfoBitList';
+import { Link } from 'react-router-dom';
 const FullCard = () => {
   const [book, setBook] = useState<GoogleBook>();
   const [islLoad, setIslLoad] = useState<boolean>(false);
@@ -48,42 +49,53 @@ const FullCard = () => {
   return (
     <div className={s.blur}>
       <div className={s.card}>
-        <h2 className={s.title}>{title}</h2>
-        <div className={s.box}>
-          <div className={s.thumbnail}>
-            <img src={imageLinks ? imageLinks.thumbnail : ''} alt={title} />
+        <Link key={book.id} to={`/app`}>
+          <div className={s.close}>&otimes;</div>
+        </Link>
+        <div className={s.wrapper}>
+          <h2 className={s.title}>{title}</h2>
+          <div className={s.box}>
+            <div className={s.thumbnail}>
+              <img src={imageLinks ? imageLinks.thumbnail : ''} alt={title} />
+            </div>
+            <div className={s.info}>
+              <div className={s.authors}>{authors ? authors.join(', ') : ''}</div>
+              <InfoBit label="Pages" info={pageCount} />
+              <InfoBit label="Language" info={language} />
+              <InfoBit
+                label="Published"
+                info={
+                  publishedDate ? new Date(publishedDate).toLocaleDateString('ru-RU') : 'unknown'
+                }
+              />
+              <InfoBit label="Publisher" info={publisher} />
+              <InfoBitBoolean
+                label="readingMode"
+                info={readingModes.image}
+                options={['yes', 'no']}
+              />
+              <InfoBit label="PrintType" info={printType} />
+              <InfoBitList label="Categories" list={categories} />
+              <InfoBit label="Saleability" info={saleability} />
+              <InfoBitBoolean label="Is Ebook" info={isEbook} options={['yes', 'no']} />
+            </div>
           </div>
-          <div className={s.info}>
-            <div className={s.authors}>{authors ? authors.join(', ') : ''}</div>
-            <InfoBit label="Pages" info={pageCount} />
-            <InfoBit label="Language" info={language} />
-            <InfoBit
-              label="Published"
-              info={publishedDate ? new Date(publishedDate).toLocaleDateString('ru-RU') : 'unknown'}
-            />
-            <InfoBit label="Publisher" info={publisher} />
-            <InfoBitBoolean label="readingMode" info={readingModes.image} options={['yes', 'no']} />
-            <InfoBit label="PrintType" info={printType} />
-            <InfoBitList label="Categories" list={categories} />
-            <InfoBit label="Saleability" info={saleability} />
-            <InfoBitBoolean label="Is Ebook" info={isEbook} options={['yes', 'no']} />
+          <div className={s.ratingBlock}>
+            <div className={s.previewLink}>
+              <span className={s.textBold}>PreviewLink:</span>
+              <a href={previewLink}> read demo book </a>
+            </div>
+            <div className={s.averageRating}>
+              <span className={s.textBold}>Rating:</span>
+              {averageRating}
+              <span className={s.textBold}>RatingsCount:</span>
+              {ratingsCount}
+            </div>
           </div>
-        </div>
-        <div className={s.ratingBlock}>
-          <div className={s.previewLink}>
-            <span className={s.textBold}>PreviewLink:</span>
-            <a href={previewLink}> read demo book </a>
+          <div className={s.description}>
+            <span className={s.textBold}>Description:</span>
+            <div dangerouslySetInnerHTML={{ __html: description ? description : '' }} />
           </div>
-          <div className={s.averageRating}>
-            <span className={s.textBold}>Rating:</span>
-            {averageRating}
-            <span className={s.textBold}>RatingsCount:</span>
-            {ratingsCount}
-          </div>
-        </div>
-        <div className={s.description}>
-          <span className={s.textBold}>Description:</span>
-          <div dangerouslySetInnerHTML={{ __html: description }} />
         </div>
       </div>
     </div>

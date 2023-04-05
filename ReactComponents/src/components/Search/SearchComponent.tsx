@@ -13,13 +13,14 @@ const SearchComponent: React.FC<Props> = ({ value, handleInputChange, handleSear
     handleInputChange(e);
   };
 
-  const handleSearchLocal = () => {
+  const handleSearchLocal = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     handleSearch();
   };
 
   return (
     <div className={s.wrap}>
-      <div className={s.search}>
+      <form onSubmit={handleSearchLocal} className={s.search}>
         <input
           type="text"
           value={value}
@@ -27,17 +28,12 @@ const SearchComponent: React.FC<Props> = ({ value, handleInputChange, handleSear
           className={s.searchTerm}
           placeholder="What are you looking for?"
         />
-        <button
-          type="button"
-          data-testid="searchBtn-testId"
-          onClick={handleSearchLocal}
-          className={s.searchButton}
-        >
+        <button type="submit" data-testid="searchBtn-testId" className={s.searchButton}>
           <div className={s.icon}>
             <FaSearch />
           </div>
         </button>
-      </div>
+      </form>
     </div>
   );
 };
