@@ -15,10 +15,29 @@
   flex-direction: column;
   justify-content: space-between;
   width: 50%;
+  height: 80vh;
+  overflow: auto;
   background: whitesmoke;
   color: black;
   padding: 10px 10px 10px 10px;
-  border-radius: 10px;
+  border-radius: 5px;
+  & {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(255, 255, 255) rgb(0, 0, 0);
+  }
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgb(255, 255, 255);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    border: 3px solid rgb(0, 0, 0);
+  }
 }
 .box {
   display: flex;
@@ -66,11 +85,10 @@
 .authors {
   font-size: 1.1rem;
   font-weight: bold;
-  color:rgb(0, 168, 112);
+  color: rgb(0, 168, 112);
 }
-.categoriesList {
-  display: block;
-  flex-wrap: wrap;
+.categoriesList{
+  text-align: right;
 }
 
 .ratingBlock {

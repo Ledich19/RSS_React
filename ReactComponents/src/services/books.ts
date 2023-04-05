@@ -8,7 +8,7 @@ const getAll = (search: string) => {
 };
 
 const getById = (id: string) => {
-  const request = axios.get(`${BASE_URL}s/${id}?key=${KEY}y`);
+  const request = axios.get(`${BASE_URL}/${id}?key=${KEY}`);
   return request.then((response) => response.data);
 };
 

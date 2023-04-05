@@ -53,7 +53,7 @@ const App = () => {
           />
           <Route path="about" element={<AboutUs />} />
           <Route path="blank" element={<AddBook />} />
-          <Route path="book" element={<FullCard />} />
+          <Route path={`app/:id`} element={<FullCard />} />
           <Route path="404" element={<Page404 />} />
           <Route path="*" element={<Navigate to="404" />} />
         </Route>

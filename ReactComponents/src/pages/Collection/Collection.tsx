@@ -4,6 +4,7 @@ import CardNew from '../../components/CardNew/CardNew';
 import s from './Collection.module.scss';
 import { MagnifyingGlass } from 'react-loader-spinner';
 import NotifyComponent from '../../components/NotifyComponent/NotifyComponent';
+import { Link } from 'react-router-dom';
 
 interface Props {
   search: string;
@@ -39,7 +40,11 @@ const Collection = ({ search, books, islLoad, error }: Props) => {
           color="#e15b64"
         />
       ) : (
-        books.map((book) => <CardNew key={book.id} infoData={book} />)
+        books.map((book) => (
+          <Link key={book.id} to={`/app/${book.id}`}>
+            <CardNew infoData={book} />
+          </Link>
+        ))
       )}
     </div>
   );
