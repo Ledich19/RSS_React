@@ -69,26 +69,11 @@
 .textBold {
   font-weight: bold;
 }
-.pages,
-.language,
-.publisher,
-.images,
-.printType,
-.categories,
-.saleability,
-.isEbook,
-.date {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #d8d7d7;
-}
+
 .authors {
   font-size: 1.1rem;
   font-weight: bold;
   color: rgb(0, 168, 112);
-}
-.categoriesList{
-  text-align: right;
 }
 
 .ratingBlock {
@@ -104,11 +89,6 @@
     margin-right: 5px;
     color: black;
   }
-}
-.ratingsCount {
-}
-
-.previewLink {
 }
 .description {
   margin-top: 10px;

@@ -3,6 +3,9 @@ import s from './FullCard.module.scss';
 import { useParams } from 'react-router-dom';
 import booksService from '../../services/books';
 import { GoogleBook } from 'app/types';
+import InfoBit from './InfoBit/InfoBit';
+import InfoBitBoolean from './InfoBitBoolean/InfoBitBoolean';
+import InfoBitList from './InfoBitList/InfoBitList';
 const FullCard = () => {
   const [book, setBook] = useState<GoogleBook>();
   const [islLoad, setIslLoad] = useState<boolean>(false);
@@ -46,52 +49,24 @@ const FullCard = () => {
     <div className={s.blur}>
       <div className={s.card}>
         <h2 className={s.title}>{title}</h2>
-
         <div className={s.box}>
           <div className={s.thumbnail}>
             <img src={imageLinks ? imageLinks.thumbnail : ''} alt={title} />
           </div>
           <div className={s.info}>
             <div className={s.authors}>{authors ? authors.join(', ') : ''}</div>
-            <div className={s.pages}>
-              <span className={s.textBold}>Pages: </span>
-              {pageCount}
-            </div>
-            <div className={s.language}>
-              <span className={s.textBold}>Language: </span>
-              {language}
-            </div>
-            <div className={s.date}>
-              <span className={s.textBold}>Published:</span>
-              {publishedDate ? new Date(publishedDate).toLocaleDateString('ru-RU') : 'unknown'}
-            </div>
-            <div className={s.publisher}>
-              <span className={s.textBold}>Publisher:</span>
-              {publisher}
-            </div>
-
-            <div className={s.images}>
-              <span className={s.textBold}>Images:</span>
-              {readingModes.image ? 'yes' : 'no'}
-            </div>
-            <div className={s.printType}>
-              <span className={s.textBold}>PrintType:</span>
-              {printType}
-            </div>
-            <div className={s.categories}>
-              <span className={s.textBold}>Categories:</span>
-              <span className={s.categoriesList}>{categories ? categories.join(', ') : ''}</span>
-            </div>
-
-            <div className={s.saleability}>
-              <span className={s.textBold}>Saleability:</span>
-              {saleability}
-            </div>
-
-            <div className={s.isEbook}>
-              <span className={s.textBold}>Is Ebook:</span>
-              {isEbook ? 'yes' : 'no'}
-            </div>
+            <InfoBit label="Pages" info={pageCount} />
+            <InfoBit label="Language" info={language} />
+            <InfoBit
+              label="Published"
+              info={publishedDate ? new Date(publishedDate).toLocaleDateString('ru-RU') : 'unknown'}
+            />
+            <InfoBit label="Publisher" info={publisher} />
+            <InfoBitBoolean label="readingMode" info={readingModes.image} options={['yes', 'no']} />
+            <InfoBit label="PrintType" info={printType} />
+            <InfoBitList label="Categories" list={categories} />
+            <InfoBit label="Saleability" info={saleability} />
+            <InfoBitBoolean label="Is Ebook" info={isEbook} options={['yes', 'no']} />
           </div>
         </div>
         <div className={s.ratingBlock}>
@@ -99,7 +74,6 @@ const FullCard = () => {
             <span className={s.textBold}>PreviewLink:</span>
             <a href={previewLink}> read demo book </a>
           </div>
-
           <div className={s.averageRating}>
             <span className={s.textBold}>Rating:</span>
             {averageRating}
