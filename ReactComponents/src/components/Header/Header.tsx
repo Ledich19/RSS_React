@@ -3,11 +3,7 @@ import { NavLink, Routes, Route } from 'react-router-dom';
 import s from './Header.module.scss';
 import SearchContainer from '../Search/SearchContainer';
 
-interface Props {
-  setSearchState: (value: string) => void;
-}
-
-const Header: React.FC<Props> = ({ setSearchState }) => {
+const Header: React.FC = () => {
   return (
     <div className={s.header}>
       <div className={s.list}>
@@ -22,12 +18,7 @@ const Header: React.FC<Props> = ({ setSearchState }) => {
         </NavLink>
       </div>
       <Routes>
-        <Route
-          path="/app"
-          element={
-            <SearchContainer data-testid="search-container" setSearchState={setSearchState} />
-          }
-        />
+        <Route path="/app" element={<SearchContainer data-testid="search-container" />} />
       </Routes>
     </div>
   );

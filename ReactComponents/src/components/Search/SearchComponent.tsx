@@ -5,26 +5,17 @@ import s from './SearchComponent.module.scss';
 interface Props {
   value: string;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSearch: () => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
-const SearchComponent: React.FC<Props> = ({ value, handleInputChange, handleSearch }) => {
-  const handleInputChangeLocal = (e: React.ChangeEvent<HTMLInputElement>) => {
-    handleInputChange(e);
-  };
-
-  const handleSearchLocal = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    handleSearch();
-  };
-
+const SearchComponent: React.FC<Props> = ({ value, handleInputChange, handleSubmit }) => {
   return (
     <div className={s.wrap}>
-      <form onSubmit={handleSearchLocal} className={s.search}>
+      <form onSubmit={handleSubmit} className={s.search}>
         <input
           type="text"
           value={value}
-          onChange={handleInputChangeLocal}
+          onChange={handleInputChange}
           className={s.searchTerm}
           placeholder="What are you looking for?"
         />

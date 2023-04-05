@@ -1,4 +1,3 @@
-import React, { useMemo } from 'react';
 import { GoogleBook } from 'app/types';
 import CardNew from '../../components/CardNew/CardNew';
 import s from './Collection.module.scss';
@@ -7,22 +6,12 @@ import NotifyComponent from '../../components/NotifyComponent/NotifyComponent';
 import { Link, Outlet } from 'react-router-dom';
 
 interface Props {
-  search: string;
   books: GoogleBook[];
   islLoad: boolean;
   error: string | null;
 }
 
-const Collection = ({ search, books, islLoad, error }: Props) => {
-  // const filteredBooks = useMemo(() => {
-  //   const filterBooks = (searchParameter: string) => {
-  //     return books.filter((book) =>
-  //       book.title.toUpperCase().includes(searchParameter.toUpperCase())
-  //     );
-  //   };
-  //   return filterBooks(search);
-  // }, [search, books]);
-
+const Collection = ({ books, islLoad, error }: Props) => {
   return (
     <div className={s.collection}>
       <Outlet />
@@ -49,6 +38,10 @@ const Collection = ({ search, books, islLoad, error }: Props) => {
       )}
     </div>
   );
+};
+
+Collection.defaultProps = {
+  books: [],
 };
 
 export default Collection;
