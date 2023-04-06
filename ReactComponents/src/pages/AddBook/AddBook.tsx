@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { InfoData } from 'app/types';
-import Collection from '../Collection/Collection';
 import BookForm from '../../components/BookForm/BookForm';
 import NotifyComponent from '../../components/NotifyComponent/NotifyComponent';
+import Card from './../../components/Card/Card';
+import s from './AddBook.module.scss';
 
 interface NotifyMessage {
   type: string;
@@ -25,7 +26,11 @@ const AddBook = () => {
     <>
       <BookForm addBook={addBook} />
       <NotifyComponent notifyMessage={notifyMessage} />
-      <Collection books={books} search="" />
+      <div className={s.collection}>
+        {books.map((book) => (
+          <Card key={book.title} infoData={book} />
+        ))}
+      </div>
     </>
   );
 };
