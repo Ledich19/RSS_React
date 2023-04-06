@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
 import SearchComponent from './SearchComponent';
 import booksService from '../../services/books';
-import { BookDataContext } from './../../context';
+import { BookDataContext } from '../../app/context';
 
 const SearchContainer = () => {
   const inputSearch = useRef<HTMLInputElement>(null);
@@ -20,7 +20,7 @@ const SearchContainer = () => {
         setIslLoad(false);
       } catch (error) {
         if (error instanceof Error) {
-          console.log(error);
+          setIslLoad(false);
           setError(error.message);
         } else {
           setError(`Unknown error occurred: ${error}`);

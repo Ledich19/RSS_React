@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import s from './FullCard.module.scss';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import booksService from '../../services/books';
 import { GoogleBook } from 'app/types';
 import InfoBit from './InfoBit/InfoBit';
 import InfoBitBoolean from './InfoBitBoolean/InfoBitBoolean';
 import InfoBitList from './InfoBitList/InfoBitList';
 import { Link } from 'react-router-dom';
+import { BookDataContext } from '../../app/context';
 const FullCard = () => {
   const [book, setBook] = useState<GoogleBook>();
-  const [islLoad, setIslLoad] = useState<boolean>(false);
+  const blurRef = useRef<HTMLDivElement>(null);
+  const { setError, setIslLoad } = useContext(BookDataContext);
+  const navigate = useNavigate();
   const id = useParams().id;
   useEffect(() => {
     (async () => {
@@ -19,11 +22,15 @@ const FullCard = () => {
         setBook(data);
         setIslLoad(false);
       } catch (error) {
+        setIslLoad(false);
         if (error instanceof Error) {
+          setError(error.message);
+        } else {
+          setError(`Unknown error occurred: ${error}`);
         }
       }
     })();
-  }, [id]);
+  }, [id, setError, setIslLoad]);
 
   if (!book) {
     return null;
@@ -46,8 +53,14 @@ const FullCard = () => {
   } = book.volumeInfo;
   const { saleability, isEbook } = book.saleInfo;
 
+  const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === blurRef.current) {
+      navigate('/app');
+    }
+  };
+
   return (
-    <div className={s.blur}>
+    <div ref={blurRef} onClick={handleClose} className={s.blur}>
       <div className={s.card}>
         <Link key={book.id} to={`/app`}>
           <div className={s.close}>&otimes;</div>

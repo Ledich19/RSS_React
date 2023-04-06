@@ -8,7 +8,7 @@ import Collection from './pages/Collection/Collection';
 import AddBook from './pages/AddBook/AddBook';
 import { GoogleBook } from 'app/types';
 import FullCard from './components/FullCard/FullCard';
-import { BookDataContext } from './context';
+import { BookDataContext } from './app/context';
 
 const App = () => {
   const [islLoad, setIslLoad] = useState<boolean>(false);
@@ -16,15 +16,12 @@ const App = () => {
   const [error, setError] = useState<string | null>(null);
 
   return (
-    <BookDataContext.Provider value={{ setBooks, setError, setIslLoad }}>
-      <div data-testid="App-testId" className="App">
+    <div data-testid="App-testId" className="App">
+      <BookDataContext.Provider value={{ setBooks, setError, setIslLoad }}>
         <Routes>
-          <Route path="*" element={<Layout />}>
+          <Route path="*" element={<Layout islLoad={islLoad} />}>
             <Route index element={<Navigate to="/app" />} />
-            <Route
-              path="app"
-              element={<Collection error={error} books={books} islLoad={islLoad} />}
-            >
+            <Route path="app" element={<Collection error={error} books={books} />}>
               <Route path={`:id`} element={<FullCard />} />
             </Route>
             <Route path="about" element={<AboutUs />} />
@@ -34,8 +31,8 @@ const App = () => {
           </Route>
         </Routes>
         <Outlet />
-      </div>
-    </BookDataContext.Provider>
+      </BookDataContext.Provider>
+    </div>
   );
 };
 

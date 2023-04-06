@@ -1,4 +1,4 @@
-import { GoogleBook } from './app/types';
+import { GoogleBook } from './types';
 import { createContext } from 'react';
 
 export type GlobalContent = {

@@ -2,13 +2,15 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
- width: 235px;
+  width: 235px;
   background: whitesmoke;
   color: black;
   padding: 10px 10px 10px 10px;
   border-radius: 10px;
+  height: 100%;
 }
 .title{
+
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -40,6 +42,9 @@
 }
 .authors {
   margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .categoriesList {
   display: block;

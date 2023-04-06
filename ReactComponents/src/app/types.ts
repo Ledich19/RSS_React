@@ -39,8 +39,12 @@ type VolumeInfo = {
     containsImageBubbles: boolean;
   };
   imageLinks?: {
-    smallThumbnail?: string;
     thumbnail: string;
+    smallThumbnail?: string;
+    small?: string;
+    medium?: string;
+    large?: string;
+    extraLarge?: string;
   };
   language: string;
   previewLink: string;
@@ -98,7 +102,7 @@ export type GoogleBook = {
   volumeInfo: VolumeInfo;
   saleInfo: SaleInfo;
   accessInfo: AccessInfo;
-  searchInfo: {
+  searchInfo?: {
     textSnippet: string;
   };
 };
