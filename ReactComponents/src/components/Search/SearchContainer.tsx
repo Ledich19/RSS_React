@@ -4,54 +4,46 @@ import booksService from '../../services/books';
 import { BookDataContext } from './../../context';
 
 const SearchContainer = () => {
-  const searchRef = useRef<string>('');
-  const [searchValue, setSearchValue] = useState<string>('');
+  const inputSearch = useRef<HTMLInputElement>(null);
+  const [searchValue, setSearchValue] = useState<string>(
+    localStorage.getItem('searchString') || ''
+  );
   const { setBooks, setError, setIslLoad } = useContext(BookDataContext);
 
-  const getBooks = async (value: string) => {
-    try {
-      setIslLoad(true);
-      const data = await booksService.getAll(value);
-      setBooks(data.items);
-      setError(null);
-      setIslLoad(false);
-    } catch (error) {
-      if (error instanceof Error) {
-        console.log(error);
-        setError(error.message);
-      } else {
-        setError(`Unknown error occurred: ${error}`);
+  useEffect(() => {
+    (async () => {
+      try {
+        setIslLoad(true);
+        const data = await booksService.getAll(searchValue);
+        setBooks(data.items);
+        setError(null);
+        setIslLoad(false);
+      } catch (error) {
+        if (error instanceof Error) {
+          console.log(error);
+          setError(error.message);
+        } else {
+          setError(`Unknown error occurred: ${error}`);
+        }
       }
-    }
-  };
+    })();
+    localStorage.setItem('searchString', searchValue);
+  }, [setBooks, setError, setIslLoad, searchValue]);
 
   useEffect(() => {
     const data = localStorage.getItem('searchString');
-    if (data) {
-      setSearchValue(data);
+    setSearchValue(data || '');
+    if (inputSearch.current) {
+      inputSearch.current.value = data ?? '';
     }
   }, []);
 
-  useEffect(() => {
-    searchRef.current = searchValue;
-  }, [searchValue]);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(e.target.value);
-  };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    localStorage.setItem('searchString', searchRef.current);
-    getBooks(searchValue);
+    localStorage.setItem('searchString', searchValue);
+    setSearchValue(inputSearch.current?.value || '');
   };
 
-  return (
-    <SearchComponent
-      value={searchValue}
-      handleInputChange={handleInputChange}
-      handleSubmit={handleSubmit}
-    />
-  );
+  return <SearchComponent refLink={inputSearch} handleSubmit={handleSubmit} />;
 };
 export default SearchContainer;

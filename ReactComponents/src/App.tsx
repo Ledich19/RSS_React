@@ -5,7 +5,6 @@ import Page404 from './pages/Page404/Page404';
 import './App.css';
 import Layout from './pages/Layout/Layout';
 import Collection from './pages/Collection/Collection';
-import booksDataNew from './data/booksDbNew.json';
 import AddBook from './pages/AddBook/AddBook';
 import { GoogleBook } from 'app/types';
 import FullCard from './components/FullCard/FullCard';
@@ -13,7 +12,7 @@ import { BookDataContext } from './context';
 
 const App = () => {
   const [islLoad, setIslLoad] = useState<boolean>(false);
-  const [books, setBooks] = useState<GoogleBook[]>(booksDataNew.items);
+  const [books, setBooks] = useState<GoogleBook[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   return (
