@@ -10,7 +10,7 @@ interface Props {
 const SearchComponent: React.FC<Props> = ({ handleSubmit, refLink }) => {
   return (
     <div className={s.wrap}>
-      <form onSubmit={handleSubmit} className={s.search}>
+      <form data-testid="search-form" onSubmit={handleSubmit} className={s.search}>
         <input
           ref={refLink}
           type="text"

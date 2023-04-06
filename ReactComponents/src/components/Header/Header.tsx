@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavLink, Routes, Route } from 'react-router-dom';
 import s from './Header.module.scss';
+import { NavLink, Routes, Route } from 'react-router-dom';
 import SearchContainer from '../Search/SearchContainer';
 import { MagnifyingGlass } from 'react-loader-spinner';
 

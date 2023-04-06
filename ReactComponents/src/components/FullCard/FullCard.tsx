@@ -1,19 +1,21 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import s from './FullCard.module.scss';
-import { useNavigate, useParams } from 'react-router-dom';
-import booksService from '../../services/books';
-import { GoogleBook } from 'app/types';
 import InfoBit from './InfoBit/InfoBit';
 import InfoBitBoolean from './InfoBitBoolean/InfoBitBoolean';
 import InfoBitList from './InfoBitList/InfoBitList';
+import booksService from '../../services/books';
+import { useNavigate, useParams } from 'react-router-dom';
+import { GoogleBook } from 'app/types';
 import { Link } from 'react-router-dom';
 import { BookDataContext } from '../../app/context';
+
 const FullCard = () => {
   const [book, setBook] = useState<GoogleBook>();
   const blurRef = useRef<HTMLDivElement>(null);
   const { setError, setIslLoad } = useContext(BookDataContext);
   const navigate = useNavigate();
   const id = useParams().id;
+
   useEffect(() => {
     (async () => {
       try {
@@ -60,7 +62,7 @@ const FullCard = () => {
   };
 
   return (
-    <div ref={blurRef} onClick={handleClose} className={s.blur}>
+    <div data-testid="test-blur" ref={blurRef} onClick={handleClose} className={s.blur}>
       <div className={s.card}>
         <Link key={book.id} to={`/app`}>
           <div className={s.close}>&otimes;</div>
