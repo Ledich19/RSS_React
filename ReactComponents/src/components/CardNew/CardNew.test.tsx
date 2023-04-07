@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
 import CardNew from './CardNew';
 
-test('renders content', () => {
+describe('<CardNew>', () => {
   const infoData = {
     kind: 'books#volume',
     id: 'TkxNSot3eMEC',
@@ -112,11 +112,23 @@ test('renders content', () => {
     },
   };
 
-  render(<CardNew infoData={infoData} />);
-
-  expect(screen.getByText('Title')).toBeDefined();
-  expect(screen.getByText(/Author One/i)).toBeDefined();
-  expect(screen.getByText('500')).toBeDefined();
-  expect(screen.getByText('08.02.2007')).toBeDefined();
-  expect(screen.getByText('en')).toBeDefined();
+  test('renders card', () => {
+    render(
+      <CardNew
+        infoData={{ ...infoData, volumeInfo: { ...infoData.volumeInfo, publishedDate: '' } }}
+      />
+    );
+    expect(screen.getByText('Pages:')).toBeDefined();
+    expect(screen.getByText('Language:')).toBeDefined();
+    expect(screen.getByText('Published:')).toBeDefined();
+    expect(screen.getByText('unknown')).toBeDefined();
+  });
+  test('renders content', () => {
+    render(<CardNew infoData={infoData} />);
+    expect(screen.getByText('Title')).toBeDefined();
+    expect(screen.getByText(/Author One/i)).toBeDefined();
+    expect(screen.getByText('500')).toBeDefined();
+    expect(screen.getByText('08.02.2007')).toBeDefined();
+    expect(screen.getByText('en')).toBeDefined();
+  });
 });
