@@ -3,7 +3,16 @@ import { rest } from 'msw';
 const BASE_URL = 'https://www.googleapis.com/books/v1/volumes';
 
 export const handlers = [
-  rest.get('/user', (req, res, ctx) => {
+  rest.get(`${BASE_URL}/error`, (req, res, ctx) => {
+    return res(
+      ctx.status(403),
+      ctx.json({
+        errorMessage: 'Failed to fetch book details',
+      })
+    );
+  }),
+
+  rest.get(`${BASE_URL}/123`, (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
@@ -18,7 +27,7 @@ export const handlers = [
           publisher: 'Test Publisher',
 
           publishedDate: '2022-01-01',
-          description: 'This is a test book.',
+          description: 'This is a test description.',
 
           industryIdentifiers: [
             {
@@ -36,7 +45,7 @@ export const handlers = [
           dimensions: {
             height: '20.00 cm',
           },
-          printType: 'BOOK',
+          printType: 'Test PrintType',
           categories: ['Test Category'],
           averageRating: 4.5,
           ratingsCount: 10,
@@ -66,7 +75,7 @@ export const handlers = [
         saleInfo: {
           country: 'UA',
           saleability: 'FOR_SALE',
-          isEbook: true,
+          isEbook: false,
           listPrice: {
             amount: 351.89,
             currencyCode: 'UAH',

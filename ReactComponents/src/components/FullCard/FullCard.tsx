@@ -27,8 +27,6 @@ const FullCard = () => {
         setIslLoad(false);
         if (error instanceof Error) {
           setError(error.message);
-        } else {
-          setError(`Unknown error occurred: ${error}`);
         }
       }
     })();
