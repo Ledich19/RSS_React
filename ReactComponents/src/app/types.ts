@@ -99,12 +99,10 @@ type AccessInfo = {
   quoteSharingAllowed: boolean;
 };
 type LayerInfo = {
-  layers?: [
-    {
-      layerId: string;
-      volumeAnnotationsVersion: string;
-    }
-  ];
+  layers: {
+    layerId: string;
+    volumeAnnotationsVersion: string;
+  }[];
 };
 
 export type GoogleBook = {

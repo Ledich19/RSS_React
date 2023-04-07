@@ -1,10 +1,6 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import Collection from './Collection';
 import { GoogleBook } from 'app/types';
-import NotifyComponent from '../../components/NotifyComponent/NotifyComponent';
-import CardNew from '../../components/CardNew/CardNew';
 import { MemoryRouter } from 'react-router-dom';
 
 describe('Collection component', () => {
