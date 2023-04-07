@@ -14,6 +14,7 @@ export type InfoData = {
 // new book type
 type VolumeInfo = {
   title: string;
+  subtitle?: string;
   authors?: string[];
   publisher?: string;
   publishedDate?: string;
@@ -23,10 +24,14 @@ type VolumeInfo = {
     identifier?: string;
   }[];
   readingModes: {
-    text: boolean;
-    image: boolean;
+    text?: boolean;
+    image?: boolean;
   };
   pageCount?: number;
+  printedPageCount?: number;
+  dimensions?: {
+    height: string;
+  };
   printType: string;
   categories: string[];
   averageRating?: number;
@@ -93,6 +98,14 @@ type AccessInfo = {
   accessViewStatus: string;
   quoteSharingAllowed: boolean;
 };
+type LayerInfo = {
+  layers?: [
+    {
+      layerId: string;
+      volumeAnnotationsVersion: string;
+    }
+  ];
+};
 
 export type GoogleBook = {
   kind: string;
@@ -100,6 +113,7 @@ export type GoogleBook = {
   etag: string;
   selfLink: string;
   volumeInfo: VolumeInfo;
+  layerInfo?: LayerInfo;
   saleInfo: SaleInfo;
   accessInfo: AccessInfo;
   searchInfo?: {

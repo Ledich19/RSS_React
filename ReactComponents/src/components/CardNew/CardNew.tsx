@@ -10,7 +10,7 @@ const CardNew = ({ infoData }: Props) => {
   const { authors, language, pageCount, publishedDate, title, imageLinks } = infoData.volumeInfo;
 
   return (
-    <div className={s.card}>
+    <div data-testid="test-card-new" className={s.card}>
       <div>
         <h2 className={s.title}>{title}</h2>
         <div className={s.img}>

@@ -5,7 +5,7 @@ import NotifyComponent from '../../components/NotifyComponent/NotifyComponent';
 import { Link, Outlet } from 'react-router-dom';
 
 interface Props {
-  books: GoogleBook[];
+  books: GoogleBook[] | null;
   error: string | null;
 }
 
