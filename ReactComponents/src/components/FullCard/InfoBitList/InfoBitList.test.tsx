@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import InfoBitList from './InfoBitList';
 
-describe('InfoBitList component', () => {
+describe('<InfoBitList />', () => {
   const label = 'Genres';
   const list = ['Science Fiction', 'Fantasy', 'Adventure'];
 
