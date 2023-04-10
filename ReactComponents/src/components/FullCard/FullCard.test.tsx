@@ -77,7 +77,7 @@ describe('FullCard', () => {
     };
     render(
       <BookDataContext.Provider value={mockDataContextValue}>
-        <MemoryRouter initialEntries={['/app/124']}>
+        <MemoryRouter initialEntries={['/app/error']}>
           <Routes>
             <Route path="/app/:id" element={<FullCard />}></Route>
           </Routes>
@@ -91,7 +91,9 @@ describe('FullCard', () => {
       expect(mockDataContextValue.setIslLoad).toHaveBeenNthCalledWith(2, false);
 
       expect(mockDataContextValue.setError).toHaveBeenCalledTimes(1);
-      expect(mockDataContextValue.setError).toHaveBeenCalledWith('Network Error');
+      expect(mockDataContextValue.setError).toHaveBeenCalledWith(
+        'Request failed with status code 403'
+      );
     });
   });
 });
