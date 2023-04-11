@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import SearchComponent from './SearchComponent';
 import booksService from '../../services/books';
 import { BookDataContext } from '../../app/context';
@@ -6,9 +6,8 @@ import { useAppDispatch, useAppSelector } from './../../app/hooks';
 import { setSearch } from './../../reducers/booksReducer';
 
 const SearchContainer = () => {
-  const { search } = useAppSelector((store) => store.search);
+  const { search } = useAppSelector((store) => store.searchText);
   const dispatch = useAppDispatch();
-  const inputSearch = useRef<HTMLInputElement>(null);
 
   const { setBooks, setError, setIslLoad } = useContext(BookDataContext);
 

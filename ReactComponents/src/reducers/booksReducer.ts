@@ -1,10 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { GoogleBook, InfoData } from 'app/types';
+import { GoogleBook } from 'app/types';
 
 type State = {
   search: string;
   books: GoogleBook[];
-  formBooks: InfoData[];
 };
 interface Actions {
   type: string;
@@ -15,14 +14,10 @@ interface SetSearch extends Actions {
 interface SetAllBooks extends Actions {
   payload: GoogleBook[];
 }
-interface AddToFormBook extends Actions {
-  payload: InfoData[];
-}
 
 const initialState: State = {
   search: '',
   books: [],
-  formBooks: [],
 };
 
 const booksSlice = createSlice({
@@ -35,11 +30,8 @@ const booksSlice = createSlice({
     setAllBooks(state, actions: SetAllBooks) {
       return { ...state, books: actions.payload };
     },
-    addABookToFormBooks(state, actions: AddToFormBook) {
-      return { ...state, formBooks: state.formBooks.concat(actions.payload) };
-    },
   },
 });
 
-export const { setSearch, setAllBooks, addABookToFormBooks } = booksSlice.actions;
+export const { setSearch, setAllBooks } = booksSlice.actions;
 export default booksSlice.reducer;

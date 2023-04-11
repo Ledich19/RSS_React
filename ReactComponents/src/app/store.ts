@@ -1,9 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import booksReducer from '../reducers/booksReducer';
+import searchReducer from '../reducers/searchReducer';
+import formDataReducer from '../reducers/formDataReducer';
 
 export const store = configureStore({
   reducer: {
-    search: booksReducer,
+    searchText: searchReducer,
+    searchResult: booksReducer,
+    booksForm: formDataReducer,
   },
 });
 
