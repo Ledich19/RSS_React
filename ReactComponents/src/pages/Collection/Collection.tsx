@@ -1,15 +1,16 @@
-import { GoogleBook } from 'app/types';
 import CardNew from '../../components/CardNew/CardNew';
 import s from './Collection.module.scss';
 import NotifyComponent from '../../components/NotifyComponent/NotifyComponent';
 import { Link, Outlet } from 'react-router-dom';
+import { useAppSelector } from './../../app/hooks';
 
 interface Props {
-  books: GoogleBook[] | null;
   error: string | null;
 }
 
-const Collection = ({ books, error }: Props) => {
+const Collection = ({ error }: Props) => {
+  const { books } = useAppSelector((store) => store.searchResult);
+
   return (
     <div className={s.collection}>
       <Outlet />

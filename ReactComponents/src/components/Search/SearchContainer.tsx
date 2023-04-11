@@ -3,20 +3,22 @@ import SearchComponent from './SearchComponent';
 import booksService from '../../services/books';
 import { BookDataContext } from '../../app/context';
 import { useAppDispatch, useAppSelector } from './../../app/hooks';
-import { setSearch } from './../../reducers/booksReducer';
+import { setSearch } from './../../reducers/searchReducer';
+import { setAllBooks } from './../../reducers/booksReducer';
 
 const SearchContainer = () => {
   const { search } = useAppSelector((store) => store.searchText);
   const dispatch = useAppDispatch();
 
-  const { setBooks, setError, setIslLoad } = useContext(BookDataContext);
+  const { setError, setIslLoad } = useContext(BookDataContext);
 
   useEffect(() => {
     (async () => {
       try {
         setIslLoad(true);
         const data = await booksService.getAll(search);
-        setBooks(data.items);
+        dispatch(setAllBooks(data.items));
+        // setBooks(data.items);
         setError(null);
         setIslLoad(false);
       } catch (error) {
@@ -28,7 +30,7 @@ const SearchContainer = () => {
         }
       }
     })();
-  }, [setBooks, setError, setIslLoad, search]);
+  }, [setError, setIslLoad, search]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
