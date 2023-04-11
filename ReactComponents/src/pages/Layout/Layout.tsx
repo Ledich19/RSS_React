@@ -2,14 +2,10 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 
-type Props = {
-  islLoad: boolean;
-};
-
-const Layout = ({ islLoad }: Props) => {
+const Layout = () => {
   return (
     <div>
-      <Header islLoad={islLoad} />
+      <Header />
       <Outlet />
     </div>
   );

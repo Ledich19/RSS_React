@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import s from './FullCard.module.scss';
 import InfoBit from './InfoBit/InfoBit';
 import InfoBitBoolean from './InfoBitBoolean/InfoBitBoolean';
@@ -7,30 +7,31 @@ import booksService from '../../services/books';
 import { useNavigate, useParams } from 'react-router-dom';
 import { GoogleBook } from 'app/types';
 import { Link } from 'react-router-dom';
-import { BookDataContext } from '../../app/context';
+import { useAppDispatch } from './../../app/hooks';
+import { setError, setIslLoad } from './../../reducers/searchReducer';
 
 const FullCard = () => {
   const [book, setBook] = useState<GoogleBook>();
+  const dispatch = useAppDispatch();
   const blurRef = useRef<HTMLDivElement>(null);
-  const { setError, setIslLoad } = useContext(BookDataContext);
   const navigate = useNavigate();
   const id = useParams().id;
 
   useEffect(() => {
     (async () => {
       try {
-        setIslLoad(true);
+        dispatch(setIslLoad(true));
         const data = await booksService.getById(id as string);
         setBook(data);
-        setIslLoad(false);
+        dispatch(setIslLoad(false));
       } catch (error) {
-        setIslLoad(false);
+        dispatch(setIslLoad(false));
         if (error instanceof Error) {
-          setError(error.message);
+          dispatch(setError(error.message));
         }
       }
     })();
-  }, [id, setError, setIslLoad]);
+  }, [dispatch, id]);
 
   if (!book) {
     return null;

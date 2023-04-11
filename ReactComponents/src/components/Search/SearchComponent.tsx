@@ -5,12 +5,13 @@ import s from './SearchComponent.module.scss';
 interface Props {
   value: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
-const SearchComponent: React.FC<Props> = ({ handleChange, value }) => {
+const SearchComponent: React.FC<Props> = ({ handleChange, handleSubmit, value }) => {
   return (
     <div className={s.wrap}>
-      <form data-testid="search-form" className={s.search}>
+      <form data-testid="search-form" onSubmit={handleSubmit} className={s.search}>
         <input
           value={value}
           type="text"

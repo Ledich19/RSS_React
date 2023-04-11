@@ -3,12 +3,10 @@ import s from './Header.module.scss';
 import { NavLink, Routes, Route } from 'react-router-dom';
 import SearchContainer from '../Search/SearchContainer';
 import { MagnifyingGlass } from 'react-loader-spinner';
+import { useAppSelector } from './../../app/hooks';
 
-type Props = {
-  islLoad: boolean;
-};
-
-const Header: React.FC<Props> = ({ islLoad }) => {
+const Header: React.FC = () => {
+  const { islLoad } = useAppSelector((store) => store.searchText);
   return (
     <div className={s.header}>
       <div className={s.list}>

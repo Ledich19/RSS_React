@@ -4,12 +4,9 @@ import NotifyComponent from '../../components/NotifyComponent/NotifyComponent';
 import { Link, Outlet } from 'react-router-dom';
 import { useAppSelector } from './../../app/hooks';
 
-interface Props {
-  error: string | null;
-}
-
-const Collection = ({ error }: Props) => {
+const Collection = () => {
   const { books } = useAppSelector((store) => store.searchResult);
+  const { error } = useAppSelector((store) => store.searchText);
 
   return (
     <div className={s.collection}>
