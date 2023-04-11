@@ -17,7 +17,14 @@ const Collection = ({ books, error }: Props) => {
         <NotifyComponent className={s.error} notifyMessage={{ text: error, type: 'error' }} />
       )}
       {!books || books.length === 0 ? (
-        <div>NO BOOKS...</div>
+        <div>
+          NO BOOKS...
+          <div>
+            <br/>
+            Если вы видите это и ничего не происходит , возможно это потому что я использую API
+            google books а оно в некоторых странах не работает. И нужно воспользоваться VPN
+          </div>
+        </div>
       ) : (
         books.map((book) => (
           <Link key={book.id} to={`/app/${book.id}`}>
