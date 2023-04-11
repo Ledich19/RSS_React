@@ -2,19 +2,21 @@ import React, { useEffect, useState, useRef, useContext } from 'react';
 import SearchComponent from './SearchComponent';
 import booksService from '../../services/books';
 import { BookDataContext } from '../../app/context';
+import { useAppDispatch, useAppSelector } from './../../app/hooks';
+import { setSearch } from './../../reducers/booksReducer';
 
 const SearchContainer = () => {
+  const { search } = useAppSelector((store) => store.search);
+  const dispatch = useAppDispatch();
   const inputSearch = useRef<HTMLInputElement>(null);
-  const [searchValue, setSearchValue] = useState<string>(
-    localStorage.getItem('searchString') || ''
-  );
+
   const { setBooks, setError, setIslLoad } = useContext(BookDataContext);
 
   useEffect(() => {
     (async () => {
       try {
         setIslLoad(true);
-        const data = await booksService.getAll(searchValue);
+        const data = await booksService.getAll(search);
         setBooks(data.items);
         setError(null);
         setIslLoad(false);
@@ -27,23 +29,13 @@ const SearchContainer = () => {
         }
       }
     })();
-    localStorage.setItem('searchString', searchValue);
-  }, [setBooks, setError, setIslLoad, searchValue]);
+  }, [setBooks, setError, setIslLoad, search]);
 
-  useEffect(() => {
-    const data = localStorage.getItem('searchString');
-    setSearchValue(data || '');
-    if (inputSearch.current) {
-      inputSearch.current.value = data ?? '';
-    }
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    localStorage.setItem('searchString', searchValue);
-    setSearchValue(inputSearch.current?.value || '');
+    dispatch(setSearch(e.target.value));
   };
 
-  return <SearchComponent refLink={inputSearch} handleSubmit={handleSubmit} />;
+  return <SearchComponent value={search} handleChange={handleChange} />;
 };
 export default SearchContainer;

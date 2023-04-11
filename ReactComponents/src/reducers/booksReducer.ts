@@ -20,7 +20,7 @@ interface AddToFormBook extends Actions {
 }
 
 const initialState: State = {
-  search: '1111111111',
+  search: '',
   books: [],
   formBooks: [],
 };

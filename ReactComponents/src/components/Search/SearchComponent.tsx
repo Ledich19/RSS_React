@@ -3,19 +3,20 @@ import React from 'react';
 import s from './SearchComponent.module.scss';
 
 interface Props {
-  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-  refLink: React.RefObject<HTMLInputElement>;
+  value: string;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const SearchComponent: React.FC<Props> = ({ handleSubmit, refLink }) => {
+const SearchComponent: React.FC<Props> = ({ handleChange, value }) => {
   return (
     <div className={s.wrap}>
-      <form data-testid="search-form" onSubmit={handleSubmit} className={s.search}>
+      <form data-testid="search-form" className={s.search}>
         <input
-          ref={refLink}
+          value={value}
           type="text"
           className={s.searchTerm}
           placeholder="What are you looking for?"
+          onChange={handleChange}
         />
         <button type="submit" data-testid="searchBtn-testId" className={s.searchButton}>
           <div className={s.icon}>
