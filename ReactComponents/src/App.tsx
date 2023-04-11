@@ -6,8 +6,13 @@ import Layout from './pages/Layout/Layout';
 import Collection from './pages/Collection/Collection';
 import AddBook from './pages/AddBook/AddBook';
 import FullCard from './components/FullCard/FullCard';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {}, []);
+
   return (
     <div data-testid="App-testId" className="App">
       <Routes>

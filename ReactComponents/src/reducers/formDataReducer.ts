@@ -9,7 +9,7 @@ interface Actions {
 }
 
 interface AddToFormBook extends Actions {
-  payload: InfoData[];
+  payload: InfoData;
 }
 
 const initialState: State = {
