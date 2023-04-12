@@ -9,9 +9,8 @@ import { GoogleBook } from './../../app/types';
 
 const Collection = () => {
   const { search } = useAppSelector((store) => store.searchText);
-  const { data, isLoading, isError, error } = useGetBooksQuery(search);
+  const { data, isLoading, isError } = useGetBooksQuery(search);
   const items: GoogleBook[] = data ? data.items : [];
-
   return (
     <div className={s.collection}>
       <Outlet />
@@ -31,14 +30,14 @@ const Collection = () => {
         color="#e15b64"
       />
       {isError && (
-        <NotifyComponent className={s.error} notifyMessage={{ text: error.error, type: 'error' }} />
+        <NotifyComponent className={s.error} notifyMessage={{ text: 'net error', type: 'error' }} />
       )}
       {!items || items.length === 0 ? (
         <div>
           NO BOOKS...
           <div>
             Если вы видите это и ничего не происходит , возможно это потому что я использую API
-            google books а оно в некоторых странах не работает. И нужно воспользоваться VPN
+            google books, а оно в некоторых странах не работает. И нужно воспользоваться VPN
           </div>
         </div>
       ) : (
