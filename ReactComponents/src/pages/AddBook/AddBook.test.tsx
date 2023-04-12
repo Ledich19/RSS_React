@@ -2,13 +2,17 @@ import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from '../../app/store';
 import AddBook from './AddBook';
 
 describe('AddBook', () => {
   test('should add a book when form is submitted', async () => {
     const { getByText } = render(
       <MemoryRouter>
-        <AddBook />
+        <Provider store={store}>
+          <AddBook />
+        </Provider>
       </MemoryRouter>
     );
     const titleInput = screen.getByLabelText(/Title/i);
