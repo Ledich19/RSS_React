@@ -1,26 +1,19 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { BookDataContext } from '../../app/context';
-import { vi } from 'vitest';
-
 import FullCard from './FullCard';
+import { Provider } from 'react-redux';
+import { store } from '../../app/store';
 
-const mockDataContextValue = {
-  setBooks: vi.fn(),
-  setError: vi.fn(),
-  setIslLoad: vi.fn(),
-};
-
-describe('FullCard', () => {
+describe('<FullCard />', () => {
   it('renders book details', async () => {
     render(
-      <BookDataContext.Provider value={mockDataContextValue}>
-        <MemoryRouter initialEntries={['/app/123']}>
+      <MemoryRouter initialEntries={['/app/123']}>
+        <Provider store={store}>
           <Routes>
             <Route path="/app/:id" element={<FullCard />}></Route>
           </Routes>
-        </MemoryRouter>
-      </BookDataContext.Provider>
+        </Provider>
+      </MemoryRouter>
     );
 
     await waitFor(() => {
@@ -52,13 +45,13 @@ describe('FullCard', () => {
 
   it('can be close', async () => {
     render(
-      <BookDataContext.Provider value={mockDataContextValue}>
-        <MemoryRouter initialEntries={['/app/123']}>
+      <MemoryRouter initialEntries={['/app/123']}>
+        <Provider store={store}>
           <Routes>
             <Route path="/app/:id" element={<FullCard />}></Route>
           </Routes>
-        </MemoryRouter>
-      </BookDataContext.Provider>
+        </Provider>
+      </MemoryRouter>
     );
 
     await waitFor(() => {
@@ -67,33 +60,5 @@ describe('FullCard', () => {
     const blur = screen.getByTestId('test-blur');
     fireEvent.click(blur);
     expect(screen.queryByTestId('test-blur')).not.toBeInTheDocument();
-  });
-
-  test('renders error message when book details are not available', async () => {
-    const mockDataContextValue = {
-      setBooks: vi.fn(),
-      setError: vi.fn(),
-      setIslLoad: vi.fn(),
-    };
-    render(
-      <BookDataContext.Provider value={mockDataContextValue}>
-        <MemoryRouter initialEntries={['/app/error']}>
-          <Routes>
-            <Route path="/app/:id" element={<FullCard />}></Route>
-          </Routes>
-        </MemoryRouter>
-      </BookDataContext.Provider>
-    );
-
-    await waitFor(() => {
-      expect(mockDataContextValue.setIslLoad).toHaveBeenCalledTimes(2);
-      expect(mockDataContextValue.setIslLoad).toHaveBeenNthCalledWith(1, true);
-      expect(mockDataContextValue.setIslLoad).toHaveBeenNthCalledWith(2, false);
-
-      expect(mockDataContextValue.setError).toHaveBeenCalledTimes(1);
-      expect(mockDataContextValue.setError).toHaveBeenCalledWith(
-        'Request failed with status code 403'
-      );
-    });
   });
 });
