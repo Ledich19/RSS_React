@@ -5,7 +5,7 @@ import InfoBitBoolean from './InfoBitBoolean/InfoBitBoolean';
 import InfoBitList from './InfoBitList/InfoBitList';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { useGetBookByIdQuery } from './../../reducers/booksApi';
+import { useGetBookByIdQuery } from '../../services/booksApi';
 import { MagnifyingGlass } from 'react-loader-spinner';
 
 const FullCard = () => {

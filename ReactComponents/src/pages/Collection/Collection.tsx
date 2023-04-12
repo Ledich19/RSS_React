@@ -3,7 +3,7 @@ import s from './Collection.module.scss';
 import NotifyComponent from '../../components/NotifyComponent/NotifyComponent';
 import { Link, Outlet } from 'react-router-dom';
 import { useAppSelector } from './../../app/hooks';
-import { useGetBooksQuery } from './../../reducers/booksApi';
+import { useGetBooksQuery } from '../../services/booksApi';
 import { MagnifyingGlass } from 'react-loader-spinner';
 import { GoogleBook } from './../../app/types';
 

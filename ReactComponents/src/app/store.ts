@@ -1,7 +1,7 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import searchReducer from '../reducers/searchReducer';
 import formDataReducer from '../reducers/formDataReducer';
-import { booksApi } from './../reducers/booksApi';
+import { booksApi } from '../services/booksApi';
 
 export const store = configureStore({
   reducer: {

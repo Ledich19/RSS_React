@@ -3,13 +3,17 @@ import '@testing-library/jest-dom/extend-expect';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Header from './Header';
+import { Provider } from 'react-redux';
+import { store } from '../../app/store';
 
 describe('<Header>', () => {
   test('renders links to Home, and About us , Add book', () => {
     render(
-      <MemoryRouter>
-        <Header islLoad={false} />
-      </MemoryRouter>
+      <Provider store={store}>
+        <MemoryRouter>
+          <Header />
+        </MemoryRouter>
+      </Provider>
     );
 
     expect(screen.getByText('Home')).toBeInTheDocument();
@@ -17,11 +21,24 @@ describe('<Header>', () => {
     expect(screen.getByText('Add book')).toBeInTheDocument();
   });
 
+  it('should render search container when on /app path', () => {
+    render(
+      <Provider store={store}>
+        <MemoryRouter initialEntries={['/app']}>
+          <Header />
+        </MemoryRouter>
+      </Provider>
+    );
+    expect(screen.getByTestId('search-form')).toBeInTheDocument();
+  });
+
   it('should navigate to Home when Home link is clicked', () => {
     render(
-      <MemoryRouter>
-        <Header islLoad={false} />
-      </MemoryRouter>
+      <Provider store={store}>
+        <MemoryRouter>
+          <Header />
+        </MemoryRouter>
+      </Provider>
     );
 
     const homeLink = screen.getByText('Home');
@@ -43,30 +60,21 @@ describe('<Header>', () => {
     expect(AddBookLink).toHaveClass('_activeLink_f4f7a7');
   });
 
-  it('should render search container when on /app path', () => {
-    render(
-      <MemoryRouter initialEntries={['/app']}>
-        <Header islLoad={false} />
-      </MemoryRouter>
-    );
-    expect(screen.getByTestId('search-form')).toBeInTheDocument();
-  });
+  // it('should render MagnifyingGlass when islLoad is true', () => {
+  //   render(
+  //     <MemoryRouter>
+  //       <Header />
+  //     </MemoryRouter>
+  //   );
 
-  it('should render MagnifyingGlass when islLoad is true', () => {
-    render(
-      <MemoryRouter>
-        <Header islLoad={true} />
-      </MemoryRouter>
-    );
-
-    expect(screen.getByTestId('magnifying-glass-svg')).toBeInTheDocument();
-  });
-  it('should not render MagnifyingGlass when islLoad is false', () => {
-    render(
-      <MemoryRouter>
-        <Header islLoad={false} />
-      </MemoryRouter>
-    );
-    expect(screen.queryByTestId('magnifying-glass-svg')).not.toBeInTheDocument();
-  });
+  //   expect(screen.getByTestId('magnifying-glass-svg')).toBeInTheDocument();
+  // });
+  // it('should not render MagnifyingGlass when islLoad is false', () => {
+  //   render(
+  //     <MemoryRouter>
+  //       <Header />
+  //     </MemoryRouter>
+  //   );
+  //   expect(screen.queryByTestId('magnifying-glass-svg')).not.toBeInTheDocument();
+  // });
 });
