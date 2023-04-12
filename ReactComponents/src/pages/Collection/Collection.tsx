@@ -6,7 +6,7 @@ import { useAppSelector } from './../../app/hooks';
 
 const Collection = () => {
   const { books } = useAppSelector((store) => store.searchResult);
-  const { error } = useAppSelector((store) => store.searchText);
+  const { error } = useAppSelector((store) => store.searchResult);
 
   return (
     <div className={s.collection}>

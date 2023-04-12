@@ -7,11 +7,15 @@ import Collection from './pages/Collection/Collection';
 import AddBook from './pages/AddBook/AddBook';
 import FullCard from './components/FullCard/FullCard';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { fetchGetBooks } from './reducers/booksReducer';
+import { useAppDispatch } from './app/hooks';
 
 const App = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {}, []);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchGetBooks(''));
+  }, [dispatch]);
 
   return (
     <div data-testid="App-testId" className="App">

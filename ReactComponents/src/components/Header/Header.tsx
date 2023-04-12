@@ -6,7 +6,7 @@ import { MagnifyingGlass } from 'react-loader-spinner';
 import { useAppSelector } from './../../app/hooks';
 
 const Header: React.FC = () => {
-  const { islLoad } = useAppSelector((store) => store.searchText);
+  const { status } = useAppSelector((store) => store.searchResult);
   return (
     <div className={s.header}>
       <div className={s.list}>
@@ -21,7 +21,7 @@ const Header: React.FC = () => {
         </NavLink>
       </div>
       <MagnifyingGlass
-        visible={islLoad}
+        visible={status === 'loading'}
         height="80"
         width="80"
         ariaLabel="MagnifyingGlass-loading"
