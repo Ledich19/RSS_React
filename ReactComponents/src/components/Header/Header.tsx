@@ -2,11 +2,8 @@ import React from 'react';
 import s from './Header.module.scss';
 import { NavLink, Routes, Route } from 'react-router-dom';
 import SearchContainer from '../Search/SearchContainer';
-import { MagnifyingGlass } from 'react-loader-spinner';
-import { useAppSelector } from './../../app/hooks';
 
 const Header: React.FC = () => {
-  const { status } = useAppSelector((store) => store.searchResult);
   return (
     <div className={s.header}>
       <div className={s.list}>
@@ -20,21 +17,6 @@ const Header: React.FC = () => {
           Add book
         </NavLink>
       </div>
-      <MagnifyingGlass
-        visible={status === 'loading'}
-        height="80"
-        width="80"
-        ariaLabel="MagnifyingGlass-loading"
-        wrapperStyle={{
-          position: 'absolute',
-          top: '0',
-          left: '50%',
-          transform: 'translate(-50%, 0)',
-        }}
-        wrapperClass="MagnifyingGlass-wrapper"
-        glassColor="#c0efff"
-        color="#e15b64"
-      />
       <Routes>
         <Route path="/app" element={<SearchContainer data-testid="search-container" />} />
       </Routes>

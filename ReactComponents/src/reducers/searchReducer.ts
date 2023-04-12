@@ -1,9 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 type State = {
+  text: string;
   search: string;
-  error: string | null;
-  islLoad: boolean;
 };
 interface Actions {
   type: string;
@@ -11,17 +10,13 @@ interface Actions {
 interface SetSearch extends Actions {
   payload: string;
 }
-interface SetError extends Actions {
+interface SetSearchText extends Actions {
   payload: string;
-}
-interface SetIsLoad extends Actions {
-  payload: boolean;
 }
 
 const initialState: State = {
+  text: '',
   search: '',
-  error: null,
-  islLoad: false,
 };
 
 const searchSlice = createSlice({
@@ -31,14 +26,11 @@ const searchSlice = createSlice({
     setSearch(state, actions: SetSearch) {
       return { ...state, search: actions.payload };
     },
-    setError(state, actions: SetError) {
-      return { ...state, error: actions.payload };
-    },
-    setIslLoad(state, actions: SetIsLoad) {
-      return { ...state, islLoad: actions.payload };
+    setSearchText(state, actions: SetSearchText) {
+      return { ...state, text: actions.payload };
     },
   },
 });
 
-export const { setSearch, setError, setIslLoad } = searchSlice.actions;
+export const { setSearch, setSearchText } = searchSlice.actions;
 export default searchSlice.reducer;

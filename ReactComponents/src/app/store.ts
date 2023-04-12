@@ -1,14 +1,15 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import booksReducer from '../reducers/booksReducer';
 import searchReducer from '../reducers/searchReducer';
 import formDataReducer from '../reducers/formDataReducer';
+import { booksApi } from './../reducers/booksApi';
 
 export const store = configureStore({
   reducer: {
+    [booksApi.reducerPath]: booksApi.reducer,
     searchText: searchReducer,
-    searchResult: booksReducer,
     booksForm: formDataReducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(booksApi.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch;

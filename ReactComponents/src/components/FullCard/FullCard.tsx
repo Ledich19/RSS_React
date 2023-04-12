@@ -8,7 +8,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { GoogleBook } from 'app/types';
 import { Link } from 'react-router-dom';
 import { useAppDispatch } from './../../app/hooks';
-import { setError, setIslLoad } from './../../reducers/searchReducer';
 
 const FullCard = () => {
   const [book, setBook] = useState<GoogleBook>();
@@ -18,19 +17,19 @@ const FullCard = () => {
   const id = useParams().id;
 
   useEffect(() => {
-    (async () => {
-      try {
-        dispatch(setIslLoad(true));
-        const data = await booksService.getById(id as string);
-        setBook(data);
-        dispatch(setIslLoad(false));
-      } catch (error) {
-        dispatch(setIslLoad(false));
-        if (error instanceof Error) {
-          dispatch(setError(error.message));
-        }
-      }
-    })();
+    // (async () => {
+    //   try {
+    //     dispatch(setIslLoad(true));
+    //     const data = await booksService.getById(id as string);
+    //     setBook(data);
+    //     dispatch(setIslLoad(false));
+    //   } catch (error) {
+    //     dispatch(setIslLoad(false));
+    //     if (error instanceof Error) {
+    //       dispatch(setError(error.message));
+    //     }
+    //   }
+    // })();
   }, [dispatch, id]);
 
   if (!book) {

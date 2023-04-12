@@ -3,18 +3,37 @@ import s from './Collection.module.scss';
 import NotifyComponent from '../../components/NotifyComponent/NotifyComponent';
 import { Link, Outlet } from 'react-router-dom';
 import { useAppSelector } from './../../app/hooks';
+import { useGetBooksQuery } from './../../reducers/booksApi';
+import { MagnifyingGlass } from 'react-loader-spinner';
+import { GoogleBook } from './../../app/types';
 
 const Collection = () => {
-  const { books } = useAppSelector((store) => store.searchResult);
-  const { error } = useAppSelector((store) => store.searchResult);
+  const { search } = useAppSelector((store) => store.searchText);
+  const { data, isLoading, isError, error } = useGetBooksQuery(search);
+  const items: GoogleBook[] = data ? data.items : [];
 
   return (
     <div className={s.collection}>
       <Outlet />
-      {error && (
-        <NotifyComponent className={s.error} notifyMessage={{ text: error, type: 'error' }} />
+      <MagnifyingGlass
+        visible={isLoading}
+        height="80"
+        width="80"
+        ariaLabel="MagnifyingGlass-loading"
+        wrapperStyle={{
+          position: 'absolute',
+          top: '0',
+          left: '50%',
+          transform: 'translate(-50%, 0)',
+        }}
+        wrapperClass="MagnifyingGlass-wrapper"
+        glassColor="#c0efff"
+        color="#e15b64"
+      />
+      {isError && (
+        <NotifyComponent className={s.error} notifyMessage={{ text: error.error, type: 'error' }} />
       )}
-      {!books || books.length === 0 ? (
+      {!items || items.length === 0 ? (
         <div>
           NO BOOKS...
           <div>
@@ -23,7 +42,7 @@ const Collection = () => {
           </div>
         </div>
       ) : (
-        books.map((book) => (
+        items.map((book) => (
           <Link key={book.id} to={`/app/${book.id}`}>
             <CardNew infoData={book} />
           </Link>
