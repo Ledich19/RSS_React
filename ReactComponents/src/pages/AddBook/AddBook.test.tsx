@@ -24,8 +24,8 @@ describe('AddBook', () => {
     const publishedDateInput = screen.getByLabelText(/Published date/i);
     const statusSelect = screen.getByLabelText(/Status/i);
     const submitButton = screen.getByText(/add book/i);
-    const mobileCategory = screen.getByText(/mobile/i);
-    const webCategory = screen.getByText(/web/i);
+    const mobileCategory = screen.getByText(/Detective/i);
+    const webCategory = screen.getByText(/Horror/i);
     const thumbnailUrl = screen.getByTestId('testid-thumbnailUrl');
 
     fireEvent.change(titleInput, { target: { value: 'Book Title' } });
