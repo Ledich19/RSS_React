@@ -2,14 +2,14 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 
-interface Props {
-  setSearchState: (value: string) => void;
-}
+type Props = {
+  islLoad: boolean;
+};
 
-const Layout = ({ setSearchState }: Props) => {
+const Layout = ({ islLoad }: Props) => {
   return (
     <div>
-      <Header setSearchState={setSearchState} />
+      <Header islLoad={islLoad} />
       <Outlet />
     </div>
   );

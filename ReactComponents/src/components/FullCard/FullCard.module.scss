@@ -1,0 +1,112 @@
+.blur {
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background: #13373be5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 50%;
+  max-height: 80vh;
+  color: black;
+  padding: 5px 0px 5px 0px;
+  background: whitesmoke;
+  border-radius: 5px;
+}
+.wrapper{
+  padding: 0px 10px 0px 10px;
+  overflow: auto;
+  & {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(255, 255, 255) rgb(0, 0, 0);
+  }
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: rgb(255, 255, 255);
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    border: 3px solid rgb(0, 0, 0);
+  }
+
+}
+.box {
+  display: flex;
+  justify-content: space-between;
+}
+.info {
+  flex: 1 1 auto;
+}
+
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.img {
+  margin-top: 10px;
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  height: 188px;
+}
+.img img {
+  height: 100%;
+}
+.info {
+  text-align: left;
+  padding: 0 0px 0 10px;
+}
+
+.authors {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: rgb(0, 168, 112);
+}
+
+.ratingBlock {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.averageRating {
+  font-weight: bold;
+  color: rgb(192, 186, 3);
+  .textBold {
+    margin-left: 10px;
+    margin-right: 5px;
+    color: black;
+  }
+}
+.description {
+  margin-top: 10px;
+  text-align: justify;
+}
+
+.close{
+  position: absolute;
+  right: 5px;
+  top: -10px;
+  color: rgb(145, 3, 3);
+  font-weight: bold;
+  font-size: 30px;
+  cursor: pointer;
+  &:hover{
+  color: red;
+
+  }
+}

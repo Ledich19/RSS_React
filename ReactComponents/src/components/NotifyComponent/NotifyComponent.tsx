@@ -15,7 +15,10 @@ const NotifyComponent = ({ className, notifyMessage }: Props) => {
   }
 
   return (
-    <div className={`notify notify-${notifyMessage.type} ${className}`}>
+    <div
+      data-testid="test-notify-component"
+      className={`${className} notify notify-${notifyMessage.type} `}
+    >
       <i className={`notify__triangle notify-${notifyMessage.text}`}>
         {notifyMessage.type !== 'error' || <FaExclamationTriangle />}
         {notifyMessage.type !== 'success' || <FaCheckCircle />}

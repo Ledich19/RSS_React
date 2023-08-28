@@ -3,41 +3,26 @@ import React from 'react';
 import s from './SearchComponent.module.scss';
 
 interface Props {
-  value: string;
-  handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSearch: () => void;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  refLink: React.RefObject<HTMLInputElement>;
 }
 
-const SearchComponent: React.FC<Props> = ({ value, handleInputChange, handleSearch }) => {
-  const handleInputChangeLocal = (e: React.ChangeEvent<HTMLInputElement>) => {
-    handleInputChange(e);
-  };
-
-  const handleSearchLocal = () => {
-    handleSearch();
-  };
-
+const SearchComponent: React.FC<Props> = ({ handleSubmit, refLink }) => {
   return (
     <div className={s.wrap}>
-      <div className={s.search}>
+      <form data-testid="search-form" onSubmit={handleSubmit} className={s.search}>
         <input
+          ref={refLink}
           type="text"
-          value={value}
-          onChange={handleInputChangeLocal}
           className={s.searchTerm}
           placeholder="What are you looking for?"
         />
-        <button
-          type="button"
-          data-testid="searchBtn-testId"
-          onClick={handleSearchLocal}
-          className={s.searchButton}
-        >
+        <button type="submit" data-testid="searchBtn-testId" className={s.searchButton}>
           <div className={s.icon}>
             <FaSearch />
           </div>
         </button>
-      </div>
+      </form>
     </div>
   );
 };

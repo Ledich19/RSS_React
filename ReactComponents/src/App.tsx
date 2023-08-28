@@ -5,30 +5,33 @@ import Page404 from './pages/Page404/Page404';
 import './App.css';
 import Layout from './pages/Layout/Layout';
 import Collection from './pages/Collection/Collection';
-import booksData from './data/booksDb.json';
 import AddBook from './pages/AddBook/AddBook';
+import { GoogleBook } from 'app/types';
+import FullCard from './components/FullCard/FullCard';
+import { BookDataContext } from './app/context';
 
 const App = () => {
-  const [search, setSearch] = useState('');
-  const [books] = useState(booksData);
-
-  const setSearchState = (value: string) => {
-    setSearch(value);
-  };
+  const [islLoad, setIslLoad] = useState<boolean>(false);
+  const [books, setBooks] = useState<GoogleBook[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   return (
     <div data-testid="App-testId" className="App">
-      <Routes>
-        <Route path="*" element={<Layout setSearchState={setSearchState} />}>
-          <Route index element={<Navigate to="/app" />} />
-          <Route path="app" element={<Collection books={books} search={search} />} />
-          <Route path="about" element={<AboutUs />} />
-          <Route path="blank" element={<AddBook />} />
-          <Route path="404" element={<Page404 />} />
-          <Route path="*" element={<Navigate to="404" />} />
-        </Route>
-      </Routes>
-      <Outlet />
+      <BookDataContext.Provider value={{ setBooks, setError, setIslLoad }}>
+        <Routes>
+          <Route path="*" element={<Layout islLoad={islLoad} />}>
+            <Route index element={<Navigate to="/app" />} />
+            <Route path="app" element={<Collection error={error} books={books} />}>
+              <Route path={`:id`} element={<FullCard />} />
+            </Route>
+            <Route path="about" element={<AboutUs />} />
+            <Route path="blank" element={<AddBook />} />
+            <Route path="404" element={<Page404 />} />
+            <Route path="*" element={<Navigate to="404" />} />
+          </Route>
+        </Routes>
+        <Outlet />
+      </BookDataContext.Provider>
     </div>
   );
 };

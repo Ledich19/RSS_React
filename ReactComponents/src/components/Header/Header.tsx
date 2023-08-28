@@ -1,13 +1,14 @@
 import React from 'react';
-import { NavLink, Routes, Route } from 'react-router-dom';
 import s from './Header.module.scss';
+import { NavLink, Routes, Route } from 'react-router-dom';
 import SearchContainer from '../Search/SearchContainer';
+import { MagnifyingGlass } from 'react-loader-spinner';
 
-interface Props {
-  setSearchState: (value: string) => void;
-}
+type Props = {
+  islLoad: boolean;
+};
 
-const Header: React.FC<Props> = ({ setSearchState }) => {
+const Header: React.FC<Props> = ({ islLoad }) => {
   return (
     <div className={s.header}>
       <div className={s.list}>
@@ -21,13 +22,23 @@ const Header: React.FC<Props> = ({ setSearchState }) => {
           Add book
         </NavLink>
       </div>
+      <MagnifyingGlass
+        visible={islLoad}
+        height="80"
+        width="80"
+        ariaLabel="MagnifyingGlass-loading"
+        wrapperStyle={{
+          position: 'absolute',
+          top: '0',
+          left: '50%',
+          transform: 'translate(-50%, 0)',
+        }}
+        wrapperClass="MagnifyingGlass-wrapper"
+        glassColor="#c0efff"
+        color="#e15b64"
+      />
       <Routes>
-        <Route
-          path="/app"
-          element={
-            <SearchContainer data-testid="search-container" setSearchState={setSearchState} />
-          }
-        />
+        <Route path="/app" element={<SearchContainer data-testid="search-container" />} />
       </Routes>
     </div>
   );

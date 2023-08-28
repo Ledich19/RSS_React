@@ -1,40 +1,49 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import SearchComponent from './SearchComponent';
+import booksService from '../../services/books';
+import { BookDataContext } from '../../app/context';
 
-interface Props {
-  setSearchState: (value: string) => void;
-}
-
-const SearchContainer = ({ setSearchState }: Props) => {
-  const searchRef = useRef<string>('');
+const SearchContainer = () => {
+  const inputSearch = useRef<HTMLInputElement>(null);
   const [searchValue, setSearchValue] = useState<string>(
     localStorage.getItem('searchString') || ''
   );
+  const { setBooks, setError, setIslLoad } = useContext(BookDataContext);
 
   useEffect(() => {
-    return () => {
-      localStorage.setItem('searchString', searchRef.current);
-    };
+    (async () => {
+      try {
+        setIslLoad(true);
+        const data = await booksService.getAll(searchValue);
+        setBooks(data.items);
+        setError(null);
+        setIslLoad(false);
+      } catch (error) {
+        if (error instanceof Error) {
+          setIslLoad(false);
+          setError(error.message);
+        } else {
+          setError(`Unknown error occurred: ${error}`);
+        }
+      }
+    })();
+    localStorage.setItem('searchString', searchValue);
+  }, [setBooks, setError, setIslLoad, searchValue]);
+
+  useEffect(() => {
+    const data = localStorage.getItem('searchString');
+    setSearchValue(data || '');
+    if (inputSearch.current) {
+      inputSearch.current.value = data ?? '';
+    }
   }, []);
 
-  useEffect(() => {
-    searchRef.current = searchValue;
-  }, [searchValue]);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(e.target.value);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    localStorage.setItem('searchString', searchValue);
+    setSearchValue(inputSearch.current?.value || '');
   };
 
-  const handleSearch = () => {
-    setSearchState(searchValue);
-  };
-
-  return (
-    <SearchComponent
-      value={searchValue}
-      handleInputChange={handleInputChange}
-      handleSearch={handleSearch}
-    />
-  );
+  return <SearchComponent refLink={inputSearch} handleSubmit={handleSubmit} />;
 };
 export default SearchContainer;
