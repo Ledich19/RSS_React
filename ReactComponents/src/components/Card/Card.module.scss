@@ -1,0 +1,56 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+ width: 295px;
+  background: whitesmoke;
+  color: black;
+  padding: 0px 10px 10px 10px;
+  border-radius: 10px;
+}
+.img {
+  flex: 0 0 auto;
+  height: 188px;
+  width: 150px;
+}
+.img img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.info {
+
+  text-align: left;
+  padding: 0 0px 0 10px;
+}
+.textBold {
+  font-weight: bold;
+}
+.pages {
+  display: flex;
+  justify-content: space-between;
+}
+.status {
+  display: flex;
+  justify-content: space-between;
+}
+.authors {
+  margin-top: 10px;
+}
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.categoriesList {
+  display: block;
+  flex-wrap: wrap;
+}
+.date {
+  display: flex;
+  justify-content: space-between;
+}
+.shortDescription {
+  margin-top: 10px;
+  text-align: justify;
+}

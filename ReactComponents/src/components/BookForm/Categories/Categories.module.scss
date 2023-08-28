@@ -1,0 +1,28 @@
+.categories{
+  margin-top: 10px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.label{
+  user-select: none; 
+  flex: 0 0 auto;
+  width: 30%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+.input{
+  margin-right: 10px;
+}
+.error{
+  font-size: 12px;
+  top: -14px;
+  right: 50%;
+  transform: translate(50%,0%);
+  position: absolute;
+  color: red;
+}

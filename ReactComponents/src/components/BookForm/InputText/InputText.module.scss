@@ -1,0 +1,23 @@
+.label{
+  margin-top: 10px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  border-bottom: 1px solid #8d8b8b;
+}
+.input{
+flex: 1 1 auto;
+margin-left: 5px;
+}
+.required{
+  color: red;
+}
+.error{
+  font-size: 12px;
+  top: -14px;
+  right: 50%;
+  transform: translate(50%,0%);
+  position: absolute;
+  color: red;
+}

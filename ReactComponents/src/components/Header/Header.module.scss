@@ -1,0 +1,31 @@
+.header {
+  width: 100%;
+  display: flex;
+  padding: 5px 5px;
+  justify-content: space-between;
+  background: #4e4e4e;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.list {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.list a {
+}
+.navLink {
+  color: white;
+  &:hover {
+    color: #014c56;
+  }
+}
+.activeLink {
+  color: #00b4cc;
+  &:hover {
+    color: #04d1ec;
+  }
+}
