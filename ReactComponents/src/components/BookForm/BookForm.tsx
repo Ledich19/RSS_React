@@ -37,16 +37,21 @@ const BookForm = ({ addBook }: Props) => {
   });
 
   const categories = [
-    'open Source',
-    'mobile',
-    'web',
-    'software',
-    'internet',
-    'microsoft',
-    'programming',
-    'business',
-    'Graph',
-    'server',
+    'Detective',
+    'Thriller',
+    'Romance',
+    'Science fiction',
+    'Fantasy',
+    'Humorous literature',
+    'Historical fiction',
+    'Adventure',
+    'War novels',
+    "Children's literature",
+    'Poetry',
+    'Mystery',
+    'Horror',
+    'Psychological drama',
+    'Biographies',
   ];
   const options = ['PUBLISH', 'IN PROGRESS', 'BACKORDER', 'OUT OF STOCK', 'UNPUBLISHED'];
 

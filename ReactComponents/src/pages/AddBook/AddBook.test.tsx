@@ -2,13 +2,17 @@ import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from '../../app/store';
 import AddBook from './AddBook';
 
 describe('AddBook', () => {
   test('should add a book when form is submitted', async () => {
     const { getByText } = render(
       <MemoryRouter>
-        <AddBook />
+        <Provider store={store}>
+          <AddBook />
+        </Provider>
       </MemoryRouter>
     );
     const titleInput = screen.getByLabelText(/Title/i);
@@ -20,8 +24,8 @@ describe('AddBook', () => {
     const publishedDateInput = screen.getByLabelText(/Published date/i);
     const statusSelect = screen.getByLabelText(/Status/i);
     const submitButton = screen.getByText(/add book/i);
-    const mobileCategory = screen.getByText(/mobile/i);
-    const webCategory = screen.getByText(/web/i);
+    const mobileCategory = screen.getByText(/Detective/i);
+    const webCategory = screen.getByText(/Horror/i);
     const thumbnailUrl = screen.getByTestId('testid-thumbnailUrl');
 
     fireEvent.change(titleInput, { target: { value: 'Book Title' } });

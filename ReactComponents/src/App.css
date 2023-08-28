@@ -7,6 +7,10 @@
   width: 100vw;
 }
 body{
+  
   background-color: rgb(30, 30, 30);
 }
+.App {
+  position: relative;
 
+}

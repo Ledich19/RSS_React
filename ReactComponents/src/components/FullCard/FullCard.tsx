@@ -1,40 +1,19 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useRef } from 'react';
 import s from './FullCard.module.scss';
 import InfoBit from './InfoBit/InfoBit';
 import InfoBitBoolean from './InfoBitBoolean/InfoBitBoolean';
 import InfoBitList from './InfoBitList/InfoBitList';
-import booksService from '../../services/books';
 import { useNavigate, useParams } from 'react-router-dom';
-import { GoogleBook } from 'app/types';
 import { Link } from 'react-router-dom';
-import { BookDataContext } from '../../app/context';
+import { useGetBookByIdQuery } from '../../services/booksApi';
+import { MagnifyingGlass } from 'react-loader-spinner';
 
 const FullCard = () => {
-  const [book, setBook] = useState<GoogleBook>();
   const blurRef = useRef<HTMLDivElement>(null);
-  const { setError, setIslLoad } = useContext(BookDataContext);
   const navigate = useNavigate();
   const id = useParams().id;
+  const { data, isLoading } = useGetBookByIdQuery(id);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        setIslLoad(true);
-        const data = await booksService.getById(id as string);
-        setBook(data);
-        setIslLoad(false);
-      } catch (error) {
-        setIslLoad(false);
-        if (error instanceof Error) {
-          setError(error.message);
-        }
-      }
-    })();
-  }, [id, setError, setIslLoad]);
-
-  if (!book) {
-    return null;
-  }
   const {
     authors,
     language,
@@ -50,8 +29,8 @@ const FullCard = () => {
     averageRating,
     ratingsCount,
     previewLink,
-  } = book.volumeInfo;
-  const { saleability, isEbook } = book.saleInfo;
+  } = data?.volumeInfo || {};
+  const { saleability = '', isEbook = false } = data?.saleInfo || {};
 
   const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === blurRef.current) {
@@ -61,8 +40,23 @@ const FullCard = () => {
 
   return (
     <div data-testid="test-blur" ref={blurRef} onClick={handleClose} className={s.blur}>
+      <MagnifyingGlass
+        visible={isLoading}
+        height="80"
+        width="80"
+        ariaLabel="MagnifyingGlass-loading"
+        wrapperStyle={{
+          position: 'absolute',
+          top: '0',
+          left: '50%',
+          transform: 'translate(-50%, 0)',
+        }}
+        wrapperClass="MagnifyingGlass-wrapper"
+        glassColor="#c0efff"
+        color="#e15b64"
+      />
       <div className={s.card}>
-        <Link key={book.id} to={`/app`}>
+        <Link key={data?.id} to={`/app`}>
           <div className={s.close}>&otimes;</div>
         </Link>
         <div className={s.wrapper}>
@@ -84,7 +78,7 @@ const FullCard = () => {
               <InfoBit label="Publisher" info={publisher} />
               <InfoBitBoolean
                 label="readingMode"
-                info={readingModes.image}
+                info={readingModes?.image}
                 options={['yes', 'no']}
               />
               <InfoBit label="PrintType" info={printType} />
